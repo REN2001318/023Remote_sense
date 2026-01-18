@@ -205,3 +205,49 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+#Remote sense
+# ==========================================
+# 遥感与地理信息系统 (RS/GIS) 特有过滤规则
+# ==========================================
+
+# --- 1. 原始卫星影像与大型栅格数据 ---
+# 过滤 Sentinel, Landsat, MODIS 等原始压缩包及文件夹
+*.zip
+*.tar.gz
+*.SAFE/
+*.SEN3/
+
+# 过滤常见的巨型影像格式（防止上传 GB 级文件）
+*.tif
+*.tiff
+*.jp2
+*.hdf
+*.nc
+*.img
+
+# --- 2. SNAP 软件特有的处理结果 ---
+# BEAM-DIMAP 格式（SNAP 默认保存格式）
+*.dim
+*.data/
+# SNAP 运行时的临时文件与缓存
+.snap/
+var/
+auxdata/
+scripts/
+
+# --- 3. 矢量数据与数据库 ---
+# 过滤 Shapefile 的大型临时文件（保留 .shp 主文件通常即可，但建议全部忽略，改用数据库）
+*.lock
+*.log
+# 过滤隐私配置文件（如 PostGIS 数据库密码）
+.env
+*.ini
+*.yaml
+config.json
+
+# --- 4. Python/Jupyter 开发杂物 ---
+# 如果你在创建仓库时选了 Python 模板，这部分可能已存在
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
