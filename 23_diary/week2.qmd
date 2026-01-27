@@ -3,4 +3,20 @@ title: "week2"
 author: "Yanxi Ren"
 ---
 
-hello world！
+每周的总结、应用和反思，而不仅仅是知识点列表！！！
+
+Xaringan ppt creation & Bookdown/Quarto
+
+1.Xaringan
+
+2.Quarto book
+
+利用quarto制作电子书籍，有封面、简介、主要内容（自己定的week1、week2等）、summary和reference部分
+
+操作步骤：
+
+(1)open a blank RStudio session \> New Project \> New Directory \> Quarto Book
+
+由此自动生成几个文件，index.qmd(封面，主要首页)、intro.qmd(简介)、summary.qmd、reference.qmd、\_quarto.yml(重要部分，定义打包出书的结构顺序，自己本身有结构，只需要加入chapters部分)
+
+这些都要在一个project下面生成，如果想插入新的chapter，直接新建new file—quarto document，命名保存，然后一定要插入yml文件中，再回到原始文件qmd中点击render
