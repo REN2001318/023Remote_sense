@@ -1,9 +1,24 @@
-# Preface {.unnumbered}
+---
+title: Learn Diary
+numbered-section: false
+author: Yanxi ren
+published: January 20th
+---
 
-This is a Quarto book.
+# Introduction {.unnumbered}
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Hi! I am Yanxi, and my English name is Amelia. I majored in Landscape Gardening during my undergraduate studies and obtained a Bachelor’s degree in Agriculture. My coursework primarily focused on landscape design and plant studies.
 
-```{r}
-1 + 1
-```
+After graduation, I traveled to several cities, which prompted me to reflect on how to understand urban environments in a more comprehensive and systematic way, rather than focusing solely on localized landscape design.
+
+This website is my learning diary for the CASA0023 Remote Sensing Cities and Environment course in my second term, where I record my weekly summaries and personal reflections. The case study areas I will choose are divided into two types. The first type includes cities I am familiar with, such as Beijing and Taiyuan. The second type consists of cities I am particularly interested in, for instance, London and New York City.
+
+![A picture of an abandoned building next to an old park near my home](images/old1.jpg){width="90%" fig-align="center"}
+
+In principle, this would be the place to include a portrait of myself in the “Introduction” section, perhaps even a carefully composed photograph taken during my travels. Yet after some reflection, I decided instead to place an image of an old abandoned building near my home.
+
+My curiosity about cities and landscapes may well have originated from these unfinished or abandoned structures. They stand remarkably close to the city center, adjacent to bustling commercial streets and parks frequented by local residents. During idle afternoons at home, I would often wander past such abandoned buildings. Gradually, I came to realize that what my undergraduate major—Landscape Gardening—could offer to a city was only one dimension of change. I began to ask broader questions: How might places like these be transformed to generate economic vitality or cultural resonance? What kinds of policies, planning decisions, and financial mechanisms would be required to make such transformations possible?
+
+These questions pushed me beyond the boundaries of my original discipline. Confronted with numerous sites like these, I recognized the necessity of engaging with large-scale datasets and urban analytics in order to understand patterns, constraints, and opportunities at a systemic level. In many ways, this intellectual shift is the reason I am here today.
+
+Although my current studies have expanded my perspective toward the macro scale of urban systems, I still find myself thinking about those aging, half-abandoned buildings in my small hometown. I place a photograph of one such structure here as a quiet acknowledgment of where everything began.

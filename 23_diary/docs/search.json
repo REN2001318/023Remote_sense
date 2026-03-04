@@ -2,61 +2,11 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "23_LearnDiary",
+    "title": "CASA0023 Remotely Sensing Cities and Environments LearnDiary",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Introduction\nHi! I am Yanxi, and my English name is Amelia. I majored in Landscape Gardening during my undergraduate studies and obtained a Bachelor’s degree in Agriculture. My coursework primarily focused on landscape design and plant studies.\nAfter graduation, I traveled to several cities, which prompted me to reflect on how to understand urban environments in a more comprehensive and systematic way, rather than focusing solely on localized landscape design.\nThis website is my learning diary for the CASA0023 Remote Sensing Cities and Environment course in my second term, where I record my weekly summaries and personal reflections. The case study areas I will choose are divided into two types. The first type includes cities I am familiar with, such as Beijing and Taiyuan. The second type consists of cities I am particularly interested in, for instance, London and New York City.\n\n\n\nA picture of an abandoned building next to an old park near my home\n\n\nIn principle, this would be the place to include a portrait of myself in the “Introduction” section, perhaps even a carefully composed photograph taken during my travels. Yet after some reflection, I decided instead to place an image of an old abandoned building near my home.\nMy curiosity about cities and landscapes may well have originated from these unfinished or abandoned structures. They stand remarkably close to the city center, adjacent to bustling commercial streets and parks frequented by local residents. During idle afternoons at home, I would often wander past such abandoned buildings. Gradually, I came to realize that what my undergraduate major—Landscape Gardening—could offer to a city was only one dimension of change. I began to ask broader questions: How might places like these be transformed to generate economic vitality or cultural resonance? What kinds of policies, planning decisions, and financial mechanisms would be required to make such transformations possible?\nThese questions pushed me beyond the boundaries of my original discipline. Confronted with numerous sites like these, I recognized the necessity of engaging with large-scale datasets and urban analytics in order to understand patterns, constraints, and opportunities at a systemic level. In many ways, this intellectual shift is the reason I am here today.\nAlthough my current studies have expanded my perspective toward the macro scale of urban systems, I still find myself thinking about those aging, half-abandoned buildings in my small hometown. I place a photograph of one such structure here as a quiet acknowledgment of where everything began.",
     "crumbs": [
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "4  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "References"
-    ]
-  },
-  {
-    "objectID": "week2.html",
-    "href": "week2.html",
-    "title": "3  week2",
-    "section": "",
-    "text": "每周的总结、应用和反思，而不仅仅是知识点列表！！！\nXaringan ppt creation & Bookdown/Quarto\n1.Xaringan\n2.Quarto book\n利用quarto制作电子书籍，有封面、简介、主要内容（自己定的week1、week2等）、summary和reference部分\n操作步骤：\n(1)open a blank RStudio session &gt; New Project &gt; New Directory &gt; Quarto Book\n由此自动生成几个文件，index.qmd(封面，主要首页)、intro.qmd(简介)、summary.qmd、reference.qmd、_quarto.yml(重要部分，定义打包出书的结构顺序，自己本身有结构，只需要加入chapters部分)\n这些都要在一个project下面生成，如果想插入新的chapter，直接新建new file—quarto document，命名保存，然后一定要插入yml文件中，再回到原始文件qmd中点击render",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>week2</span>"
-    ]
-  },
-  {
-    "objectID": "week1.html",
-    "href": "week1.html",
-    "title": "2  week1",
-    "section": "",
-    "text": "Snap using",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>week1</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Learn Diary</span>"
     ]
   }
 ]
