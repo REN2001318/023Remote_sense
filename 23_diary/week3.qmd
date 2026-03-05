@@ -4,14 +4,54 @@ author: "Yanxi Ren"
 published: February 3rd
 ---
 
-\*Weekly summaries, applications, and reflections, not just a list of knowledge points.
-
-Xaringan ppt creation & Bookdown/Quarto
-
 # 3.1 Summary
 
-## 3.1.1
+## 3.1.1 Benefits of understanding the Correction Process
+
+1.  Research in the temporal dimension When comparing maps from different time periods, especially older datasets that do not have ARD versions, we may need to manually select ground control points and run linear regression to perform geometric correction. Understanding this process helps ensure that historical data can still be aligned and compared with newer datasets.
+
+2.  Selecting appropriate data When choosing datasets from official platforms, it is important to know what kinds of processing procedures the products have already undergone. This understanding helps us select data that is suitable for our research questions.
+
+3.  Transparency of data sources In academic research and reports, maintaining transparency about data sources is very important. Having a clear understanding of the correction process allows us to describe our data sources and preprocessing steps more clearly in our writing.
+
+## 3.1.2 Correction precautions
+
+### 3.1.2.1 Avoid excessive correction
+
+During the correction process, we should not blindly stack different methods together. Applying too many unnecessary corrections may damage the original characteristics of the data.
+
+### 3.1.2.2 My understanding of the workflow
+
+The order I organized here is slightly different from the order presented in class, but this is the workflow that makes the most sense to me:
+
+::: text-center
+**Raw data (DN values) -\> Radiometric calibration (DN -\> Radiance) → Geometric correction -\> Atmospheric correction (Radiance -\> TOA Reflectance / Surface Reflectance) -\> Orthorectification + Terrain correction**
+:::
+
+### 3.1.2.3 Changes in data types
+
+(1)**DN**: the original digital number recorded by the sensor.
+
+(2)**Radiance**: energy with physical units, which is influenced by the sensor, the atmosphere, and the position of the sun.
+
+**Note**: Although the process from DN to Radiance removes the sensor gain and bias, spectral characteristics may still vary between different sensors.
+
+(3)**TOA Reflectance**: removes sensor-related errors (eg: hardware noise and sensitivity differences) and the influence of solar conditions (eg: illumination intensity, angle, and distance).
+
+(4)**BOA / Surface Reflectance**: further removes atmospheric effects (eg: path radiance, scattering, and atmospheric absorption) and some sensor-related effects, leaving mainly the intrinsic properties of the surface materials.
+
+**Note**: Because real observations are also affected by terrain shadows and viewing geometry, what we sometimes obtain is actually apparent reflectance.
+
+### 3.1.2.4 Order of corrections
+
+It is important that atmospheric correction should be performed before terrain correction. Otherwise, atmospheric noise may be mistakenly treated as part of the ground signal and included in the terrain correction calculation, which can lead to systematic errors in the correction coefficients. When brightening shaded slopes. If atmospheric noise is amplified during this process, shaded areas may become excessively bright.
 
 # 3.2 Application
 
 # 3.3 Reflection
+
+Regarding the correction section, I spent quite some time trying to understand the overall order of the remote sensing data processing workflow. I also struggled for a while with some of the detailed concepts in different correction methods. For example, it took me some time to fully accept and understand why backward mapping is generally considered better than forward mapping.
+
+During my undergraduate studies, I took a meteorology course that briefly introduced some concepts related to radiation. However, this course builds on that foundation and involves many more scientific processing methods and procedures. Because of this, I needed to spend more time trying to understand these concepts in detail.
+
+Fortunately, the time spent on this was worthwhile. Through this process, I gradually developed a general understanding of how remote sensing data are processed and corrected.
