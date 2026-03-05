@@ -1,9 +1,18 @@
-# Introduction
+---
+title: Learn Diary
+numbered: false
+author: Yanxi ren
+published: January 20th
+---
 
-This is a book created from markdown and executable code.
+## Introduction
 
-See @knuth84 for additional discussion of literate programming.
+![A beautiful photo](images/introduction.jpg){width="90%" fig-align="center"}
 
-```{r}
-1 + 1
-```
+Hi! I am Yanxi, and my English name is Amelia. My undergraduate major is Landscape Gardening and my bachelor's degree is in Agriculture. During my undergraduate studies, I mainly studied courses related to landscape design and landscape plants.
+
+After graduating from my undergraduate studies, I traveled to some places and began to think about how to more efficiently and comprehensively understand the city we are in, rather than staying at the local landscape design itself. 
+
+Subsequently, my interest shifted towards the field of data, so I chose to pursue my Master's degree in Urban Space Science at the Centre for Advanced Spatial Analysis at University College London.
+
+This website is my study log for the Remote Sensing Cities and Environment course in my second term, recording my weekly summary of learning content and personal reflections.

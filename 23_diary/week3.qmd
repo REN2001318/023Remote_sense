@@ -1,0 +1,17 @@
+---
+title: "3 Week3--Corrections"
+author: "Yanxi Ren"
+published: February 3rd
+---
+
+\*Weekly summaries, applications, and reflections, not just a list of knowledge points.
+
+Xaringan ppt creation & Bookdown/Quarto
+
+# 3.1 Summary
+
+## 3.1.1
+
+# 3.2 Application
+
+# 3.3 Reflection

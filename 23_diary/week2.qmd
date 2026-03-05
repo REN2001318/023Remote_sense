@@ -16,7 +16,4 @@ xaringanExtra::embed_xaringan(url = "https://ren2001318.github.io/023Remote_sens
 
 ## 2.1.1 The production process of Quarto book
 
-(1)open a blank RStudio session -> New Project -> New Directory -> Quarto Book 
-(2)generate file: index.qmd、intro.qmd、summary.qmd、reference.qmd、_quarto.yml
-(3)insert new chapter: new file -> quarto document -> insert into .yml document
-(4)render: terminal -> quarto preview
+(1)open a blank RStudio session -\> New Project -\> New Directory -\> Quarto Book (2)generate file: index.qmd、intro.qmd、summary.qmd、reference.qmd、\_quarto.yml (3)insert new chapter: new file -\> quarto document -\> insert into .yml document (4)render: terminal -\> quarto preview

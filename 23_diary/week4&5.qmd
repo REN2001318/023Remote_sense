@@ -1,0 +1,17 @@
+---
+title: "4 Week4&5---Policy"
+author: "Yanxi Ren"
+published: February 19th
+---
+
+\*Weekly summaries, applications, and reflections, not just a list of knowledge points.
+
+Xaringan ppt creation & Bookdown/Quarto
+
+# 4.1 Summary
+
+## 4.1.1
+
+# 4.2 Application
+
+# 4.3 Reflection

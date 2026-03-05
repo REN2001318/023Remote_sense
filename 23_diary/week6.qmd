@@ -1,0 +1,18 @@
+---
+title: "5 Week6---Google Earth Engine"
+author: "Yanxi Ren"
+published: February 27th
+---
+
+\*Weekly summaries, applications, and reflections, not just a list of knowledge points.
+
+Xaringan ppt creation & Bookdown/Quarto
+
+# 5.1 Summary
+
+## 5.1.1
+
+# 5.2 Application
+
+
+# 5.3 Reflection
