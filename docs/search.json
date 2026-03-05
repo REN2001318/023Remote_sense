@@ -1,0 +1,32 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CASA0023 Remotely Sensing Cities and Environments LearnDiary",
+    "section": "",
+    "text": "Introduction\nHi! I am Yanxi, and my English name is Amelia. I majored in Landscape Gardening during my undergraduate studies and obtained a Bachelor’s degree in Agriculture. My coursework primarily focused on landscape design and plant studies.\nAfter graduation, I traveled to several cities, which prompted me to reflect on how to understand urban environments in a more comprehensive and systematic way, rather than focusing solely on localized landscape design.\nThis website is my learning diary for the CASA0023 Remote Sensing Cities and Environment course in my second term, where I record my weekly summaries and personal reflections. The case study areas I will choose are divided into two types. The first type includes cities I am familiar with, such as Beijing and Taiyuan. The second type consists of cities I am particularly interested in, for instance, London and New York City.\n\n\n\nA picture of an abandoned building next to an old park near my home\n\n\nIn principle, this would be the place to include a portrait of myself in the “Introduction” section, perhaps even a carefully composed photograph taken during my travels. Yet after some reflection, I decided instead to place an image of an old abandoned building near my home.\nMy curiosity about cities and landscapes may well have originated from these unfinished or abandoned structures. They stand remarkably close to the city center, adjacent to bustling commercial streets and parks frequented by local residents. During idle afternoons at home, I would often wander past such abandoned buildings. Gradually, I came to realize that what my undergraduate major—Landscape Gardening—could offer to a city was only one dimension of change. I began to ask broader questions: How might places like these be transformed to generate economic vitality or cultural resonance? What kinds of policies, planning decisions, and financial mechanisms would be required to make such transformations possible?\nThese questions pushed me beyond the boundaries of my original discipline. Confronted with numerous sites like these, I recognized the necessity of engaging with large-scale datasets and urban analytics in order to understand patterns, constraints, and opportunities at a systemic level. In many ways, this intellectual shift is the reason I am here today.\nAlthough my current studies have expanded my perspective toward the macro scale of urban systems, I still find myself thinking about those aging, half-abandoned buildings in my small hometown. I place a photograph of one such structure here as a quiet acknowledgment of where everything began.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Learn Diary</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html",
+    "href": "week2.html",
+    "title": "2 Week2—Portfolio",
+    "section": "",
+    "text": "2.1 Summary\nXaringan ppt presentation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>2 Week2---Portfolio</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#the-production-process-of-quarto-book",
+    "href": "week2.html#the-production-process-of-quarto-book",
+    "title": "2 Week2—Portfolio",
+    "section": "2.1.1 The production process of Quarto book",
+    "text": "2.1.1 The production process of Quarto book\n(1)open a blank RStudio session -&gt; New Project -&gt; New Directory -&gt; Quarto Book (2)generate file: index.qmd、intro.qmd、summary.qmd、reference.qmd、_quarto.yml (3)insert new chapter: new file -&gt; quarto document -&gt; insert into .yml document (4)render: terminal -&gt; quarto preview",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>2 Week2---Portfolio</span>"
+    ]
+  }
+]
