@@ -8,5 +8,25 @@
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Learn Diary</span>"
     ]
+  },
+  {
+    "objectID": "week2.html",
+    "href": "week2.html",
+    "title": "2 Week2—Portfolio",
+    "section": "",
+    "text": "2.1 Summary\nXaringan ppt presentation",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>2 Week2---Portfolio</span>"
+    ]
+  },
+  {
+    "objectID": "week2.html#the-production-process-of-quarto-book",
+    "href": "week2.html#the-production-process-of-quarto-book",
+    "title": "2 Week2—Portfolio",
+    "section": "2.1.1 The production process of Quarto book",
+    "text": "2.1.1 The production process of Quarto book\n(1)open a blank RStudio session -&gt; New Project -&gt; New Directory -&gt; Quarto Book (2)generate file: index.qmd、intro.qmd、summary.qmd、reference.qmd、_quarto.yml (3)insert new chapter: new file -&gt; quarto document -&gt; insert into .yml document (4)render: terminal -&gt; quarto preview",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>2 Week2---Portfolio</span>"
+    ]
   }
 ]
