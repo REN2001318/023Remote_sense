@@ -28,5 +28,35 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>2 Week2---Portfolio</span>"
     ]
+  },
+  {
+    "objectID": "week3.html",
+    "href": "week3.html",
+    "title": "3 Week3–Corrections",
+    "section": "",
+    "text": "3.1 Summary",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>3 Week3--Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#benefits-of-understanding-the-correction-process",
+    "href": "week3.html#benefits-of-understanding-the-correction-process",
+    "title": "3 Week3–Corrections",
+    "section": "3.1.1 Benefits of understanding the Correction Process",
+    "text": "3.1.1 Benefits of understanding the Correction Process\n\nResearch in the temporal dimension When comparing maps from different time periods, especially older datasets that do not have ARD versions, we may need to manually select ground control points and run linear regression to perform geometric correction. Understanding this process helps ensure that historical data can still be aligned and compared with newer datasets.\nSelecting appropriate data When choosing datasets from official platforms, it is important to know what kinds of processing procedures the products have already undergone. This understanding helps us select data that is suitable for our research questions.\nTransparency of data sources In academic research and reports, maintaining transparency about data sources is very important. Having a clear understanding of the correction process allows us to describe our data sources and preprocessing steps more clearly in our writing.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>3 Week3--Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#correction-precautions",
+    "href": "week3.html#correction-precautions",
+    "title": "3 Week3–Corrections",
+    "section": "3.1.2 Correction precautions",
+    "text": "3.1.2 Correction precautions\n\n3.1.2.1 Avoid excessive correction\nDuring the correction process, we should not blindly stack different methods together. Applying too many unnecessary corrections may damage the original characteristics of the data.\n\n\n3.1.2.2 My understanding of the workflow\nThe order I organized here is slightly different from the order presented in class, but this is the workflow that makes the most sense to me:\n\nRaw data (DN values) -&gt; Radiometric calibration (DN -&gt; Radiance) → Geometric correction -&gt; Atmospheric correction (Radiance -&gt; TOA Reflectance / Surface Reflectance) -&gt; Orthorectification + Terrain correction\n\n\n\n3.1.2.3 Changes in data types\n(1)DN: the original digital number recorded by the sensor.\n(2)Radiance: energy with physical units, which is influenced by the sensor, the atmosphere, and the position of the sun.\nNote: Although the process from DN to Radiance removes the sensor gain and bias, spectral characteristics may still vary between different sensors.\n(3)TOA Reflectance: removes sensor-related errors (eg: hardware noise and sensitivity differences) and the influence of solar conditions (eg: illumination intensity, angle, and distance).\n(4)BOA / Surface Reflectance: further removes atmospheric effects (eg: path radiance, scattering, and atmospheric absorption) and some sensor-related effects, leaving mainly the intrinsic properties of the surface materials.\nNote: Because real observations are also affected by terrain shadows and viewing geometry, what we sometimes obtain is actually apparent reflectance.\n\n\n3.1.2.4 Order of corrections\nIt is important that atmospheric correction should be performed before terrain correction. Otherwise, atmospheric noise may be mistakenly treated as part of the ground signal and included in the terrain correction calculation, which can lead to systematic errors in the correction coefficients. When brightening shaded slopes. If atmospheric noise is amplified during this process, shaded areas may become excessively bright.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>3 Week3--Corrections</span>"
+    ]
   }
 ]

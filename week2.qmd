@@ -8,7 +8,7 @@ Xaringan ppt presentation
 
 ```{r}
 library(xaringanExtra)
-xaringanExtra::embed_xaringan(url = "https://ren2001318.github.io/023Remote_sense/week2/Xaringan/YR_presentation.html",
+xaringanExtra::embed_xaringan(url = "YR_presentation.html",
                               ratio = "16:9")
 ```
 
