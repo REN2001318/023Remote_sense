@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Sensor Introduction</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Yanxi_Ren" />
+    <meta name="date" content="2026-01-27" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery-3.6.0.min.js"></script>
+    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet/leaflet.js"></script>
+    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding/leaflet.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Sensor Introduction
+]
+.subtitle[
+## YR_presentation__<br/>with xaringan
+]
+.author[
+### Yanxi_Ren
+]
+.institute[
+### UCL
+]
+.date[
+### 2026-01-27
+]
+
+---
+
+class: center, middle
+
+# Sensor Introduction
+
+### **Landsat**/Sentinel-1/Sentinel-2/Modis
+
+
+
+---
+
+# Summary: Landsat introduction
+
+Source: USA (NASA/USGS)
+
+--
+
+Main satellite: Landsat8/9
+
+--
+
+Spatial resolution: 30m (multispectral) / 15m (panchromatic)
+
+--
+
+Core frequency band: Visible light, near-infrared, short-wave infrared, thermal infrared
+
+---
+
+# Summary: Landsat advantages
+
+1.Time dimension: The data can be traced back to as early as 1972, allowing for the study of data from a longitudinal perspective, such as the changes in the urban heat island effect over the years in cities.
+
+--
+
+2.High geometric accuracy: The range can be narrowed down to 15-30m, with accurate pixel positioning, allowing for overlay analysis with urban geological maps and building density maps.
+
+
+--
+
+3.Scientific band setting: In addition to thermal infrared, its short-wave infrared (SWIR) is very effective in distinguishing between building materials (cement vs asphalt) in cities.
+
+---
+
+# Summary: Landsat disadvantages
+
+1.Limitation of spatial resolution:
+ - Thermal infrared band: The native resolution is actually only 100 meters (Landsat 8). Although USGS provides resampled data to 30 meters, it still appears coarse when studying the thermal environment of micro-neighborhoods.
+ - Optical band: A resolution of 30 meters proves inadequate when observing individual buildings or narrow streets.
+
+--
+
+2.Temporal resolution (revisit cycle): It takes a single satellite 16 days to return over the same city. If there are clouds on that day, data may not be obtained for a whole month.
+
+
+--
+
+3.Large data volume: Each scene of imagery covers a large area (185km × 185km), requiring more memory for processing compared to Sentinel's sliced data.
+
+---
+
+# Application
+
+- Application: Land use, long-term land surface changes, urban heat island.
+
+--
+
+- Bands 10 and 11: These two bands are specifically designed to measure the heat emitted by the Earth's surface. Through radiometric calibration and atmospheric correction, LST (Land Surface Temperature) can be calculated, which serves as the foundation for studying urban heat island effects.
+
+---
+
+# Application
+
+We can study the urban heat island effect in different cities around the world through Landsat data.
+e.g.
+
+
+
+``` r
+library(leaflet)
+# This is a simulation code that displays the heat distribution of a city
+leaflet() %&gt;% addTiles() %&gt;% addPopups(-0.12, 51.5, "This is the heart of London's heat island")
+```
+
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-7c78db501c4a7f067aa7" style="width:504px;height:504px;"></div>
+<script type="application/json" data-for="htmlwidget-7c78db501c4a7f067aa7">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addPopups","args":[51.5,-0.12,"This is the heart of London's heat island",null,null,{"maxWidth":300,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"className":""}]}],"limits":{"lat":[51.5,51.5],"lng":[-0.12,-0.12]}},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+# Reflection
+
+- Data fusion: Utilizing data from Modis, we combine the high spatial resolution of Landsat with the high temporal frequency of Modis to generate daily 30m all-weather land surface temperature maps. 
+
+--
+
+- Global carbon accounting and ecological protection: Landsat can accurately identify subtle changes in forest degradation and biomass. From an environmental protection perspective, Landsat can be used to verify whether the afforestation areas committed by governments are genuine.
+
+--
+
+- Public health prevention: Investigate the relationship between the outbreak of certain diseases (such as dengue fever) and the surface temperature and humidity observed by Landsat, in order to better prevent diseases
+
+
+---
+
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
