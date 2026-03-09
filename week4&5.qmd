@@ -4,14 +4,16 @@ author: "Yanxi Ren"
 published: February 19th
 ---
 
-\*Weekly summaries, applications, and reflections, not just a list of knowledge points.
-
-Xaringan ppt creation & Bookdown/Quarto
-
 # 4.1 Summary
 
 ## 4.1.1
 
 # 4.2 Application
 
+
 # 4.3 Reflection
+Based on the UHI analysis mentioned in this lecture, and combining it with my previous experience in a training camp on urban heat island studies where I introduced the LCZ (Local Climate Zone) classification method, I think the LCZ framework could further connect urban remote sensing research with the implementation of local policies.
+
+For example, we could try to classify the redlined and non-redlined areas in the Texas case study using the LCZ system. The redlined areas are likely to correspond to LCZ 2 (compact mid-rise) or LCZ 8 (large low-rise). These zones are typically characterized by high building density, low green coverage, large impervious surfaces, and low sky view factors. These physical characteristics together contribute to the accumulation of heat. In contrast, the non-redlined areas may more often correspond to LCZ 9 (sparsely built), where there are usually more green spaces around the buildings.
+
+This type of analysis based on urban morphology could help policy makers and urban designers better understand that solving the UHI problem is not only about looking at the surface temperature distribution and deciding where to plant a few trees. Instead, it requires a more systematic optimization of urban spatial form at the city scale.
