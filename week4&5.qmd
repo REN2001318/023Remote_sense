@@ -6,12 +6,81 @@ published: February 19th
 
 # 4.1 Summary
 
-## 4.1.1
+## 4.1.1 Example: Beijing's Tree Planting Policy
+
+In the fourth week of the lecture, we learned how remote sensing data can be applied in policy making. For example, NDVI values can be used to observe the spatial distribution of urban green spaces, which can further support research on the accessibility of these green areas and their impacts on residents’ physical and mental health. Remote sensing data can also be used to analyse the spatial distribution of urban heat and to explore the relationship between the Urban Heat Island (UHI) effect and environmental justice.
+
+The requirement for this week’s learning diary is: Identify and evaluate a policy case related to remote sensing data and connect it to a global policy framework.
+
+In this part, I focus on Beijing’s two large-scale afforestation programmes in 2012 and 2018, which together involved the planting of more than one million mu of forest. I will also examine two key policy documents: 《北京市人民政府关于2012年实施平原地区20万亩造林工程的意见》 (Beijing Municipal Government Notice on Implementing the 200,000-mu Afforestation Project in the Plain Area, 2012) and 《北京城市总体规划 (2016–2035)》 (Beijing Master Plan 2016–2035).
+
+In addition to long-term national development strategies, two major environmental events also revealed the ecological pressure faced by Beijing: the PM2.5 air pollution crisis in 2011 and the “7.21” extreme rainstorm in 2012. These events exposed the risks associated with rapid urban expansion and environmental degradation, and prompted the government to accelerate the construction of a greener urban environment in Beijing.
+
+## 4.1.2 Content of Policies
+
+Policies related to green space and afforestation:
+
+1.[《北京市人民政府关于2012年实施平原地区20万亩造林工程的意见》（京政发〔2012〕12号）](https://www.beijing.gov.cn/zhengce/zfwj/zfwj/szfwj/201905/t20190523_72603.html)
+
+(1) Accelerate afforestation and greening in the plain areas and develop an urban forest system.
+
+(2) Establish a green spatial pattern described as “two rings, three belts, nine wedges, and multiple corridors.”
+
+(3) Implement new afforestation projects to develop landscape ecological forests and green corridors.
+
+2.[《北京城市总体规划(2016年—2035年)》](https://www.beijing.gov.cn/gongkai/guihua/wngh/cqgh/201907/t20190701_100008.html)
+
+(1) Establish a municipal ecological spatial structure of “one ecological barrier, three ring corridors, five rivers, and nine green wedges.”
+
+(2) Promote the development of a forest city.
+
+(3) Develop a recreational green space system composed of interconnected parks and greenways, and optimise the spatial distribution of green spaces.
 
 # 4.2 Application
 
+## 4.2.1 Mutual influence
+
+Since the effects of large-scale afforestation are unlikely to be visible immediately after implementation, I decided to conduct a simple analysis of the changes in forest and green space coverage in Beijing following these two policies. To do this, I compare the median summer NDVI values across three different time periods in order to observe potential increases in vegetation coverage. The three periods selected for comparison are 2006–2011, 2012–2017, and 2018–2023.
+
+By examining the NDVI images over time, it is possible to observe how remote sensing data and policy interventions interact with each other. Overall, the NDVI maps suggest that vegetation coverage has gradually increased across the three time periods. This indicates that the afforestation policies may have had a positive impact on the expansion of green spaces in Beijing.
+
+Looking more closely at the spatial patterns, the results of the first round of afforestation show that most of the increase in vegetation occurred in the outer areas of the city. This suggests that the government may have relied on remote sensing analysis to identify available land resources, such as vacant land or reclaimed spaces, which were then selected as suitable sites for the initial afforestation programme.
+
+However, the spatial pattern of the second round of afforestation appears somewhat different. It is possible that, after evaluating the results of the first phase—potentially using remote sensing data and related analytical methods—the authorities realised that large forest areas located in distant suburban regions had limited influence on improving the urban microclimate within the city center. In addition, such green spaces might not provide residents with highly accessible recreational environments. As a result, the policy focus seems to have gradually shifted towards a more refined urban greening strategy, with greater emphasis on increasing vegetation within the built-up urban areas and improving accessibility to green spaces.
+
+Based on this observation, a possible policy–data interaction process can be inferred:
+
+::: text-center
+**long-term planning needs and the occurrence of environmental crises → identification of potential land parcels through remote sensing analysis → introduction of relevant policies → implementation of the first round of large-scale afforestation → evaluation of policy outcomes using remote sensing data → policy adjustment and refinement → implementation of the second round of afforestation.**
+:::
+
+This process illustrates how remote sensing data can support evidence-based urban environmental governance, not only in identifying suitable locations for ecological interventions but also in evaluating policy outcomes and informing subsequent planning decisions.
+
+## 4.2.2 Relationship with the United Nations SDGs
+
+| United Nations SDG Goals | Keywords of Beijing Afforestation Policy |
+|:-----------------------------------|:-----------------------------------|
+| **SDG 11** (Cities) | One ecological barrier, three ring corridors, five rivers, and nine wedge-shaped green spaces |
+| **SDG 13** (Climate) | Ventilation corridor system, improve carbon sequestration |
+| **SDG 15** (Life) | Protecting and restoring biodiversity, near-natural forestry |
+| **SDG 3** (Health) | Improve air quality, improve the quality of the ecological environment |
+
+## 4.2.3 Limitation
+
+1. Biophysical limitations of NDVI and the simplification of ecological indicators
+
+When analysing remote sensing data, it is important to recognise that NDVI only reflects the “greenness” of vegetation or its spectral reflectance characteristics, and cannot directly represent the structure and function of an ecosystem. In other words, NDVI can indicate where vegetation coverage has increased, but it cannot fully demonstrate the quality of vegetation or its ecological impacts. Therefore, in related analyses it is necessary to combine NDVI with other datasets in order to obtain a more comprehensive understanding. For example, it can be integrated with air quality data (such as PM2.5) or climate-related indicators such as land surface temperature (LST).
+
+2. Limitations of spatial resolution
+
+In this analysis, I only used Landsat data available on the GEE platform, which has a spatial resolution of 30 m × 30 m. While this resolution is sufficient for a general overview, it may not be adequate for more rigorous academic research or for supporting detailed policy-making processes. In such cases, higher-resolution commercial satellite imagery would be more appropriate, especially when analysing fragmented green spaces within urban areas, such as pocket parks or roadside green belts.
+
+3. Relationship with social functions
+
+Remote sensing data can detect the physical distribution of vegetation within the study area, but it cannot directly demonstrate the social functions of these green spaces. For example, although vegetation coverage may increase, this does not necessarily mean that residents have better accessibility to green spaces. To evaluate such social dimensions, additional analytical tools are required. For instance, tools such as R5R can be used to further analyse the accessibility of green spaces through transport networks.
 
 # 4.3 Reflection
+
 Based on the UHI analysis mentioned in this lecture, and combining it with my previous experience in a training camp on urban heat island studies where I introduced the LCZ (Local Climate Zone) classification method, I think the LCZ framework could further connect urban remote sensing research with the implementation of local policies.
 
 For example, we could try to classify the redlined and non-redlined areas in the Texas case study using the LCZ system. The redlined areas are likely to correspond to LCZ 2 (compact mid-rise) or LCZ 8 (large low-rise). These zones are typically characterized by high building density, low green coverage, large impervious surfaces, and low sky view factors. These physical characteristics together contribute to the accumulation of heat. In contrast, the non-redlined areas may more often correspond to LCZ 9 (sparsely built), where there are usually more green spaces around the buildings.
