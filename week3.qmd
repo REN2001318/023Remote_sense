@@ -42,7 +42,16 @@ The order I organized here is slightly different from the order presented in cla
 
 **Note**: Because real observations are also affected by terrain shadows and viewing geometry, what we sometimes obtain is actually apparent reflectance.
 
-### 3.1.2.4 Order of corrections
+## 3.1.2.4 Comparison of Remote Sensing Pre-processing Corrections
+
+| Dimension | Geometric Correction | Atmospheric Correction | Orthorectification | Topographic Correction |
+|:---|:---|:---|:---|:---|
+| **Function** | Fixes planar distortions (stretching, shifting). | Eliminates atmospheric effects (scattering, absorption). | Fixes pixel displacement caused by terrain elevation. | Eliminates illuminated geometry differences (sunlit vs. shaded). |
+| **Main Process** | GCP selection $\rightarrow$ Modeling $\rightarrow$ Resampling. | Parameter estimation $\rightarrow$ Radiative Transfer Modeling (e.g., 6S). | Integration of **DEM** $\rightarrow$ Displacement calculation $\rightarrow$ Repositioning. | Calculation of incidence angle via DEM $\rightarrow$ Physical/Empirical modeling. |
+| **Data Change** | Changes pixel coordinates; spectral values may slightly vary. | **Fundamental change** in values (from radiance to physical reflectance). | Significant boost in spatial accuracy, especially in mountainous areas. | Enhances brightness in shadows; reduces over-saturation on sunny slopes. |
+| **Limitations** | Cannot handle displacements caused by terrain relief. | Highly dependent on the accuracy of real-time atmospheric metadata. | Extremely sensitive to the resolution and quality of the input DEM. | May introduce noise/over-correction in deep shadow (no-light) areas. |
+
+### 3.1.2.5 Order of corrections
 
 It is important that atmospheric correction should be performed before terrain correction. Otherwise, atmospheric noise may be mistakenly treated as part of the ground signal and included in the terrain correction calculation, which can lead to systematic errors in the correction coefficients. When brightening shaded slopes. If atmospheric noise is amplified during this process, shaded areas may become excessively bright.
 

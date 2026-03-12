@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -153,7 +182,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#avoid-excessive-correction" id="toc-avoid-excessive-correction" class="nav-link" data-scroll-target="#avoid-excessive-correction">3.1.2.1 Avoid excessive correction</a></li>
   <li><a href="#my-understanding-of-the-workflow" id="toc-my-understanding-of-the-workflow" class="nav-link" data-scroll-target="#my-understanding-of-the-workflow">3.1.2.2 My understanding of the workflow</a></li>
   <li><a href="#changes-in-data-types" id="toc-changes-in-data-types" class="nav-link" data-scroll-target="#changes-in-data-types">3.1.2.3 Changes in data types</a></li>
-  <li><a href="#order-of-corrections" id="toc-order-of-corrections" class="nav-link" data-scroll-target="#order-of-corrections">3.1.2.4 Order of corrections</a></li>
+  </ul></li>
+  <li><a href="#comparison-of-remote-sensing-pre-processing-corrections" id="toc-comparison-of-remote-sensing-pre-processing-corrections" class="nav-link" data-scroll-target="#comparison-of-remote-sensing-pre-processing-corrections">3.1.2.4 Comparison of Remote Sensing Pre-processing Corrections</a>
+  <ul class="collapse">
+  <li><a href="#order-of-corrections" id="toc-order-of-corrections" class="nav-link" data-scroll-target="#order-of-corrections">3.1.2.5 Order of corrections</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">3.2 Application</a></li>
@@ -221,8 +253,59 @@ ul.task-list li input[type="checkbox"] {
 <p>(4)<strong>BOA / Surface Reflectance</strong>: further removes atmospheric effects (eg: path radiance, scattering, and atmospheric absorption) and some sensor-related effects, leaving mainly the intrinsic properties of the surface materials.</p>
 <p><strong>Note</strong>: Because real observations are also affected by terrain shadows and viewing geometry, what we sometimes obtain is actually apparent reflectance.</p>
 </section>
+</section>
+<section id="comparison-of-remote-sensing-pre-processing-corrections" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-of-remote-sensing-pre-processing-corrections">3.1.2.4 Comparison of Remote Sensing Pre-processing Corrections</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension</th>
+<th style="text-align: left;">Geometric Correction</th>
+<th style="text-align: left;">Atmospheric Correction</th>
+<th style="text-align: left;">Orthorectification</th>
+<th style="text-align: left;">Topographic Correction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Function</strong></td>
+<td style="text-align: left;">Fixes planar distortions (stretching, shifting).</td>
+<td style="text-align: left;">Eliminates atmospheric effects (scattering, absorption).</td>
+<td style="text-align: left;">Fixes pixel displacement caused by terrain elevation.</td>
+<td style="text-align: left;">Eliminates illuminated geometry differences (sunlit vs.&nbsp;shaded).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Main Process</strong></td>
+<td style="text-align: left;">GCP selection <span class="math inline">\(\rightarrow\)</span> Modeling <span class="math inline">\(\rightarrow\)</span> Resampling.</td>
+<td style="text-align: left;">Parameter estimation <span class="math inline">\(\rightarrow\)</span> Radiative Transfer Modeling (e.g., 6S).</td>
+<td style="text-align: left;">Integration of <strong>DEM</strong> <span class="math inline">\(\rightarrow\)</span> Displacement calculation <span class="math inline">\(\rightarrow\)</span> Repositioning.</td>
+<td style="text-align: left;">Calculation of incidence angle via DEM <span class="math inline">\(\rightarrow\)</span> Physical/Empirical modeling.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Data Change</strong></td>
+<td style="text-align: left;">Changes pixel coordinates; spectral values may slightly vary.</td>
+<td style="text-align: left;"><strong>Fundamental change</strong> in values (from radiance to physical reflectance).</td>
+<td style="text-align: left;">Significant boost in spatial accuracy, especially in mountainous areas.</td>
+<td style="text-align: left;">Enhances brightness in shadows; reduces over-saturation on sunny slopes.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Limitations</strong></td>
+<td style="text-align: left;">Cannot handle displacements caused by terrain relief.</td>
+<td style="text-align: left;">Highly dependent on the accuracy of real-time atmospheric metadata.</td>
+<td style="text-align: left;">Extremely sensitive to the resolution and quality of the input DEM.</td>
+<td style="text-align: left;">May introduce noise/over-correction in deep shadow (no-light) areas.</td>
+</tr>
+</tbody>
+</table>
 <section id="order-of-corrections" class="level3">
-<h3 class="anchored" data-anchor-id="order-of-corrections">3.1.2.4 Order of corrections</h3>
+<h3 class="anchored" data-anchor-id="order-of-corrections">3.1.2.5 Order of corrections</h3>
 <p>It is important that atmospheric correction should be performed before terrain correction. Otherwise, atmospheric noise may be mistakenly treated as part of the ground signal and included in the terrain correction calculation, which can lead to systematic errors in the correction coefficients. When brightening shaded slopes. If atmospheric noise is amplified during this process, shaded areas may become excessively bright.</p>
 </section>
 </section>
