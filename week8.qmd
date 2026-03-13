@@ -4,12 +4,20 @@ author: "Yanxi Ren"
 published: 
 ---
 
-
 # 7.1 Summary
 
-## 7.1.1
+## 7.1.1 Comparison Table of OBIA and Subpixel Analysis
+### Comparison between OBIA and Sub-pixel Analysis
+
+| Dimension | Object-Based Image Analysis (OBIA) | Sub-pixel Analysis |
+| :--- | :--- | :--- |
+| **Concept** | Instead of analyzing individual pixels, it groups adjacent pixels with similar spectral, shape, and textural characteristics into "objects" (Objects/Supercells). | Assumes a single pixel is a "Mixed Pixel" (Mixel) composed of multiple land cover types (e.g., vegetation, water, soil) and aims to deconstruct the proportion of each component. |
+| **Method** | Common algorithms include Simple Linear Iterative Clustering (SLIC); implemented via the `SuperCells` package in R; relies on iterating "minimum distance" and "color homogeneity" parameters. | Primarily uses **Linear Spectral Unmixing**; selects pure "Endmembers" (e.g., 100% water) as a baseline to calculate the fractional weight of each component within a pixel (summing to 1). |
+| **Application** | High-resolution image classification; identification of urban buildings and parcel boundaries; landscape pattern analysis. | Medium-to-low resolution imagery (e.g., MODIS, Landsat); estimating Vegetation Continuous Fields (VCF); precise mapping of wetland or water body edges. |
+| **Benefits** | 1. Reduces data volume and computational overhead (e.g., merging 10-20 pixels into one object). <br> 2. Eliminates "salt-and-pepper noise" inherent in pixel-based classification. <br> 3. Aligns better with human visual perception of physical objects. | 1. Addresses classification bias caused by mixed pixels in low-resolution data. <br> 2. Provides quantitative information finer than the original pixel resolution (e.g., 70% forest + 30% bare land). |
+| **Limitations** | 1. **High Subjectivity**: Parameter settings (like segmentation scales) rely heavily on researcher experience—often described as a blend of "data science and art". <br> 2. Edge processing can be imprecise. | 1. **Difficulty in Endmember Selection**: It is challenging to find 100% "pure" spectral samples in reality. <br> 2. Linear models may fail to capture complex multi-scattering of light on the ground (non-linear issues). |
+
 
 # 7.2 Application
-
 
 # 7.3 Reflection
