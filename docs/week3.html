@@ -145,6 +145,11 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./week1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 Week1-Introduction to Remote Sensing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./week2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 Week2—Portfolio</span></a>
   </div>
 </li>
@@ -251,12 +256,58 @@ window.Quarto = {
 </section>
 <section id="changes-in-data-types" class="level3">
 <h3 class="anchored" data-anchor-id="changes-in-data-types">3.1.2.3 Changes in data types</h3>
-<p>(1)<strong>DN</strong>: the original digital number recorded by the sensor.</p>
-<p>(2)<strong>Radiance</strong>: energy with physical units, which is influenced by the sensor, the atmosphere, and the position of the sun.</p>
-<p><strong>Note</strong>: Although the process from DN to Radiance removes the sensor gain and bias, spectral characteristics may still vary between different sensors.</p>
-<p>(3)<strong>TOA Reflectance</strong>: removes sensor-related errors (eg: hardware noise and sensitivity differences) and the influence of solar conditions (eg: illumination intensity, angle, and distance).</p>
-<p>(4)<strong>BOA / Surface Reflectance</strong>: further removes atmospheric effects (eg: path radiance, scattering, and atmospheric absorption) and some sensor-related effects, leaving mainly the intrinsic properties of the surface materials.</p>
-<p><strong>Note</strong>: Because real observations are also affected by terrain shadows and viewing geometry, what we sometimes obtain is actually apparent reflectance.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data Level</th>
+<th style="text-align: left;">Description &amp; Definition</th>
+<th style="text-align: left;">Key Correction / Factors Removed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>(1) DN</strong></td>
+<td style="text-align: left;">The original digital number recorded by the sensor.</td>
+<td style="text-align: left;">Raw data; no corrections applied.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>(2) Radiance</strong></td>
+<td style="text-align: left;">Energy with physical units (W/m²/sr/μm).</td>
+<td style="text-align: left;">Sensor gain and bias.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>(3) TOA</strong></td>
+<td style="text-align: left;">Top-of-Atmosphere Reflectance.</td>
+<td style="text-align: left;">Sensor hardware noise, solar intensity, angle, and distance.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>(4) BOA / SR</strong></td>
+<td style="text-align: left;">Bottom-of-Atmosphere / Surface Reflectance.</td>
+<td style="text-align: left;">Atmospheric path radiance, scattering, and absorption.</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Notes on Data Quality:</strong></p>
+</blockquote>
+<blockquote class="blockquote">
+<ol type="1">
+<li><strong>Sensors:</strong> Even after converting DN to Radiance, spectral characteristics may still vary between different sensors.</li>
+</ol>
+</blockquote>
+<blockquote class="blockquote">
+<ol start="2" type="1">
+<li><strong>Geometry:</strong> Because real observations are affected by terrain shadows and viewing geometry, the output is sometimes “apparent reflectance” rather than true intrinsic reflectance.</li>
+</ol>
+</blockquote>
+<center>
+<strong>Table 1: Workflow of remote sensing data preprocessing levels</strong>
+</center>
 </section>
 </section>
 <section id="comparison-of-remote-sensing-pre-processing-corrections" class="level2">
@@ -309,6 +360,9 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<center>
+<strong>Table 2: Comparison of Remote Sensing Pre-processing Corrections</strong>
+</center>
 <section id="order-of-corrections" class="level3">
 <h3 class="anchored" data-anchor-id="order-of-corrections">3.1.2.5 Order of corrections</h3>
 <p>It is important that atmospheric correction should be performed before terrain correction. Otherwise, atmospheric noise may be mistakenly treated as part of the ground signal and included in the terrain correction calculation, which can lead to systematic errors in the correction coefficients. When brightening shaded slopes. If atmospheric noise is amplified during this process, shaded areas may become excessively bright.</p>

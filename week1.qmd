@@ -41,45 +41,61 @@ In this session, I'd like to choose Beijing as an example to explore remote sens
 In this case, raster data from a selected area in Beijing are used, with acquisition dates on 30 July 2025 and 1 January 2026. From the comparison below, it can be clearly observed that in the true color composite, there is a significant difference in vegetation coverage between summer and winter in Beijing. In the false color composite, since vegetation reflects near-infrared radiation, large areas appear red in summer images, while only limited red areas can be observed in winter images. 
 
 ::: {layout="[[50, 50]]" layout-valign="bottom"}
-![Figure1. Part of Beijing: True color composite-2025.7.30](images/2025_7_30_true.png)
+![Figure2. Part of Beijing: True color composite---2025.7.30](images/2025_7_30_true.png)
 
-![Figure2. Part of Beijing: False color composite-2025.7.30](images/2025_7_30_false.png)
+![Figure3. Part of Beijing: False color composite---2025.7.30](images/2025_7_30_false.png)
 :::
 
 ::: {layout="[[50, 50]]" layout-valign="bottom"}
-![Figure3. Part of Beijing: True color composite-2026.1.1](images/1_true_1.png)
+![Figure4. Part of Beijing: True color composite---2026.1.1](images/1_true_1.png)
 
-![Figure4. Part of Beijing: False color composite-2026.1.1](images/1_false_1.png)
+![Figure5. Part of Beijing: False color composite---2026.1.1](images/1_false_1.png)
 :::
 
 # 1.2.2 Tasseled caps
 The Tasseled Cap Transformation is a method that reduces the dimensionality of remote sensing data and highlights important features. It combines multiple spectral bands into new components with clear physical meanings. For example, brightness shows the overall reflectance of the surface, greenness is related to vegetation density, and wetness reflects moisture conditions.
 
-In this case, I only focused on a selected area in Beijing and did not include the mosaicking process of multiple raster datasets. 
+In this case, I only focused on a part of Beijing and did not include the mosaicking process of multiple raster datasets. 
 
-Since I could not use SNAP, the analysis was carried out in QGIS. The main steps are as follows. First, the vector boundary and raster data were imported and clipped to the study area. Second, the 10 m bands (such as B2, B3, B4, and B8) were resampled to 20m. Third, band maths was used to calculate brightness, greenness, and wetness. Finally, these components were combined to produce the final image.
+Since I could not use SNAP, the analysis was carried out in QGIS. The main steps are as follows. 
+
+(1) Import and Masking: Imported the vector boundary and raster data and clipped to the study area.
+
+(2) Resample: Resampled the 10 m bands (such as B2, B3, B4, and B8) to 20m.
+
+(3) Band maths: Calculate brightness, greenness, and wetness.
+
+::: text-center
+**Brightness=0.3037(B2)+0.2793(B3)+0.4743(B4)+0.5585(B8)+0.5082(B11)+0.1863(B12)**
+
+**Greeness=-0.2848(B2)-0.2435(B3-0.5436(B4)+0.7243(B8)+0.0840(B11)-0.1800(B12)**
+
+**Wetness=0.1509(B2)+0.1973(B3)+0.3279(B4)+0.3406(B8)-0.7112(B11)-0.4572(B12)**
+:::
+
+(4) Merge:  Combined these components to produce the final image.
 
 Overall, this method makes multi-band data easier to understand and is helpful for beginners to explore remote sensing data.
 
-::: text-center
-**Brightness=0.3037(B2)+0.2793(B3)+0.4743(B4)+0.5585(B8)+0.5082(B11)+0.1863(B12)
-
-Greeness=-0.2848(B2)-0.2435(B3-0.5436(B4)+0.7243(B8)+0.0840(B11)-0.1800(B12)
-
-Wetness=0.1509(B2)+0.1973(B3)+0.3279(B4)+0.3406(B8)-0.7112(B11)-0.4572(B12)**
-:::
-
-![Figure5. Part of Beijing: Tasseled caps-2025.7.30](images/1_tasseled_cap.png){width="90%" fig-align="center"}
+![Figure6. Part of Beijing: Tasseled caps-2025.7.30](images/1_tasseled_cap.png){width="60%" fig-align="center"}
 
 
 | Dimension | Description |
 |:---|:---|
-| **Key Components** | **Brightness**: Total reflectance; **Greenness**: Biomass/Vegetation vigor; **Wetness**: Moisture content in soil/canopy. |
-| **Advantages** | **Data Reduction**: Compresses multi-band data into 3 axes; **Physical Interpretation**: Direct proxy for bio-physical parameters; **Noise Reduction**. |
-| **Limitations** | **Sensor-Specific**: Coefficients vary by sensor (S2 vs L8); **Atmospheric Sensitivity**: Requires surface reflectance (Level-2A) data. |
-| **Case Studies** | **Urban Growth**: Mapping impervious surfaces; **Agriculture**: Drought/Stress monitoring; **Ecology**: Land cover classification. |
+| **Advantages** | **Data Reduction**: Compresses multi-band data into 3 axes;<br> **Physical Interpretation**: Direct proxy for bio-physical parameters;<br> **Noise Reduction**. |
+| **Limitations** | **Sensor-Specific**: Coefficients vary by sensor (S2 vs L8);<br> **Atmospheric Sensitivity**: Requires surface reflectance (Level-2A) data. |
+| **Case Studies** | **Urban Growth**: Mapping impervious surfaces;<br> **Agriculture**: Drought/Stress monitoring;<br> **Ecology**: Land cover classification. |
 
 <center> **Table 3:Tasseled caps** </center>
 
 # 1.3 Reflection
+In this session, I spent a lot of time trying to use SNAP, but I failed to make it work in the end. As a result, I completed most of my work in QGIS. During this process, I learned that SNAP is a professional tool designed for processing Sentinel data. It provides many algorithms for SAR data and also includes comprehensive tools for spectral analysis. However, it also has some clear limitations, such as a relatively high learning threshold, heavy memory usage, and limited general applicability.
+
+This lecture can be considered my first systematic course in remote sensing. Before this, I had already been interested in methods that collect large-scale data remotely, especially after learning that remote sensing can be combined with machine learning to identify specific land cover types. 
+
+During my undergraduate studies, I took some courses related to plants. At that time, we had to conduct fieldwork in parks, such as recording the number of trees. This process was quite time-consuming. Even if we recorded the numbers, it was still difficult to accurately mark their locations on a map. As a result, the progress of the work was often slow, and the final maps were not very accurate.
+
+After this session, I gained a better understanding that detailed mapping of vegetation in parks can be achieved with the help of remote sensing, especially for large-scale planning and design tasks. 
+
+At this stage, many data processing tasks still rely on local tools such as QGIS. However, when the data size becomes very large, their limitations become more obvious. Therefore, I am really looking forward to learning more about GEE, as it allows data to be processed online and enables more efficient analysis through coding. 
 
