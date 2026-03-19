@@ -30,17 +30,20 @@ The order I organized here is slightly different from the order presented in cla
 
 ### 3.1.2.3 Changes in data types
 
-(1)**DN**: the original digital number recorded by the sensor.
+| Data Level | Description & Definition | Key Correction / Factors Removed |
+|:---|:---|:---|
+| **(1) DN** | The original digital number recorded by the sensor. | Raw data; no corrections applied. |
+| **(2) Radiance** | Energy with physical units (W/m²/sr/μm). | Sensor gain and bias. |
+| **(3) TOA** | Top-of-Atmosphere Reflectance. | Sensor hardware noise, solar intensity, angle, and distance. |
+| **(4) BOA / SR** | Bottom-of-Atmosphere / Surface Reflectance. | Atmospheric path radiance, scattering, and absorption. |
 
-(2)**Radiance**: energy with physical units, which is influenced by the sensor, the atmosphere, and the position of the sun.
+> **Notes on Data Quality:**
 
-**Note**: Although the process from DN to Radiance removes the sensor gain and bias, spectral characteristics may still vary between different sensors.
+> 1. **Sensors:** Even after converting DN to Radiance, spectral characteristics may still vary between different sensors.
 
-(3)**TOA Reflectance**: removes sensor-related errors (eg: hardware noise and sensitivity differences) and the influence of solar conditions (eg: illumination intensity, angle, and distance).
+> 2. **Geometry:** Because real observations are affected by terrain shadows and viewing geometry, the output is sometimes "apparent reflectance" rather than true intrinsic reflectance.
 
-(4)**BOA / Surface Reflectance**: further removes atmospheric effects (eg: path radiance, scattering, and atmospheric absorption) and some sensor-related effects, leaving mainly the intrinsic properties of the surface materials.
-
-**Note**: Because real observations are also affected by terrain shadows and viewing geometry, what we sometimes obtain is actually apparent reflectance.
+<center> **Table 1: Workflow of remote sensing data preprocessing levels** </center>
 
 ## 3.1.2.4 Comparison of Remote Sensing Pre-processing Corrections
 
@@ -51,11 +54,50 @@ The order I organized here is slightly different from the order presented in cla
 | **Data Change** | Changes pixel coordinates; spectral values may slightly vary. | **Fundamental change** in values (from radiance to physical reflectance). | Significant boost in spatial accuracy, especially in mountainous areas. | Enhances brightness in shadows; reduces over-saturation on sunny slopes. |
 | **Limitations** | Cannot handle displacements caused by terrain relief. | Highly dependent on the accuracy of real-time atmospheric metadata. | Extremely sensitive to the resolution and quality of the input DEM. | May introduce noise/over-correction in deep shadow (no-light) areas. |
 
+<center> **Table 2: Comparison of Remote Sensing Pre-processing Corrections** </center>
+
 ### 3.1.2.5 Order of corrections
 
 It is important that atmospheric correction should be performed before terrain correction. Otherwise, atmospheric noise may be mistakenly treated as part of the ground signal and included in the terrain correction calculation, which can lead to systematic errors in the correction coefficients. When brightening shaded slopes. If atmospheric noise is amplified during this process, shaded areas may become excessively bright.
 
 # 3.2 Application
+For this week's application, I took New York City as an example and selected Landsat 9 data from August 22, 2025 as the analysis object.
+
+## 3.2.1 NDVI
+After obtaining remote sensing data, we often apply enhancement techniques to make certain features more visible. Ratio-based methods are one common approach, as they can highlight differences between spectral bands and improve the overall image contrast. A typical example is the Normalized Difference Vegetation Index (NDVI). Since vegetation reflects red and near-infrared light differently under different conditions, we can use this property and the corresponding formula to distinguish vegetation with different characteristics.
+
+$$
+NDVI = \frac{NIR - Red}{NIR + Red}
+$$
+
+After generating the NDVI map of New York in the summer of 2025, we can clearly identify the spatial distribution of vegetation across the city. In particular, Central Park in the city center appears as a strong green area, which shows that this method effectively enhances vegetation features. 
+
+![Figure1. NDVI of New York City ---2025.8.22](images/3_NYC_NDVI_2025.png){width="80%" fig-align="center"}
+
+
+## 3.2.2 Texture
+Texture analysis uses Landsat remote sensing data to describe surface characteristics, such as distinguishing between smooth and rough areas. It helps identify different land cover types, including forests, grasslands, and built-up areas. One advantage of this method is that it provides an additional feature dimension, and it is also sensitive to edges, which helps produce more detailed spatial boundaries. However, this method also has some limitations. For example, the moving window approach cannot calculate values at the image edges due to a lack of neighboring pixels, which leads to information loss in those areas. In addition, parameter tuning and computation require more time.
+
+In the next step, I combined the red band with the texture data to create a new composite image. In this image, purple areas generally indicate higher vegetation activity, which can be seen in urban parks, lawns, and golf courses. Some dark blue areas represent higher surface roughness, mainly located in the southeastern part of the city, such as airports and ports. Dark green areas indicate regions with little vegetation and uneven surfaces, which can be interpreted as high-density built-up areas.
+
+::: {layout="[[50, 50]]" layout-valign="bottom"}
+![Figure2. Texture of New York City ---2025.8.22](images/3_NYC_Texture_Final.png)
+
+![Figure3. Data fusion for New York City ---2025.8.22](images/3_NYC_Data_Fusion.png)
+:::
+
+## 3.2.3 PCA
+PCA is mainly used for dimensionality reduction. It transforms multiple correlated variables into a smaller number of key components. In this way, PCA helps reduce redundancy, extract important features, and simplify computation.
+
+We can apply PCA when a dataset contains many variables and there are strong correlations between them. However, PCA also has some clear limitations. For example, the transformed components are often difficult to interpret, and some information loss is unavoidable during the dimensionality reduction process. 
+
+In this case, I combined the first three principal components (PC1, PC2, and PC3) into a single image. Their proportions of variance are 0.535, 0.3342, and 0.1308, respectively, which indicate how much of the original data variance each component explains. It is important to note that these components are uncorrelated with each other. Together, they present the spatial structure of New York in a more compact and high-contrast way.
+
+![Figure4. PCA of New York City ---2025.8.22](images/3_NYC_PCA_RGB.png){width="80%" fig-align="center"}
+
+
+
+
 
 # 3.3 Reflection
 

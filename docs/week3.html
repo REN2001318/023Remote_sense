@@ -198,7 +198,12 @@ window.Quarto = {
   <li><a href="#order-of-corrections" id="toc-order-of-corrections" class="nav-link" data-scroll-target="#order-of-corrections">3.1.2.5 Order of corrections</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">3.2 Application</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">3.2 Application</a>
+  <ul class="collapse">
+  <li><a href="#ndvi" id="toc-ndvi" class="nav-link" data-scroll-target="#ndvi">3.2.1 NDVI</a></li>
+  <li><a href="#texture" id="toc-texture" class="nav-link" data-scroll-target="#texture">3.2.2 Texture</a></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">3.2.3 PCA</a></li>
+  </ul></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">3.3 Reflection</a></li>
   </ul>
 </nav>
@@ -371,6 +376,58 @@ window.Quarto = {
 </section>
 <section id="application" class="level1">
 <h1>3.2 Application</h1>
+<p>For this week’s application, I took New York City as an example and selected Landsat 9 data from August 22, 2025 as the analysis object.</p>
+<section id="ndvi" class="level2">
+<h2 class="anchored" data-anchor-id="ndvi">3.2.1 NDVI</h2>
+<p>After obtaining remote sensing data, we often apply enhancement techniques to make certain features more visible. Ratio-based methods are one common approach, as they can highlight differences between spectral bands and improve the overall image contrast. A typical example is the Normalized Difference Vegetation Index (NDVI). Since vegetation reflects red and near-infrared light differently under different conditions, we can use this property and the corresponding formula to distinguish vegetation with different characteristics.</p>
+<p><span class="math display">\[
+NDVI = \frac{NIR - Red}{NIR + Red}
+\]</span></p>
+<p>After generating the NDVI map of New York in the summer of 2025, we can clearly identify the spatial distribution of vegetation across the city. In particular, Central Park in the city center appears as a strong green area, which shows that this method effectively enhances vegetation features.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_NYC_NDVI_2025.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure1. NDVI of New York City —2025.8.22</figcaption>
+</figure>
+</div>
+</section>
+<section id="texture" class="level2">
+<h2 class="anchored" data-anchor-id="texture">3.2.2 Texture</h2>
+<p>Texture analysis uses Landsat remote sensing data to describe surface characteristics, such as distinguishing between smooth and rough areas. It helps identify different land cover types, including forests, grasslands, and built-up areas. One advantage of this method is that it provides an additional feature dimension, and it is also sensitive to edges, which helps produce more detailed spatial boundaries. However, this method also has some limitations. For example, the moving window approach cannot calculate values at the image edges due to a lack of neighboring pixels, which leads to information loss in those areas. In addition, parameter tuning and computation require more time.</p>
+<p>In the next step, I combined the red band with the texture data to create a new composite image. In this image, purple areas generally indicate higher vegetation activity, which can be seen in urban parks, lawns, and golf courses. Some dark blue areas represent higher surface roughness, mainly located in the southeastern part of the city, such as airports and ports. Dark green areas indicate regions with little vegetation and uneven surfaces, which can be interpreted as high-density built-up areas.</p>
+<div class="quarto-layout-panel" data-layout="[[50, 50]]">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_NYC_Texture_Final.png" class="img-fluid figure-img"></p>
+<figcaption>Figure2. Texture of New York City —2025.8.22</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_NYC_Data_Fusion.png" class="img-fluid figure-img"></p>
+<figcaption>Figure3. Data fusion for New York City —2025.8.22</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pca" class="level2">
+<h2 class="anchored" data-anchor-id="pca">3.2.3 PCA</h2>
+<p>PCA is mainly used for dimensionality reduction. It transforms multiple correlated variables into a smaller number of key components. In this way, PCA helps reduce redundancy, extract important features, and simplify computation.</p>
+<p>We can apply PCA when a dataset contains many variables and there are strong correlations between them. However, PCA also has some clear limitations. For example, the transformed components are often difficult to interpret, and some information loss is unavoidable during the dimensionality reduction process.</p>
+<p>In this case, I combined the first three principal components (PC1, PC2, and PC3) into a single image. Their proportions of variance are 0.535, 0.3342, and 0.1308, respectively, which indicate how much of the original data variance each component explains. It is important to note that these components are uncorrelated with each other. Together, they present the spatial structure of New York in a more compact and high-contrast way.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/3_NYC_PCA_RGB.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure4. PCA of New York City —2025.8.22</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="reflection" class="level1">
 <h1>3.3 Reflection</h1>

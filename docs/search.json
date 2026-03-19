@@ -188,5 +188,35 @@
     "crumbs": [
       "References"
     ]
+  },
+  {
+    "objectID": "week3.html#ndvi",
+    "href": "week3.html#ndvi",
+    "title": "3 Week3–Corrections",
+    "section": "3.2.1 NDVI",
+    "text": "3.2.1 NDVI\nAfter obtaining remote sensing data, we often apply enhancement techniques to make certain features more visible. Ratio-based methods are one common approach, as they can highlight differences between spectral bands and improve the overall image contrast. A typical example is the Normalized Difference Vegetation Index (NDVI). Since vegetation reflects red and near-infrared light differently under different conditions, we can use this property and the corresponding formula to distinguish vegetation with different characteristics.\n\\[\nNDVI = \\frac{NIR - Red}{NIR + Red}\n\\]\nAfter generating the NDVI map of New York in the summer of 2025, we can clearly identify the spatial distribution of vegetation across the city. In particular, Central Park in the city center appears as a strong green area, which shows that this method effectively enhances vegetation features.\n\n\n\nFigure1. NDVI of New York City —2025.8.22",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3 Week3--Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#texture",
+    "href": "week3.html#texture",
+    "title": "3 Week3–Corrections",
+    "section": "3.2.2 Texture",
+    "text": "3.2.2 Texture\nTexture analysis uses Landsat remote sensing data to describe surface characteristics, such as distinguishing between smooth and rough areas. It helps identify different land cover types, including forests, grasslands, and built-up areas. One advantage of this method is that it provides an additional feature dimension, and it is also sensitive to edges, which helps produce more detailed spatial boundaries. However, this method also has some limitations. For example, the moving window approach cannot calculate values at the image edges due to a lack of neighboring pixels, which leads to information loss in those areas. In addition, parameter tuning and computation require more time.\nIn the next step, I combined the red band with the texture data to create a new composite image. In this image, purple areas generally indicate higher vegetation activity, which can be seen in urban parks, lawns, and golf courses. Some dark blue areas represent higher surface roughness, mainly located in the southeastern part of the city, such as airports and ports. Dark green areas indicate regions with little vegetation and uneven surfaces, which can be interpreted as high-density built-up areas.\n\n\n\n\n\n\nFigure2. Texture of New York City —2025.8.22\n\n\n\n\n\n\n\nFigure3. Data fusion for New York City —2025.8.22",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3 Week3--Corrections</span>"
+    ]
+  },
+  {
+    "objectID": "week3.html#pca",
+    "href": "week3.html#pca",
+    "title": "3 Week3–Corrections",
+    "section": "3.2.3 PCA",
+    "text": "3.2.3 PCA\nPCA is mainly used for dimensionality reduction. It transforms multiple correlated variables into a smaller number of key components. In this way, PCA helps reduce redundancy, extract important features, and simplify computation.\nWe can apply PCA when a dataset contains many variables and there are strong correlations between them. However, PCA also has some clear limitations. For example, the transformed components are often difficult to interpret, and some information loss is unavoidable during the dimensionality reduction process.\nIn this case, I combined the first three principal components (PC1, PC2, and PC3) into a single image. Their proportions of variance are 0.535, 0.3342, and 0.1308, respectively, which indicate how much of the original data variance each component explains. It is important to note that these components are uncorrelated with each other. Together, they present the spatial structure of New York in a more compact and high-contrast way.\n\n\n\nFigure4. PCA of New York City —2025.8.22",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>3 Week3--Corrections</span>"
+    ]
   }
 ]
