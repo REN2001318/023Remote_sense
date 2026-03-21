@@ -8,7 +8,7 @@
 
 <meta name="author" content="Yanxi Ren">
 
-<title>3 Week3–Corrections – CASA0023 Remotely Sensing Cities and Environments LearnDiary</title>
+<title>5 Week6—Google Earth Engine – CASA0023 Remotely Sensing Cities and Environments LearnDiary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,8 +51,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week4&amp;5.html" rel="next">
-<link href="./week2.html" rel="prev">
+<link href="./week8.html" rel="next">
+<link href="./week4&amp;5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -72,35 +92,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -113,7 +104,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week3.html"><span class="chapter-title">3 Week3–Corrections</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week6.html"><span class="chapter-title">5 Week6—Google Earth Engine</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -155,7 +146,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">3 Week3–Corrections</span></a>
+  <a href="./week3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 Week3–Corrections</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,7 +156,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">5 Week6—Google Earth Engine</span></a>
+  <a href="./week6.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">5 Week6—Google Earth Engine</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -189,27 +180,23 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">3.1 Summary</a>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">5.1 Summary</a>
   <ul class="collapse">
-  <li><a href="#benefits-of-understanding-the-correction-process" id="toc-benefits-of-understanding-the-correction-process" class="nav-link" data-scroll-target="#benefits-of-understanding-the-correction-process">3.1.1 Benefits of understanding the Correction Process</a></li>
-  <li><a href="#correction-precautions" id="toc-correction-precautions" class="nav-link" data-scroll-target="#correction-precautions">3.1.2 Correction precautions</a>
+  <li><a href="#google-earth-engine-introduction" id="toc-google-earth-engine-introduction" class="nav-link" data-scroll-target="#google-earth-engine-introduction">5.1.1 Google Earth Engine Introduction</a></li>
+  <li><a href="#gee-jargon-summary" id="toc-gee-jargon-summary" class="nav-link" data-scroll-target="#gee-jargon-summary">5.1.2 GEE jargon Summary</a></li>
+  <li><a href="#advantages-and-limitaions" id="toc-advantages-and-limitaions" class="nav-link" data-scroll-target="#advantages-and-limitaions">5.1.3 Advantages and limitaions</a></li>
+  </ul></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">5.2 Application</a>
   <ul class="collapse">
-  <li><a href="#avoid-excessive-correction" id="toc-avoid-excessive-correction" class="nav-link" data-scroll-target="#avoid-excessive-correction">3.1.2.1 Avoid excessive correction</a></li>
-  <li><a href="#my-understanding-of-the-workflow" id="toc-my-understanding-of-the-workflow" class="nav-link" data-scroll-target="#my-understanding-of-the-workflow">3.1.2.2 My understanding of the workflow</a></li>
-  <li><a href="#changes-in-data-types" id="toc-changes-in-data-types" class="nav-link" data-scroll-target="#changes-in-data-types">3.1.2.3 Changes in data types</a></li>
-  </ul></li>
-  <li><a href="#comparison-of-remote-sensing-pre-processing-corrections" id="toc-comparison-of-remote-sensing-pre-processing-corrections" class="nav-link" data-scroll-target="#comparison-of-remote-sensing-pre-processing-corrections">3.1.2.4 Comparison of Remote Sensing Pre-processing Corrections</a>
+  <li><a href="#research-area-delhi" id="toc-research-area-delhi" class="nav-link" data-scroll-target="#research-area-delhi">5.2.1 Research area: Delhi</a>
   <ul class="collapse">
-  <li><a href="#order-of-corrections" id="toc-order-of-corrections" class="nav-link" data-scroll-target="#order-of-corrections">3.1.2.5 Order of corrections</a></li>
+  <li><a href="#mean-and-median" id="toc-mean-and-median" class="nav-link" data-scroll-target="#mean-and-median">5.2.1.1 Mean and Median</a></li>
+  <li><a href="#texture-measure" id="toc-texture-measure" class="nav-link" data-scroll-target="#texture-measure">5.2.1.2 Texture measure</a></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">5.2.1.3 PCA</a></li>
   </ul></li>
+  <li><a href="#gee-application" id="toc-gee-application" class="nav-link" data-scroll-target="#gee-application">5.2.2 GEE Application</a></li>
   </ul></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">3.2 Application</a>
-  <ul class="collapse">
-  <li><a href="#ndvi" id="toc-ndvi" class="nav-link" data-scroll-target="#ndvi">3.2.1 NDVI</a></li>
-  <li><a href="#texture" id="toc-texture" class="nav-link" data-scroll-target="#texture">3.2.2 Texture</a></li>
-  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">3.2.3 PCA</a></li>
-  </ul></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">3.3 Reflection</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">5.3 Reflection</a></li>
   </ul>
 </nav>
     </div>
@@ -218,7 +205,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">3 Week3–Corrections</span></h1>
+<h1 class="title"><span class="chapter-title">5 Week6—Google Earth Engine</span></h1>
 </div>
 
 
@@ -241,31 +228,21 @@ window.Quarto = {
 </header>
 
 
+<p>*Weekly summaries, applications, and reflections, not just a list of knowledge points.</p>
 <section id="summary" class="level1">
-<h1>3.1 Summary</h1>
-<section id="benefits-of-understanding-the-correction-process" class="level2">
-<h2 class="anchored" data-anchor-id="benefits-of-understanding-the-correction-process">3.1.1 Benefits of understanding the Correction Process</h2>
-<ol type="1">
-<li><p>Research in the temporal dimension When comparing maps from different time periods, especially older datasets that do not have ARD versions, we may need to manually select ground control points and run linear regression to perform geometric correction. Understanding this process helps ensure that historical data can still be aligned and compared with newer datasets.</p></li>
-<li><p>Selecting appropriate data When choosing datasets from official platforms, it is important to know what kinds of processing procedures the products have already undergone. This understanding helps us select data that is suitable for our research questions.</p></li>
-<li><p>Transparency of data sources In academic research and reports, maintaining transparency about data sources is very important. Having a clear understanding of the correction process allows us to describe our data sources and preprocessing steps more clearly in our writing.</p></li>
-</ol>
-</section>
-<section id="correction-precautions" class="level2">
-<h2 class="anchored" data-anchor-id="correction-precautions">3.1.2 Correction precautions</h2>
-<section id="avoid-excessive-correction" class="level3">
-<h3 class="anchored" data-anchor-id="avoid-excessive-correction">3.1.2.1 Avoid excessive correction</h3>
-<p>During the correction process, we should not blindly stack different methods together. Applying too many unnecessary corrections may damage the original characteristics of the data.</p>
-</section>
-<section id="my-understanding-of-the-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="my-understanding-of-the-workflow">3.1.2.2 My understanding of the workflow</h3>
-<p>The order I organized here is slightly different from the order presented in class, but this is the workflow that makes the most sense to me:</p>
-<div class="text-center">
-<p><strong>Raw data (DN values) -&gt; Radiometric calibration (DN -&gt; Radiance) → Geometric correction -&gt; Atmospheric correction (Radiance -&gt; TOA Reflectance / Surface Reflectance) -&gt; Orthorectification + Terrain correction</strong></p>
+<h1>5.1 Summary</h1>
+<section id="google-earth-engine-introduction" class="level2">
+<h2 class="anchored" data-anchor-id="google-earth-engine-introduction">5.1.1 Google Earth Engine Introduction</h2>
+<p>This week, we learned about Google Earth Engine (GEE). It provides a unified data platform that integrates open remote sensing datasets from space agencies around the world, and we can access and process these data flexibly using code. In addition, GEE offers a powerful cloud computing environment, which allows us to run large-scale geospatial analysis without relying on local hardware or downloading data. As a result, it greatly improves efficiency when working with large datasets and wide spatial areas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/6_ee-editor_1920.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Figure1. GEE screen: <span class="citation" data-cites="gee_cookbook_screen">(<a href="references.html#ref-gee_cookbook_screen" role="doc-biblioref">Engine 2023</a>)</span></figcaption>
+</figure>
 </div>
 </section>
-<section id="changes-in-data-types" class="level3">
-<h3 class="anchored" data-anchor-id="changes-in-data-types">3.1.2.3 Changes in data types</h3>
+<section id="gee-jargon-summary" class="level2">
+<h2 class="anchored" data-anchor-id="gee-jargon-summary">5.1.2 GEE jargon Summary</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -274,173 +251,143 @@ window.Quarto = {
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Data Level</th>
-<th style="text-align: left;">Description &amp; Definition</th>
-<th style="text-align: left;">Key Correction / Factors Removed</th>
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Definition &amp; Characteristics</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>(1) DN</strong></td>
-<td style="text-align: left;">The original digital number recorded by the sensor.</td>
-<td style="text-align: left;">Raw data; no corrections applied.</td>
+<td style="text-align: left;"><strong>Image</strong></td>
+<td style="text-align: left;">Raster</td>
+<td style="text-align: left;">A fundamental data object representing a single georeferenced image, composed of one or more bands (e.g., RGB, NIR).</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>(2) Radiance</strong></td>
-<td style="text-align: left;">Energy with physical units (W/m²/sr/μm).</td>
-<td style="text-align: left;">Sensor gain and bias.</td>
+<td style="text-align: left;"><strong>Feature</strong></td>
+<td style="text-align: left;">Vector</td>
+<td style="text-align: left;">A data structure comprising a Geometry (spatial shape) and a dictionary of Properties (metadata/attributes).</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>(3) TOA</strong></td>
-<td style="text-align: left;">Top-of-Atmosphere Reflectance.</td>
-<td style="text-align: left;">Sensor hardware noise, solar intensity, angle, and distance.</td>
+<td style="text-align: left;"><strong>ImageCollection</strong></td>
+<td style="text-align: left;">Collection</td>
+<td style="text-align: left;">A stack or sequence of multiple Images, typically organized by time or sensor type.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>(4) BOA / SR</strong></td>
-<td style="text-align: left;">Bottom-of-Atmosphere / Surface Reflectance.</td>
-<td style="text-align: left;">Atmospheric path radiance, scattering, and absorption.</td>
+<td style="text-align: left;"><strong>FeatureCollection</strong></td>
+<td style="text-align: left;">Collection</td>
+<td style="text-align: left;">A group of related Features, analogous to a spatial database table or a Shapefile.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Client-side</strong></td>
+<td style="text-align: left;">Environment</td>
+<td style="text-align: left;">The user’s local browser environment (JavaScript), responsible for managing the interface and issuing instructions.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Server-side</strong></td>
+<td style="text-align: left;">Environment</td>
+<td style="text-align: left;">Google’s cloud computing infrastructure where heavy processing occurs; objects are prefixed with <code>ee.</code>.</td>
 </tr>
 </tbody>
 </table>
-<blockquote class="blockquote">
-<p><strong>Notes on Data Quality:</strong></p>
-</blockquote>
-<blockquote class="blockquote">
-<ol type="1">
-<li><strong>Sensors:</strong> Even after converting DN to Radiance, spectral characteristics may still vary between different sensors.</li>
-</ol>
-</blockquote>
-<blockquote class="blockquote">
-<ol start="2" type="1">
-<li><strong>Geometry:</strong> Because real observations are affected by terrain shadows and viewing geometry, the output is sometimes “apparent reflectance” rather than true intrinsic reflectance.</li>
-</ol>
-</blockquote>
 <center>
-<strong>Table 1: Workflow of remote sensing data preprocessing levels</strong>
+<strong>Table 1: GEE jargon Summary</strong>
 </center>
+<p>When using GEE, we also need to pay attention to several important points.</p>
+<ol type="1">
+<li><p><strong>Looping</strong>: GEE separates client-side and server-side operations. A traditional for loop cannot directly work on an ImageCollection on the server side, because we cannot access each element in the collection in the same way. If we use a standard loop, it may lead to repeated computations or unnecessary data loading. Therefore, we should use the server-side .map() function instead.</p></li>
+<li><p><strong>Scale</strong>: Although the original datasets have their own spatial resolution. For instance, Sentinel-2 has 10m resolution and Landsat 8/9 has 30m resolution. GEE often performs calculations based on the current zoom level.Taking 10m dataset as an example, when we zoom in, it may interpolate the data to a finer resolution, while zooming out may result in coarser calculations. Therefore, it is important to explicitly set the output scale when performing analysis.</p></li>
+</ol>
+<p>Finally, I personally find the pre-processed datasets in GEE very useful. They make it much easier to find relevant data for further study and can save a significant amount of time.</p>
 </section>
-</section>
-<section id="comparison-of-remote-sensing-pre-processing-corrections" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-of-remote-sensing-pre-processing-corrections">3.1.2.4 Comparison of Remote Sensing Pre-processing Corrections</h2>
+<section id="advantages-and-limitaions" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-and-limitaions">5.1.3 Advantages and limitaions</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Dimension</th>
-<th style="text-align: left;">Geometric Correction</th>
-<th style="text-align: left;">Atmospheric Correction</th>
-<th style="text-align: left;">Orthorectification</th>
-<th style="text-align: left;">Topographic Correction</th>
+<th style="text-align: left;">Advantages</th>
+<th style="text-align: left;">Limitations</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Function</strong></td>
-<td style="text-align: left;">Fixes planar distortions (stretching, shifting).</td>
-<td style="text-align: left;">Eliminates atmospheric effects (scattering, absorption).</td>
-<td style="text-align: left;">Fixes pixel displacement caused by terrain elevation.</td>
-<td style="text-align: left;">Eliminates illuminated geometry differences (sunlit vs.&nbsp;shaded).</td>
+<td style="text-align: left;"><strong>Data Accessibility</strong></td>
+<td style="text-align: left;"><strong>Massive Cloud Archive</strong>: Instant access to petabytes of global remote sensing data without local downloads.</td>
+<td style="text-align: left;"><strong>Data Black Box</strong>: Difficult to manipulate raw underlying files; slow upload process for non-native user assets.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Main Process</strong></td>
-<td style="text-align: left;">GCP selection <span class="math inline">\(\rightarrow\)</span> Modeling <span class="math inline">\(\rightarrow\)</span> Resampling.</td>
-<td style="text-align: left;">Parameter estimation <span class="math inline">\(\rightarrow\)</span> Radiative Transfer Modeling (e.g., 6S).</td>
-<td style="text-align: left;">Integration of <strong>DEM</strong> <span class="math inline">\(\rightarrow\)</span> Displacement calculation <span class="math inline">\(\rightarrow\)</span> Repositioning.</td>
-<td style="text-align: left;">Calculation of incidence angle via DEM <span class="math inline">\(\rightarrow\)</span> Physical/Empirical modeling.</td>
+<td style="text-align: left;"><strong>Computation Performance</strong></td>
+<td style="text-align: left;"><strong>Parallel Processing</strong>: Leverages Google’s server clusters via <code>.map()</code> for high-speed analysis of large datasets.</td>
+<td style="text-align: left;"><strong>Resource Constraints</strong>: Shared computing resources; complex scripts may trigger “Memory Limit Exceeded” or timeouts.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Data Change</strong></td>
-<td style="text-align: left;">Changes pixel coordinates; spectral values may slightly vary.</td>
-<td style="text-align: left;"><strong>Fundamental change</strong> in values (from radiance to physical reflectance).</td>
-<td style="text-align: left;">Significant boost in spatial accuracy, especially in mountainous areas.</td>
-<td style="text-align: left;">Enhances brightness in shadows; reduces over-saturation on sunny slopes.</td>
+<td style="text-align: left;"><strong>Spatial Analysis</strong></td>
+<td style="text-align: left;"><strong>Multi-scale Dynamic Zooming</strong>: Automatically handles different resolutions and supports analysis from local to global scales.</td>
+<td style="text-align: left;"><strong>Scale Trap</strong>: Results depend on the <code>scale</code> parameter; failure to specify it manually can lead to significant precision errors.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Limitations</strong></td>
-<td style="text-align: left;">Cannot handle displacements caused by terrain relief.</td>
-<td style="text-align: left;">Highly dependent on the accuracy of real-time atmospheric metadata.</td>
-<td style="text-align: left;">Extremely sensitive to the resolution and quality of the input DEM.</td>
-<td style="text-align: left;">May introduce noise/over-correction in deep shadow (no-light) areas.</td>
+<td style="text-align: left;"><strong>Development Environment</strong></td>
+<td style="text-align: left;"><strong>Instant Visualization</strong>: Real-time rendering of code results on the map, facilitating rapid algorithm prototyping.</td>
+<td style="text-align: left;"><strong>Debugging Challenges</strong>: Since code runs on the server, error messages can be cryptic and hard to trace to specific logic.</td>
 </tr>
 </tbody>
 </table>
 <center>
-<strong>Table 2: Comparison of Remote Sensing Pre-processing Corrections</strong>
+<strong>Table 2: Advantages and Limitaions of GEE</strong>
 </center>
-<section id="order-of-corrections" class="level3">
-<h3 class="anchored" data-anchor-id="order-of-corrections">3.1.2.5 Order of corrections</h3>
-<p>It is important that atmospheric correction should be performed before terrain correction. Otherwise, atmospheric noise may be mistakenly treated as part of the ground signal and included in the terrain correction calculation, which can lead to systematic errors in the correction coefficients. When brightening shaded slopes. If atmospheric noise is amplified during this process, shaded areas may become excessively bright.</p>
-</section>
 </section>
 </section>
 <section id="application" class="level1">
-<h1>3.2 Application</h1>
-<p>For this week’s application, I took New York City as an example and selected Landsat 9 data from August 22, 2025 as the analysis object.</p>
-<section id="ndvi" class="level2">
-<h2 class="anchored" data-anchor-id="ndvi">3.2.1 NDVI</h2>
-<p>After obtaining remote sensing data, we often apply enhancement techniques to make certain features more visible. Ratio-based methods are one common approach, as they can highlight differences between spectral bands and improve the overall image contrast. A typical example is the Normalized Difference Vegetation Index (NDVI). Since vegetation reflects red and near-infrared light differently under different conditions, we can use this property and the corresponding formula to distinguish vegetation with different characteristics.</p>
-<p><span class="math display">\[
-NDVI = \frac{NIR - Red}{NIR + Red}
-\]</span></p>
-<p>After generating the NDVI map of New York in the summer of 2025, we can clearly identify the spatial distribution of vegetation across the city. In particular, Central Park in the city center appears as a strong green area, which shows that this method effectively enhances vegetation features.</p>
+<h1>5.2 Application</h1>
+<section id="research-area-delhi" class="level2">
+<h2 class="anchored" data-anchor-id="research-area-delhi">5.2.1 Research area: Delhi</h2>
+<p>In this lecture, we explored the data of Delhi, India from June 2021 to October 2022 based on practical content, mainly calculating the texture map of Delhi and then conducting PCA analysis. The entire process was much faster than before in QGIS.</p>
+<section id="mean-and-median" class="level3">
+<h3 class="anchored" data-anchor-id="mean-and-median">5.2.1.1 Mean and Median</h3>
+<p>When we need to combine multiple raster datasets, the mosaic operation is mainly useful for quick visualization. However, when we conduct more detailed analysis, we need to consider the differences between using the mean and the median.</p>
+<p>The mean method works well for smaller datasets. It produces smoother results and helps reduce boundary effects. However, it is highly sensitive to outliers, and the results do not represent actual observations but rather statistical values.</p>
+<p>In contrast, the median method is more suitable for larger datasets and performs better in reducing cloud effects. However, the final image may include data from different time periods. Although these are real observations, they are not captured at the same time, and extreme values may become less noticeable. If higher accuracy is required, we can also apply histogram matching to process the images. This method improves the consistency of the image and is suitable for more advanced analysis, although it is more complex to implement.</p>
+</section>
+<section id="texture-measure" class="level3">
+<h3 class="anchored" data-anchor-id="texture-measure">5.2.1.2 Texture measure</h3>
+<p>In this texture map, we used the GLCM method to extract and display the spatial contrast of Delhi. We can see that the image is mainly dark, with some bright purple spots distributed across it. These bright purple areas indicate higher texture values, which usually correspond to regions with strong spatial variation, such as residential areas and road networks. In contrast, the dark areas represent low texture values. These areas are more homogeneous and show smoother surface patterns, and they are mainly associated with water bodies, parks, and agricultural land.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/3_NYC_NDVI_2025.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Figure1. NDVI of New York City —2025.8.22</figcaption>
+<p><img src="images/6_Texture_Delhi.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure2. Texture of Delhi</figcaption>
 </figure>
 </div>
 </section>
-<section id="texture" class="level2">
-<h2 class="anchored" data-anchor-id="texture">3.2.2 Texture</h2>
-<p>Texture analysis uses Landsat remote sensing data to describe surface characteristics, such as distinguishing between smooth and rough areas. It helps identify different land cover types, including forests, grasslands, and built-up areas. One advantage of this method is that it provides an additional feature dimension, and it is also sensitive to edges, which helps produce more detailed spatial boundaries. However, this method also has some limitations. For example, the moving window approach cannot calculate values at the image edges due to a lack of neighboring pixels, which leads to information loss in those areas. In addition, parameter tuning and computation require more time.</p>
-<p>In the next step, I combined the red band with the texture data to create a new composite image. In this image, purple areas generally indicate higher vegetation activity, which can be seen in urban parks, lawns, and golf courses. Some dark blue areas represent higher surface roughness, mainly located in the southeastern part of the city, such as airports and ports. Dark green areas indicate regions with little vegetation and uneven surfaces, which can be interpreted as high-density built-up areas.</p>
-<div class="quarto-layout-panel" data-layout="[[50, 50]]">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<section id="pca" class="level3">
+<h3 class="anchored" data-anchor-id="pca">5.2.1.3 PCA</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/3_NYC_Texture_Final.png" class="img-fluid figure-img"></p>
-<figcaption>Figure2. Texture of New York City —2025.8.22</figcaption>
+<p><img src="images/6_PCA_Delhi.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure3. Texture of Delhi</figcaption>
 </figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/3_NYC_Data_Fusion.png" class="img-fluid figure-img"></p>
-<figcaption>Figure3. Data fusion for New York City —2025.8.22</figcaption>
-</figure>
-</div>
-</div>
-</div>
 </div>
 </section>
-<section id="pca" class="level2">
-<h2 class="anchored" data-anchor-id="pca">3.2.3 PCA</h2>
-<p>PCA is mainly used for dimensionality reduction. It transforms multiple correlated variables into a smaller number of key components. In this way, PCA helps reduce redundancy, extract important features, and simplify computation.</p>
-<p>We can apply PCA when a dataset contains many variables and there are strong correlations between them. However, PCA also has some clear limitations. For example, the transformed components are often difficult to interpret, and some information loss is unavoidable during the dimensionality reduction process.</p>
-<p>In this case, I combined the first three principal components (PC1, PC2, and PC3) into a single image. Their proportions of variance are 0.535, 0.3342, and 0.1308, respectively, which indicate how much of the original data variance each component explains. It is important to note that these components are uncorrelated with each other. Together, they present the spatial structure of New York in a more compact and high-contrast way.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/3_NYC_PCA_RGB.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Figure4. PCA of New York City —2025.8.22</figcaption>
-</figure>
-</div>
+</section>
+<section id="gee-application" class="level2">
+<h2 class="anchored" data-anchor-id="gee-application">5.2.2 GEE Application</h2>
 </section>
 </section>
 <section id="reflection" class="level1">
-<h1>3.3 Reflection</h1>
-<p>Regarding the correction section, I spent quite some time trying to understand the overall order of the remote sensing data processing workflow. I also struggled for a while with some of the detailed concepts in different correction methods. For example, it took me some time to fully accept and understand why backward mapping is generally considered better than forward mapping.</p>
-<p>During my undergraduate studies, I took a meteorology course that briefly introduced some concepts related to radiation. However, this course builds on that foundation and involves many more scientific processing methods and procedures. Because of this, I needed to spend more time trying to understand these concepts in detail.</p>
-<p>Fortunately, the time spent on this was worthwhile. Through this process, I gradually developed a general understanding of how remote sensing data are processed and corrected.</p>
+<h1>5.3 Reflection</h1>
+<p>After learning the basics of GEE in this session, I found that this platform is very efficient for handling large-scale and long-term geospatial data. During my past studies, I worked on a small project that explored the urban heat island effect in my hometown, Taiyuan, for a specific year. At that time, I downloaded Landsat 8/9 data and processed them in GIS by grouping the data by month or season. Then, I combined the required bands into images and applied median compositing. Overall, the process was quite time-consuming.I originally planned to extend this work to analyze changes in the urban heat island effect over multiple years, but I had to give up due to time limitations.</p>
+<p>After this session, I realized that I can use code to process these data much more efficiently. By the way, during my initial use of GEE, I noticed that every time I add new code, I need to run the entire script again. This increases the workload and can be quite stressful, especially when the code becomes large. In my case, the interface crashed twice during this exercise. Therefore, I hope that future sessions will include some guidance on how to optimize GEE code and improve efficiency.This greatly improves the workflow. I look forward to learning more about how to use GEE to process and analyze data more efficiently in future classes.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-gee_cookbook_screen" class="csl-entry" role="listitem">
+Engine, Google Earth. 2023. <span>“A Beginners’ Cookbook - GEE Screen.”</span> 2023. <a href="https://developers.google.com/earth-engine/tutorials/community/beginners-cookbook">https://developers.google.com/earth-engine/tutorials/community/beginners-cookbook</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -846,13 +793,13 @@ NDVI = \frac{NIR - Red}{NIR + Red}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week2.html" class="pagination-link" aria-label="2 Week2---Portfolio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">2 Week2—Portfolio</span></span>
+      <a href="./week4&amp;5.html" class="pagination-link" aria-label="4 Week4&amp;5---Policy">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">4 Week4&amp;5—Policy</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week4&amp;5.html" class="pagination-link" aria-label="4 Week4&amp;5---Policy">
-        <span class="nav-page-text"><span class="chapter-title">4 Week4&amp;5—Policy</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./week8.html" class="pagination-link" aria-label="7 Week8---Classifition 2">
+        <span class="nav-page-text"><span class="chapter-title">7 Week8—Classifition 2</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

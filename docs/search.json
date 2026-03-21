@@ -218,5 +218,115 @@
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>3 Week3--Corrections</span>"
     ]
+  },
+  {
+    "objectID": "week6.html",
+    "href": "week6.html",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "",
+    "text": "5.1 Summary\n*Weekly summaries, applications, and reflections, not just a list of knowledge points.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#google-earth-engine-introduction",
+    "href": "week6.html#google-earth-engine-introduction",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.1.1 Google Earth Engine Introduction",
+    "text": "5.1.1 Google Earth Engine Introduction\nThis week, we learned about Google Earth Engine (GEE). It provides a unified data platform that integrates open remote sensing datasets from space agencies around the world, and we can access and process these data flexibly using code. In addition, GEE offers a powerful cloud computing environment, which allows us to run large-scale geospatial analysis without relying on local hardware or downloading data. As a result, it greatly improves efficiency when working with large datasets and wide spatial areas.\n\n\n\nFigure1. GEE screen: (Engine 2023)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#section",
+    "href": "week6.html#section",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.1.2",
+    "text": "5.1.2",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#google-earth-engine-introduction-1",
+    "href": "week6.html#google-earth-engine-introduction-1",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.1.3 Google Earth Engine Introduction",
+    "text": "5.1.3 Google Earth Engine Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#gee-jargon-summary",
+    "href": "week6.html#gee-jargon-summary",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.1.2 GEE jargon Summary",
+    "text": "5.1.2 GEE jargon Summary\n\n\n\n\n\n\n\n\nTerm\nCategory\nDefinition & Characteristics\n\n\n\n\nImage\nRaster\nA fundamental data object representing a single georeferenced image, composed of one or more bands (e.g., RGB, NIR).\n\n\nFeature\nVector\nA data structure comprising a Geometry (spatial shape) and a dictionary of Properties (metadata/attributes).\n\n\nImageCollection\nCollection\nA stack or sequence of multiple Images, typically organized by time or sensor type.\n\n\nFeatureCollection\nCollection\nA group of related Features, analogous to a spatial database table or a Shapefile.\n\n\nClient-side\nEnvironment\nThe user’s local browser environment (JavaScript), responsible for managing the interface and issuing instructions.\n\n\nServer-side\nEnvironment\nGoogle’s cloud computing infrastructure where heavy processing occurs; objects are prefixed with ee..\n\n\n\n\nTable 1: GEE jargon Summary\n\nWhen using GEE, we also need to pay attention to several important points.\n\nLooping: GEE separates client-side and server-side operations. A traditional for loop cannot directly work on an ImageCollection on the server side, because we cannot access each element in the collection in the same way. If we use a standard loop, it may lead to repeated computations or unnecessary data loading. Therefore, we should use the server-side .map() function instead.\nScale: Although the original datasets have their own spatial resolution. For instance, Sentinel-2 has 10m resolution and Landsat 8/9 has 30m resolution. GEE often performs calculations based on the current zoom level.Taking 10m dataset as an example, when we zoom in, it may interpolate the data to a finer resolution, while zooming out may result in coarser calculations. Therefore, it is important to explicitly set the output scale when performing analysis.\n\nFinally, I personally find the pre-processed datasets in GEE very useful. They make it much easier to find relevant data for further study and can save a significant amount of time.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#advantages-and-limitaions",
+    "href": "week6.html#advantages-and-limitaions",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.1.3 Advantages and limitaions",
+    "text": "5.1.3 Advantages and limitaions\n\n\n\n\n\n\n\n\nDimension\nAdvantages\nLimitations\n\n\n\n\nData Accessibility\nMassive Cloud Archive: Instant access to petabytes of global remote sensing data without local downloads.\nData Black Box: Difficult to manipulate raw underlying files; slow upload process for non-native user assets.\n\n\nComputation Performance\nParallel Processing: Leverages Google’s server clusters via .map() for high-speed analysis of large datasets.\nResource Constraints: Shared computing resources; complex scripts may trigger “Memory Limit Exceeded” or timeouts.\n\n\nSpatial Analysis\nMulti-scale Dynamic Zooming: Automatically handles different resolutions and supports analysis from local to global scales.\nScale Trap: Results depend on the scale parameter; failure to specify it manually can lead to significant precision errors.\n\n\nDevelopment Environment\nInstant Visualization: Real-time rendering of code results on the map, facilitating rapid algorithm prototyping.\nDebugging Challenges: Since code runs on the server, error messages can be cryptic and hard to trace to specific logic.\n\n\n\n\nTable 2: Advantages and Limitaions of GEE",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#mean-and-median",
+    "href": "week6.html#mean-and-median",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.2.1 Mean and Median",
+    "text": "5.2.1 Mean and Median\nWhen we need to combine multiple raster datasets, the mosaic operation is mainly useful for quick visualization. However, when we conduct more detailed analysis, we need to consider the differences between using the mean and the median.\nThe mean method works well for smaller datasets. It produces smoother results and helps reduce boundary effects. However, it is highly sensitive to outliers, and the results do not represent actual observations but rather statistical values.\nIn contrast, the median method is more suitable for larger datasets and performs better in reducing cloud effects. However, the final image may include data from different time periods. Although these are real observations, they are not captured at the same time, and extreme values may become less noticeable. If higher accuracy is required, we can also apply histogram matching to process the images. This method improves the consistency of the image and is suitable for more advanced analysis, although it is more complex to implement.\n\n\n\nFigure2. Texture of Delhi\n\n\n\n\n\nFigure3. Texture of Delhi",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#mean-and-median-1",
+    "href": "week6.html#mean-and-median-1",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.2.2 Mean and Median",
+    "text": "5.2.2 Mean and Median",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#mean-and-median-2",
+    "href": "week6.html#mean-and-median-2",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.2.3 Mean and Median",
+    "text": "5.2.3 Mean and Median",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#research-area-delhi",
+    "href": "week6.html#research-area-delhi",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.2.1 Research area: Delhi",
+    "text": "5.2.1 Research area: Delhi\nIn this lecture, we explored the data of Delhi, India from June 2021 to October 2022 based on practical content, mainly calculating the texture map of Delhi and then conducting PCA analysis. The entire process was much faster than before in QGIS.\n\n5.2.1.1 Mean and Median\nWhen we need to combine multiple raster datasets, the mosaic operation is mainly useful for quick visualization. However, when we conduct more detailed analysis, we need to consider the differences between using the mean and the median.\nThe mean method works well for smaller datasets. It produces smoother results and helps reduce boundary effects. However, it is highly sensitive to outliers, and the results do not represent actual observations but rather statistical values.\nIn contrast, the median method is more suitable for larger datasets and performs better in reducing cloud effects. However, the final image may include data from different time periods. Although these are real observations, they are not captured at the same time, and extreme values may become less noticeable. If higher accuracy is required, we can also apply histogram matching to process the images. This method improves the consistency of the image and is suitable for more advanced analysis, although it is more complex to implement.\n\n\n5.2.1.2 Texture measure\nIn this texture map, we used the GLCM method to extract and display the spatial contrast of Delhi. We can see that the image is mainly dark, with some bright purple spots distributed across it. These bright purple areas indicate higher texture values, which usually correspond to regions with strong spatial variation, such as residential areas and road networks. In contrast, the dark areas represent low texture values. These areas are more homogeneous and show smoother surface patterns, and they are mainly associated with water bodies, parks, and agricultural land.\n\n\n\nFigure2. Texture of Delhi\n\n\n\n\n5.2.1.3 PCA\n\n\n\nFigure3. Texture of Delhi",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
+  },
+  {
+    "objectID": "week6.html#gee-application",
+    "href": "week6.html#gee-application",
+    "title": "5 Week6—Google Earth Engine",
+    "section": "5.2.2 GEE Application",
+    "text": "5.2.2 GEE Application",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>5 Week6---Google Earth Engine</span>"
+    ]
   }
 ]
