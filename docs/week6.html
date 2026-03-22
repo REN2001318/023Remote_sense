@@ -184,7 +184,8 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#google-earth-engine-introduction" id="toc-google-earth-engine-introduction" class="nav-link" data-scroll-target="#google-earth-engine-introduction">5.1.1 Google Earth Engine Introduction</a></li>
   <li><a href="#gee-jargon-summary" id="toc-gee-jargon-summary" class="nav-link" data-scroll-target="#gee-jargon-summary">5.1.2 GEE jargon Summary</a></li>
-  <li><a href="#advantages-and-limitaions" id="toc-advantages-and-limitaions" class="nav-link" data-scroll-target="#advantages-and-limitaions">5.1.3 Advantages and limitaions</a></li>
+  <li><a href="#reduce" id="toc-reduce" class="nav-link" data-scroll-target="#reduce">5.1.3 Reduce</a></li>
+  <li><a href="#advantages-and-limitaions" id="toc-advantages-and-limitaions" class="nav-link" data-scroll-target="#advantages-and-limitaions">5.1.4 Advantages and limitaions</a></li>
   </ul></li>
   <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">5.2 Application</a>
   <ul class="collapse">
@@ -260,32 +261,32 @@ div.csl-indent {
 <tr class="odd">
 <td style="text-align: left;"><strong>Image</strong></td>
 <td style="text-align: left;">Raster</td>
-<td style="text-align: left;">A fundamental data object representing a single georeferenced image, composed of one or more bands (e.g., RGB, NIR).</td>
+<td style="text-align: left;">A fundamental data object representing a single georeferenced image, composed of one or more bands (e.g., RGB, NIR)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Feature</strong></td>
 <td style="text-align: left;">Vector</td>
-<td style="text-align: left;">A data structure comprising a Geometry (spatial shape) and a dictionary of Properties (metadata/attributes).</td>
+<td style="text-align: left;">A data structure comprising a Geometry (spatial shape) and a dictionary of Properties (metadata/attributes)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>ImageCollection</strong></td>
 <td style="text-align: left;">Collection</td>
-<td style="text-align: left;">A stack or sequence of multiple Images, typically organized by time or sensor type.</td>
+<td style="text-align: left;">A stack or sequence of multiple Images, typically organized by time or sensor type</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>FeatureCollection</strong></td>
 <td style="text-align: left;">Collection</td>
-<td style="text-align: left;">A group of related Features, analogous to a spatial database table or a Shapefile.</td>
+<td style="text-align: left;">A group of related Features, analogous to a spatial database table or a Shapefile</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Client-side</strong></td>
 <td style="text-align: left;">Environment</td>
-<td style="text-align: left;">The user’s local browser environment (JavaScript), responsible for managing the interface and issuing instructions.</td>
+<td style="text-align: left;">The user’s local browser environment (JavaScript), responsible for managing the interface and issuing instructions</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Server-side</strong></td>
 <td style="text-align: left;">Environment</td>
-<td style="text-align: left;">Google’s cloud computing infrastructure where heavy processing occurs; objects are prefixed with <code>ee.</code>.</td>
+<td style="text-align: left;">Google’s cloud computing infrastructure where heavy processing occurs; objects are prefixed with <code>ee.</code></td>
 </tr>
 </tbody>
 </table>
@@ -299,8 +300,51 @@ div.csl-indent {
 </ol>
 <p>Finally, I personally find the pre-processed datasets in GEE very useful. They make it much easier to find relevant data for further study and can save a significant amount of time.</p>
 </section>
+<section id="reduce" class="level2">
+<h2 class="anchored" data-anchor-id="reduce">5.1.3 Reduce</h2>
+<p>In the next part, we also learned the usage of reduce related functions, as shown in the table below. In fact, from top to bottom, it corresponds to the content of taking mean/median values, texture analysis, and PCA.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension</th>
+<th style="text-align: left;">Function Interface</th>
+<th style="text-align: left;">Key Features</th>
+<th style="text-align: left;">Typical Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Temporal</strong></td>
+<td style="text-align: left;"><code>collection.reduce()</code></td>
+<td style="text-align: left;"><strong>“Flattens” a collection</strong> by synthesizing a time-series of images into a single cloud-free base map</td>
+<td style="text-align: left;">Monthly/Annual NDVI synthesis, cloud removal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Spatial</strong></td>
+<td style="text-align: left;"><code>image.reduceRegion()</code></td>
+<td style="text-align: left;"><strong>“Image to Value”</strong>. Extracts statistical metrics within a specific geographic boundary (ROI)</td>
+<td style="text-align: left;">Mean temperature of a city, total crop area statistics</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Neighborhood</strong></td>
+<td style="text-align: left;"><code>image.reduceNeighborhood()</code></td>
+<td style="text-align: left;"><strong>“Feature Extraction”</strong>. Generates new features based on spatial relationships within a sliding window</td>
+<td style="text-align: left;">Edge detection, terrain roughness (StdDev), smoothing</td>
+</tr>
+</tbody>
+</table>
+<center>
+<strong>Table 2: Reduce classification</strong>
+</center>
+</section>
 <section id="advantages-and-limitaions" class="level2">
-<h2 class="anchored" data-anchor-id="advantages-and-limitaions">5.1.3 Advantages and limitaions</h2>
+<h2 class="anchored" data-anchor-id="advantages-and-limitaions">5.1.4 Advantages and limitaions</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -317,28 +361,28 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Data Accessibility</strong></td>
-<td style="text-align: left;"><strong>Massive Cloud Archive</strong>: Instant access to petabytes of global remote sensing data without local downloads.</td>
-<td style="text-align: left;"><strong>Data Black Box</strong>: Difficult to manipulate raw underlying files; slow upload process for non-native user assets.</td>
+<td style="text-align: left;"><strong>Massive Cloud Archive</strong>: Instant access to petabytes of global remote sensing data without local downloads</td>
+<td style="text-align: left;"><strong>Data Black Box</strong>: Difficult to manipulate raw underlying files; slow upload process for non-native user assets</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Computation Performance</strong></td>
-<td style="text-align: left;"><strong>Parallel Processing</strong>: Leverages Google’s server clusters via <code>.map()</code> for high-speed analysis of large datasets.</td>
-<td style="text-align: left;"><strong>Resource Constraints</strong>: Shared computing resources; complex scripts may trigger “Memory Limit Exceeded” or timeouts.</td>
+<td style="text-align: left;"><strong>Parallel Processing</strong>: Leverages Google’s server clusters via <code>.map()</code> for high-speed analysis of large datasets</td>
+<td style="text-align: left;"><strong>Resource Constraints</strong>: Shared computing resources; complex scripts may trigger “Memory Limit Exceeded” or timeouts</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Spatial Analysis</strong></td>
-<td style="text-align: left;"><strong>Multi-scale Dynamic Zooming</strong>: Automatically handles different resolutions and supports analysis from local to global scales.</td>
-<td style="text-align: left;"><strong>Scale Trap</strong>: Results depend on the <code>scale</code> parameter; failure to specify it manually can lead to significant precision errors.</td>
+<td style="text-align: left;"><strong>Multi-scale Dynamic Zooming</strong>: Automatically handles different resolutions and supports analysis from local to global scales</td>
+<td style="text-align: left;"><strong>Scale Trap</strong>: Results depend on the <code>scale</code> parameter; failure to specify it manually can lead to significant precision errors</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Development Environment</strong></td>
-<td style="text-align: left;"><strong>Instant Visualization</strong>: Real-time rendering of code results on the map, facilitating rapid algorithm prototyping.</td>
-<td style="text-align: left;"><strong>Debugging Challenges</strong>: Since code runs on the server, error messages can be cryptic and hard to trace to specific logic.</td>
+<td style="text-align: left;"><strong>Instant Visualization</strong>: Real-time rendering of code results on the map, facilitating rapid algorithm prototyping</td>
+<td style="text-align: left;"><strong>Debugging Challenges</strong>: Since code runs on the server, error messages can be cryptic and hard to trace to specific logic</td>
 </tr>
 </tbody>
 </table>
 <center>
-<strong>Table 2: Advantages and Limitaions of GEE</strong>
+<strong>Table 3: Advantages and Limitaions of GEE</strong>
 </center>
 </section>
 </section>
@@ -365,16 +409,33 @@ div.csl-indent {
 </section>
 <section id="pca" class="level3">
 <h3 class="anchored" data-anchor-id="pca">5.2.1.3 PCA</h3>
+<p>This PCA map of Delhi combines PC1 and PC2 and mainly highlights areas with high reflectance, such as buildings, industrial zones, and bare soil. On the right side of the city, we can see a clear red strip, which corresponds to the floodplain and riverbank area of the Yamuna River. Since sandy surfaces have similar spectral reflectance to urban buildings, they are also emphasized in the image.</p>
+<p>Compared with the texture map, this river-related area is not very visible. This is because sandy surfaces are relatively flat and do not show strong pixel variation. As a result, the GLCM method identifies these areas as smooth, so they do not stand out in the texture map.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/6_PCA_Delhi.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Figure3. Texture of Delhi</figcaption>
 </figure>
 </div>
+<p>Overall, these two methods have different strengths and limitations. PCA may confuse land covers that have similar spectral properties but different structures, while texture analysis may confuse features that have different spectral characteristics but similar structures. Therefore, PCA is more suitable for analyzing material differences and performing land cover classification, while texture analysis is more useful for identifying structural differences, extracting urban boundaries, and detecting impervious surfaces.</p>
 </section>
 </section>
 <section id="gee-application" class="level2">
 <h2 class="anchored" data-anchor-id="gee-application">5.2.2 GEE Application</h2>
+<p>GEE has a wide range of applications, including urban studies, agriculture, vegetation analysis, and natural disaster monitoring, as shown in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/6_GEE_1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure4. GEE Application <span class="citation" data-cites="GEE_application">(<a href="references.html#ref-GEE_application" role="doc-biblioref">Tamiminia et al. 2020</a>)</span></figcaption>
+</figure>
+</div>
+<p>The next figure clearly illustrates the internal workflow of GEE. It shows how data start from single images or ImageCollections, go through different processing steps and algorithms (e.g.: Machine learning, Supervised and unsupervised classification…), and finally produce visualized results.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/6_GEE_2.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure5. GEE Workflow <span class="citation" data-cites="GEE_application">(<a href="references.html#ref-GEE_application" role="doc-biblioref">Tamiminia et al. 2020</a>)</span></figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="reflection" class="level1">
@@ -386,6 +447,9 @@ div.csl-indent {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-gee_cookbook_screen" class="csl-entry" role="listitem">
 Engine, Google Earth. 2023. <span>“A Beginners’ Cookbook - GEE Screen.”</span> 2023. <a href="https://developers.google.com/earth-engine/tutorials/community/beginners-cookbook">https://developers.google.com/earth-engine/tutorials/community/beginners-cookbook</a>.
+</div>
+<div id="ref-GEE_application" class="csl-entry" role="listitem">
+Tamiminia, Haifa, Bahram Salehi, Masoud Mahdianpari, Ladan Behzad-Asl, and Fariba Javan. 2020. <span>“Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications: A Comprehensive Review.”</span> <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em> 13: 5330–50. <a href="https://doi.org/10.1109/JSTARS.2020.3021000">https://doi.org/10.1109/JSTARS.2020.3021000</a>.
 </div>
 </div>
 </section>
