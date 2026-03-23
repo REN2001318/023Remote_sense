@@ -8,7 +8,7 @@
 
 <meta name="author" content="Yanxi Ren">
 
-<title>7 Week8—Classifition 2 – CASA0023 Remotely Sensing Cities and Environments LearnDiary</title>
+<title>6 Week7—Classification 1 – CASA0023 Remotely Sensing Cities and Environments LearnDiary</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,8 +51,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./week7.html" rel="prev">
+<link href="./week8.html" rel="next">
+<link href="./week6.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -84,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week8.html"><span class="chapter-title">7 Week8—Classifition 2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week7.html"><span class="chapter-title">6 Week7—Classification 1</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,12 +161,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 Week7—Classification 1</span></a>
+  <a href="./week7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">6 Week7—Classification 1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">7 Week8—Classifition 2</span></a>
+  <a href="./week8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 Week8—Classifition 2</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,15 +185,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">7.1 Summary</a>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">6.1 Summary</a>
   <ul class="collapse">
-  <li><a href="#comparison-table-of-obia-and-subpixel-analysis" id="toc-comparison-table-of-obia-and-subpixel-analysis" class="nav-link" data-scroll-target="#comparison-table-of-obia-and-subpixel-analysis">7.1.1 Comparison Table of OBIA and Subpixel Analysis</a>
+  <li><a href="#cart" id="toc-cart" class="nav-link" data-scroll-target="#cart">6.1.1 CART</a>
   <ul class="collapse">
-  <li><a href="#comparison-between-obia-and-sub-pixel-analysis" id="toc-comparison-between-obia-and-sub-pixel-analysis" class="nav-link" data-scroll-target="#comparison-between-obia-and-sub-pixel-analysis">Comparison between OBIA and Sub-pixel Analysis</a></li>
+  <li><a href="#comparison-of-machine-learning-models-in-remote-sensing" id="toc-comparison-of-machine-learning-models-in-remote-sensing" class="nav-link" data-scroll-target="#comparison-of-machine-learning-models-in-remote-sensing">Comparison of Machine Learning Models in Remote Sensing</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">7.2 Application</a></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">7.3 Reflection</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">6.2 Application</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">6.3 Reflection</a></li>
   </ul>
 </nav>
     </div>
@@ -182,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">7 Week8—Classifition 2</span></h1>
+<h1 class="title"><span class="chapter-title">6 Week7—Classification 1</span></h1>
 </div>
 
 
@@ -206,62 +226,97 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="summary" class="level1">
-<h1>7.1 Summary</h1>
-<section id="comparison-table-of-obia-and-subpixel-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-table-of-obia-and-subpixel-analysis">7.1.1 Comparison Table of OBIA and Subpixel Analysis</h2>
-<section id="comparison-between-obia-and-sub-pixel-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-between-obia-and-sub-pixel-analysis">Comparison between OBIA and Sub-pixel Analysis</h3>
+<h1>6.1 Summary</h1>
+<section id="cart" class="level2">
+<h2 class="anchored" data-anchor-id="cart">6.1.1 CART</h2>
+<p>Following the introductory session on GEE in the last class, this week we learned about machine learning in GEE, which helped us better connect different parts of the course.</p>
+<p>In the first part of the lecture, we were introduced to the basic concepts of machine learning. We first learned about decision trees as a general method. They are similar to flowcharts, where decisions are made through a series of yes-or-no questions. CART (Classification and Regression Trees) is a classic type of decision tree algorithm, which can be divided into classification trees and regression trees. In addition, a random forest consists of multiple decision trees, and all trees must be of the same type, either classification or regression, rather than a mixture of both.</p>
+<section id="comparison-of-machine-learning-models-in-remote-sensing" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-machine-learning-models-in-remote-sensing">Comparison of Machine Learning Models in Remote Sensing</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Dimension</th>
-<th style="text-align: left;">Object-Based Image Analysis (OBIA)</th>
-<th style="text-align: left;">Sub-pixel Analysis</th>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Classification Tree</th>
+<th style="text-align: left;">Regression Tree</th>
+<th style="text-align: left;">Random Forest</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Concept</strong></td>
-<td style="text-align: left;">Instead of analyzing individual pixels, it groups adjacent pixels with similar spectral, shape, and textural characteristics into “objects” (Objects/Supercells).</td>
-<td style="text-align: left;">Assumes a single pixel is a “Mixed Pixel” (Mixel) composed of multiple land cover types (e.g., vegetation, water, soil) and aims to deconstruct the proportion of each component.</td>
+<td style="text-align: left;"><strong>Core Function</strong></td>
+<td style="text-align: left;">Divides data into discrete <strong>categories</strong>.</td>
+<td style="text-align: left;">Predicts continuous <strong>numerical values</strong>.</td>
+<td style="text-align: left;">Enhances <strong>accuracy and stability</strong> via ensemble learning.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Method</strong></td>
-<td style="text-align: left;">Common algorithms include Simple Linear Iterative Clustering (SLIC); implemented via the <code>SuperCells</code> package in R; relies on iterating “minimum distance” and “color homogeneity” parameters.</td>
-<td style="text-align: left;">Primarily uses <strong>Linear Spectral Unmixing</strong>; selects pure “Endmembers” (e.g., 100% water) as a baseline to calculate the fractional weight of each component within a pixel (summing to 1).</td>
+<td style="text-align: left;"><strong>Output</strong></td>
+<td style="text-align: left;">Class labels (e.g., Forest, Urban, Water).</td>
+<td style="text-align: left;">Specific numbers (e.g., Temperature, Price, Biomass).</td>
+<td style="text-align: left;">Majority vote (Classification) or Average value (Regression).</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Application</strong></td>
-<td style="text-align: left;">High-resolution image classification; identification of urban buildings and parcel boundaries; landscape pattern analysis.</td>
-<td style="text-align: left;">Medium-to-low resolution imagery (e.g., MODIS, Landsat); estimating Vegetation Continuous Fields (VCF); precise mapping of wetland or water body edges.</td>
+<td style="text-align: left;"><strong>Measurement Criteria</strong></td>
+<td style="text-align: left;"><strong>Gini Impurity</strong> or Information Entropy.</td>
+<td style="text-align: left;"><strong>Mean Squared Error (MSE)</strong> or Sum of Squares.</td>
+<td style="text-align: left;">Comprehensive error of individual trees, often using <strong>OOB Error</strong>.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Benefits</strong></td>
-<td style="text-align: left;">1. Reduces data volume and computational overhead (e.g., merging 10-20 pixels into one object). <br> 2. Eliminates “salt-and-pepper noise” inherent in pixel-based classification. <br> 3. Aligns better with human visual perception of physical objects.</td>
-<td style="text-align: left;">1. Addresses classification bias caused by mixed pixels in low-resolution data. <br> 2. Provides quantitative information finer than the original pixel resolution (e.g., 70% forest + 30% bare land).</td>
+<td style="text-align: left;"><strong>Key Characteristics</strong></td>
+<td style="text-align: left;">Easy to visualize; logical “flowchart” structure.</td>
+<td style="text-align: left;">Handles non-linear relationships; captures numerical trends.</td>
+<td style="text-align: left;">Highly robust; prevents overfitting; handles high-dimensional data.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Limitations</strong></td>
-<td style="text-align: left;">1. <strong>High Subjectivity</strong>: Parameter settings (like segmentation scales) rely heavily on researcher experience—often described as a blend of “data science and art”. <br> 2. Edge processing can be imprecise.</td>
-<td style="text-align: left;">1. <strong>Difficulty in Endmember Selection</strong>: It is challenging to find 100% “pure” spectral samples in reality. <br> 2. Linear models may fail to capture complex multi-scattering of light on the ground (non-linear issues).</td>
+<td style="text-align: left;">Prone to overfitting; sensitive to small data changes.</td>
+<td style="text-align: left;">Struggles with extreme values or sharp data “jumps”.</td>
+<td style="text-align: left;">“Black box” model; difficult to interpret individual logic.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Case Study</strong></td>
+<td style="text-align: left;"><strong>Land Cover</strong>: Distinguishing Central Park (Greenery) from Skyscrapers (Urban).</td>
+<td style="text-align: left;"><strong>Retrieval</strong>: Estimating Leaf Area Index (LAI) or Soil Moisture from band data.</td>
+<td style="text-align: left;"><strong>Complex Mapping</strong>: Combining NDVI, PCA, and Texture to map city-wide land types.</td>
 </tr>
 </tbody>
 </table>
+<center>
+<strong>Table 1: Comparison of Machine Learning Models in Remote Sensing</strong>
+</center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure3. x</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Figure4. GEE Application <span class="citation" data-cites="GEE_application">(<a href="references.html#ref-GEE_application" role="doc-biblioref">Tamiminia et al. 2020</a>)</span></figcaption>
+</figure>
+</div>
 </section>
 </section>
 </section>
 <section id="application" class="level1">
-<h1>7.2 Application</h1>
+<h1>6.2 Application</h1>
 </section>
 <section id="reflection" class="level1">
-<h1>7.3 Reflection</h1>
+<h1>6.3 Reflection</h1>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-GEE_application" class="csl-entry" role="listitem">
+Tamiminia, Haifa, Bahram Salehi, Masoud Mahdianpari, Ladan Behzad-Asl, and Fariba Javan. 2020. <span>“Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications: A Comprehensive Review.”</span> <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em> 13: 5330–50. <a href="https://doi.org/10.1109/JSTARS.2020.3021000">https://doi.org/10.1109/JSTARS.2020.3021000</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -667,13 +722,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week7.html" class="pagination-link" aria-label="6 Week7---Classification 1">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">6 Week7—Classification 1</span></span>
+      <a href="./week6.html" class="pagination-link" aria-label="5 Week6---Google Earth Engine">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">5 Week6—Google Earth Engine</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./week8.html" class="pagination-link" aria-label="7 Week8---Classifition 2">
+        <span class="nav-page-text"><span class="chapter-title">7 Week8—Classifition 2</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -4,15 +4,36 @@ author: "Yanxi Ren"
 published: March 8th
 ---
 
-\*Weekly summaries, applications, and reflections, not just a list of knowledge points.
-
-
 # 6.1 Summary
 
-## 6.1.1
+## 6.1.1 CART
+
+Following the introductory session on GEE in the last class, this week we learned about machine learning in GEE, which helped us better connect different parts of the course.
+
+In the first part of the lecture, we were introduced to the basic concepts of machine learning. We first learned about decision trees as a general method. They are similar to flowcharts, where decisions are made through a series of yes-or-no questions. CART (Classification and Regression Trees) is a classic type of decision tree algorithm, which can be divided into classification trees and regression trees. In addition, a random forest consists of multiple decision trees, and all trees must be of the same type, either classification or regression, rather than a mixture of both.
+
+
+### Comparison of Machine Learning Models in Remote Sensing
+
+| Feature | Classification Tree | Regression Tree | Random Forest |
+|:---|:---|:---|:---|
+| **Core Function** | Divides data into discrete **categories**. | Predicts continuous **numerical values**. | Enhances **accuracy and stability** via ensemble learning. |
+| **Output** | Class labels (e.g., Forest, Urban, Water). | Specific numbers (e.g., Temperature, Price, Biomass). | Majority vote (Classification) or Average value (Regression). |
+| **Measurement Criteria** | **Gini Impurity** or Information Entropy. | **Mean Squared Error (MSE)** or Sum of Squares. | Comprehensive error of individual trees, often using **OOB Error**. |
+| **Key Characteristics** | Easy to visualize; logical "flowchart" structure. | Handles non-linear relationships; captures numerical trends. | Highly robust; prevents overfitting; handles high-dimensional data. |
+| **Limitations** | Prone to overfitting; sensitive to small data changes. | Struggles with extreme values or sharp data "jumps". | "Black box" model; difficult to interpret individual logic. |
+| **Case Study** | **Land Cover**: Distinguishing Central Park (Greenery) from Skyscrapers (Urban). | **Retrieval**: Estimating Leaf Area Index (LAI) or Soil Moisture from band data. | **Complex Mapping**: Combining NDVI, PCA, and Texture to map city-wide land types. |
+
+<center>**Table 1: Comparison of Machine Learning Models in Remote Sensing**</center>
+
+
+![Figure3. x](images/.png){width="80%" fig-align="center"}
+
+![Figure4. GEE Application [@GEE_application]](images/.png){width="80%" fig-align="center"}
+
+
+
 
 # 6.2 Application
 
-
 # 6.3 Reflection
-
