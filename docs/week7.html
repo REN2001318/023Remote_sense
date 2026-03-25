@@ -191,6 +191,14 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#comparison-of-machine-learning-models-in-remote-sensing" id="toc-comparison-of-machine-learning-models-in-remote-sensing" class="nav-link" data-scroll-target="#comparison-of-machine-learning-models-in-remote-sensing">Comparison of Machine Learning Models in Remote Sensing</a></li>
   </ul></li>
+  <li><a href="#unsupervised-and-supervised" id="toc-unsupervised-and-supervised" class="nav-link" data-scroll-target="#unsupervised-and-supervised">6.1.2 Unsupervised and Supervised</a>
+  <ul class="collapse">
+  <li><a href="#comparison-of-supervised-and-unsupervised-learning-in-remote-sensing" id="toc-comparison-of-supervised-and-unsupervised-learning-in-remote-sensing" class="nav-link" data-scroll-target="#comparison-of-supervised-and-unsupervised-learning-in-remote-sensing">Comparison of Supervised and Unsupervised Learning in Remote Sensing</a></li>
+  </ul></li>
+  <li><a href="#two-main-methods" id="toc-two-main-methods" class="nav-link" data-scroll-target="#two-main-methods">6.1.3 Two main methods</a></li>
+  <li><a href="#how-to-choose-an-appropriate-method" id="toc-how-to-choose-an-appropriate-method" class="nav-link" data-scroll-target="#how-to-choose-an-appropriate-method">6.1.3.1 How to choose an appropriate method</a></li>
+  <li><a href="#maximum-likelihood-svm" id="toc-maximum-likelihood-svm" class="nav-link" data-scroll-target="#maximum-likelihood-svm">6.1.3.2 Maximum likelihood &amp; SVM</a></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">6.1.3 Practical</a></li>
   </ul></li>
   <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">6.2 Application</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">6.3 Reflection</a></li>
@@ -231,6 +239,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="cart">6.1.1 CART</h2>
 <p>Following the introductory session on GEE in the last class, this week we learned about machine learning in GEE, which helped us better connect different parts of the course.</p>
 <p>In the first part of the lecture, we were introduced to the basic concepts of machine learning. We first learned about decision trees as a general method. They are similar to flowcharts, where decisions are made through a series of yes-or-no questions. CART (Classification and Regression Trees) is a classic type of decision tree algorithm, which can be divided into classification trees and regression trees. In addition, a random forest consists of multiple decision trees, and all trees must be of the same type, either classification or regression, rather than a mixture of both.</p>
+<p>Because I didn’t understand the relationship between these trees at the beginning, although this part of the knowledge is relatively basic, I still put a table here specifically to show it.</p>
 <section id="comparison-of-machine-learning-models-in-remote-sensing" class="level3">
 <h3 class="anchored" data-anchor-id="comparison-of-machine-learning-models-in-remote-sensing">Comparison of Machine Learning Models in Remote Sensing</h3>
 <table class="caption-top table">
@@ -251,70 +260,230 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Core Function</strong></td>
-<td style="text-align: left;">Divides data into discrete <strong>categories</strong>.</td>
-<td style="text-align: left;">Predicts continuous <strong>numerical values</strong>.</td>
-<td style="text-align: left;">Enhances <strong>accuracy and stability</strong> via ensemble learning.</td>
+<td style="text-align: left;">Divides data into discrete <strong>categories</strong></td>
+<td style="text-align: left;">Predicts continuous <strong>numerical values</strong></td>
+<td style="text-align: left;">Enhances <strong>accuracy and stability</strong> via ensemble learning</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Output</strong></td>
-<td style="text-align: left;">Class labels (e.g., Forest, Urban, Water).</td>
-<td style="text-align: left;">Specific numbers (e.g., Temperature, Price, Biomass).</td>
-<td style="text-align: left;">Majority vote (Classification) or Average value (Regression).</td>
+<td style="text-align: left;">Class labels (e.g., Forest, Urban, Water)</td>
+<td style="text-align: left;">Specific numbers (e.g., Temperature, Price, Biomass)</td>
+<td style="text-align: left;">Majority vote (Classification) or Average value (Regression)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Measurement Criteria</strong></td>
-<td style="text-align: left;"><strong>Gini Impurity</strong> or Information Entropy.</td>
-<td style="text-align: left;"><strong>Mean Squared Error (MSE)</strong> or Sum of Squares.</td>
-<td style="text-align: left;">Comprehensive error of individual trees, often using <strong>OOB Error</strong>.</td>
+<td style="text-align: left;">Gini Impurity</td>
+<td style="text-align: left;">Mean Squared Error (MSE)</td>
+<td style="text-align: left;">OOB Error</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Key Characteristics</strong></td>
-<td style="text-align: left;">Easy to visualize; logical “flowchart” structure.</td>
-<td style="text-align: left;">Handles non-linear relationships; captures numerical trends.</td>
-<td style="text-align: left;">Highly robust; prevents overfitting; handles high-dimensional data.</td>
+<td style="text-align: left;"><strong>Advantages</strong></td>
+<td style="text-align: left;">Easy to visualize; logical “flowchart” structure</td>
+<td style="text-align: left;">Handles non-linear relationships; captures numerical trends</td>
+<td style="text-align: left;">Highly robust; prevents overfitting; handles high-dimensional data</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Limitations</strong></td>
-<td style="text-align: left;">Prone to overfitting; sensitive to small data changes.</td>
-<td style="text-align: left;">Struggles with extreme values or sharp data “jumps”.</td>
-<td style="text-align: left;">“Black box” model; difficult to interpret individual logic.</td>
+<td style="text-align: left;">Prone to overfitting; sensitive to small data changes</td>
+<td style="text-align: left;">Struggles with extreme values or sharp data “jumps”</td>
+<td style="text-align: left;">“Black box” model; difficult to interpret individual logic</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Case Study</strong></td>
-<td style="text-align: left;"><strong>Land Cover</strong>: Distinguishing Central Park (Greenery) from Skyscrapers (Urban).</td>
-<td style="text-align: left;"><strong>Retrieval</strong>: Estimating Leaf Area Index (LAI) or Soil Moisture from band data.</td>
-<td style="text-align: left;"><strong>Complex Mapping</strong>: Combining NDVI, PCA, and Texture to map city-wide land types.</td>
+<td style="text-align: left;"><strong>Application</strong></td>
+<td style="text-align: left;"><strong>Land Cover</strong>: Distinguishing Central Park (Greenery) from Skyscrapers (Urban)</td>
+<td style="text-align: left;"><strong>Retrieval</strong>: Estimating Leaf Area Index (LAI) or Soil Moisture from band data</td>
+<td style="text-align: left;"><strong>Complex Mapping</strong>: Combining NDVI, PCA, and Texture to map city-wide land types</td>
 </tr>
 </tbody>
 </table>
 <center>
 <strong>Table 1: Comparison of Machine Learning Models in Remote Sensing</strong>
 </center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Figure3. x</figcaption>
-</figure>
+<p>In this process, I think one of the most important issues is overfitting. When we train a machine learning model, we want it to capture the main patterns in the data, but at the same time we don’t want the model to “learn too rigidly”. In other words, it should not fit every single sample too perfectly. Although this may give very good results on the training data, it actually reduces the model’s ability to generalize and makes it hard to apply to new data.</p>
+<p>So when overfitting happens, we need to control the growth of the decision tree, for example by limiting its depth or pruning some less important branches, so that the model becomes simpler and more robust.</p>
+</section>
+</section>
+<section id="unsupervised-and-supervised" class="level2">
+<h2 class="anchored" data-anchor-id="unsupervised-and-supervised">6.1.2 Unsupervised and Supervised</h2>
+<section id="comparison-of-supervised-and-unsupervised-learning-in-remote-sensing" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-supervised-and-unsupervised-learning-in-remote-sensing">Comparison of Supervised and Unsupervised Learning in Remote Sensing</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension</th>
+<th style="text-align: left;">Supervised Learning</th>
+<th style="text-align: left;">Unsupervised Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Definition</strong></td>
+<td style="text-align: left;">Uses known training samples to build a model, then classifies unknown pixels</td>
+<td style="text-align: left;">Automatically clusters pixels based on spectral similarity without prior knowledge</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Core Features</strong></td>
+<td style="text-align: left;">Requires manual selection of Training Sites; <br> Classes are defined before classification</td>
+<td style="text-align: left;">Algorithm finds natural groupings; <br> Clusters are identified first, then manually labeled after</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Advantages</strong></td>
+<td style="text-align: left;"><strong>High Accuracy</strong>: Customizable to specific research goals; Results directly correspond to real land cover</td>
+<td style="text-align: left;"><strong>High Automation</strong>: No time-consuming sampling; <strong>Discovery</strong>: Can identify subtle spectral differences humans might miss</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Disadvantages</strong></td>
+<td style="text-align: left;"><strong>Labor Intensive</strong>: Manual sampling is slow and subjective; <br> <strong>Sample Dependent</strong>: Errors in training lead to map-wide errors</td>
+<td style="text-align: left;"><strong>Hard to Control</strong>: Clusters may not match real-world logic (e.g., shadows mixed with water); <br> <strong>Post-processing</strong>: Heavy manual labeling required</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Common Algorithms</strong></td>
+<td style="text-align: left;">Maximum Likelihood (MLC), <br> Random Forest (RF), <br> Support Vector Machine (SVM), <br> Neural Networks</td>
+<td style="text-align: left;">K-means, <br> ISODATA, <br> DBSCAN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Applications</strong></td>
+<td style="text-align: left;"><strong>Precise Land Use Mapping</strong>: Distinguishing Urban vs.&nbsp;Residential; Change Detection</td>
+<td style="text-align: left;"><strong>Exploratory Analysis</strong>: Large-scale surveys; areas where ground truth/reference data is unavailable</td>
+</tr>
+</tbody>
+</table>
+<center>
+<strong>Table 2: Comparison of Supervised and Unsupervised Learning in Remote Sensing</strong>
+</center>
+</section>
+</section>
+<section id="two-main-methods" class="level2">
+<h2 class="anchored" data-anchor-id="two-main-methods">6.1.3 Two main methods</h2>
+</section>
+<section id="how-to-choose-an-appropriate-method" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-choose-an-appropriate-method">6.1.3.1 How to choose an appropriate method</h2>
+<p>At this stage, we learned that supervised learning methods can generally be divided into parametric (assuming the data follow a normal distribution) and non-parametric approaches (do not need follow a normal distribution). A typical example of the former is the Maximum Likelihood method, while the latter includes commonly used models such as Support Vector Machines (SVM) and neural networks. I found this part quite confusing at first because there are so many different methods, but the diagram below helped me develop a better understanding how to choose an appropriate method in different situations.</p>
+<div id="fig-algorithm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/7_supervised-classification-algorithm-selection-en.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Figure4. GEE Application <span class="citation" data-cites="GEE_application">(<a href="references.html#ref-GEE_application" role="doc-biblioref">Tamiminia et al. 2020</a>)</span></figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Figure 1.Supervised classification algorithm selection <span class="citation" data-cites="Supervised">(<a href="references.html#ref-Supervised" role="doc-biblioref">50 North Spatial 2023</a>)</span>
+</figcaption>
 </figure>
 </div>
 </section>
+<section id="maximum-likelihood-svm" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-likelihood-svm">6.1.3.2 Maximum likelihood &amp; SVM</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Maximum likelihood</th>
+<th style="text-align: left;">Support Vector Machine (SVM)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Definition</strong></td>
+<td style="text-align: left;">Using probability theory, assign pixels to the maximum probability terrain type displayed in the histogram</td>
+<td style="text-align: left;">Find the Maximum Margin hyperplane that can separate training data of different categories</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Advantage</strong></td>
+<td style="text-align: left;">The effect is excellent when the samples follow a normal distribution and are not correlated with each other</td>
+<td style="text-align: left;">Strong generalization ability: can reduce errors in unseen data; <br> Capable of handling small samples and high-dimensional complex data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Limitation</strong></td>
+<td style="text-align: left;">If the spectral distribution of land cover is not normal, the accuracy will be very poor</td>
+<td style="text-align: left;">Multiple adjustments of hyperparameters are required for testing during model training, resulting in increased computational costs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Application</strong></td>
+<td style="text-align: left;">Traditional land cover classification; <br> A region with simple and evenly distributed spectral features</td>
+<td style="text-align: left;">Complex urban form detection; <br> Multi source data fusion classification (e.g.: band+texture+terrain)</td>
+</tr>
+</tbody>
+</table>
+<center>
+<strong>Table 3: Comparison of Maximum likelihood &amp; SVM</strong>
+</center>
+</section>
+<section id="practical" class="level2">
+<h2 class="anchored" data-anchor-id="practical">6.1.3 Practical</h2>
+<p>In this practical, I moved my study area from Shenzhen to my hometown, Taiyuan, which is a typical industrial city in northern China. I also chose to focus on bands B2, B3, B4, B8, B11, and B12. This is because, compared to vegetation-rich Shenzhen, Taiyuan has a lot of loess hills and bare land, so this band combination works better for distinguishing built-up areas, grassland, and vegetation.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/7_TY_1.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 2.Taiuyan_original_image</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/7_TY_2.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 3. Taiuyan_Cart</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Then, I applied the classification approach that I had adjusted in the practical to Taiyuan. The CART result was still reasonably clear, but I found that the object-based random forest performed much worse than it did in Shenzhen. One issue was that the already limited sample size became even smaller after splitting, which caused the model to degrade. At this stage, the model clearly lost its ability to make good predictions. The result looked much more blurred than before, and was even worse than the CART output.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/7_TY_3.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 2.Taiuyan_RF</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/7_TY_4.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 3. Taiuyan_RF_pixcel</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Later, I switched to pixel-based random sampling. This allowed the model to access more pixel-level information within each polygon and improved the training process. As a result, the final model achieved an accuracy of 92% in GEE.</p>
 </section>
 </section>
 <section id="application" class="level1">
 <h1>6.2 Application</h1>
+<div id="fig-algorithm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/7_kkk.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Figure 1.Supervised classification algorithm selection [@]
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="reflection" class="level1">
 <h1>6.3 Reflection</h1>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-GEE_application" class="csl-entry" role="listitem">
-Tamiminia, Haifa, Bahram Salehi, Masoud Mahdianpari, Ladan Behzad-Asl, and Fariba Javan. 2020. <span>“Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications: A Comprehensive Review.”</span> <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em> 13: 5330–50. <a href="https://doi.org/10.1109/JSTARS.2020.3021000">https://doi.org/10.1109/JSTARS.2020.3021000</a>.
+<div id="ref-Supervised" class="csl-entry" role="listitem">
+50 North Spatial. 2023. <span>“How to Pick the Best Supervised Classification Method?”</span> 2023. <a href="https://www.50northspatial.org.ua/pick-best-supervised-classification-method/">https://www.50northspatial.org.ua/pick-best-supervised-classification-method/</a>.
 </div>
 </div>
 </section>

@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Solar Potential in Barcelona through Earth Observation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Christy Choi, Entao Wang, Jiaying Li, Yanxi Ren, Tianyi Chen" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+class: center, middle, title-slide
+
+# Solar Potential in Barcelona through Earth Observation
+
+## Group RGB
+
+### Christy Choi, Entao Wang, Jiaying Li, Yanxi Ren, Tianyi Chen
+
+### CASA0023 Remotely Sensing Cities and Environments
+
+### 2026/03/09 (updated: 22/03/2026)
+
+### <svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> [GitHub Repository](https://github.com/christychoicc/RSCE_GROUP)
+---
+# Barcelona
+### High Solar Potential, Low Energy Self-sufficiency
+.pull-left-wide[
+- **Ideal conditions**: High solar exposure, dense flat roofscape, existing policy commitments
+- **Potential**: 7.9M m² suitable roof area, generation potential of 1,191 GWh/year around 60% of domestic electricity demand
+- **Low realisation**: City produces just 1% of its own energy, only 5% of households have solar installations in 2022
+- **Core Issue**: High location and technical potential, but low deployment
+]
+.pull-right-narrow[
+&lt;img src="images/eu_sunshine_arrow.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 1: Levels of sunshine across Europe (Source: &lt;a href="https://quierosol.com/en/solar-panels/installation/barcelona"&gt;Quiero Sol.(2021)&lt;/a&gt;)
+&lt;/p&gt;
+&lt;img src="images/solar_panels_barca.webp" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 2: Solar Panels (Source: &lt;a href="https://www.theguardian.com/world/2022/jul/24/barcelona-school-residents-create-solar-energy-community"&gt;the Guardian (2022)&lt;/a&gt;)
+&lt;/p&gt;
+]
+---
+# Key Problems and Issues
+Barcelona has high rooftop solar potential, but remains undeveloped at local and regional scale...
+.panelset[
+.panel[.panel-name[Low Local Energy Self-Sufficiency]
+- Barcelona produces approximately 1% of the energy it consumes on its territory
+
+- Only 5% of households have solar energy installations
+
+- Renewable energy generation remains underdeveloped at both local and regional scale
+
+&lt;p style="font-size: 0.6em; text-align: left; margin-top: 0;"&gt;
+Source: &lt;a href="https://bcnroc.ajuntament.barcelona.cat/jspui/bitstream/11703/134731/2/Climate%20City%20Contracte%20of%20Barcelona%20%28Annexes%29.pdf"&gt;Ajuntament de Barcelona(n.d.)&lt;/a&gt;
+&lt;/p&gt;
+]
+
+.panel[.panel-name[Under Utilised Rooftop Potential]
+- 7.9 million m² of available roof area
+
+- Potential to generate 1,191 GWh/year (approximately ~60% of domestic electricity consumption)
+
+- Flat and slightly inclined terraces account for 67% of total roof surface
+
+- Current installations are concentrated in public and municipal buildings
+
+&lt;p style="font-size: 0.6em; text-align: left; margin-top: 0;"&gt;
+Source: &lt;a href="https://www.energia.barcelona/en/generate-energy/generar-energia/map-how-much-energy-can-you-generate"&gt;Barcelona Energia(n.d.)&lt;/a&gt;
+&lt;/p&gt;
+]
+
+.panel[.panel-name[Social and Building Constraints]
+- 81% of properties have a low energy performance rating (E, F, or G)
+
+- Ageing housing stock: most residential buildings predate modern energy efficiency standards
+
+- Energy poverty, energy bills account for over 10% of household income for many Barcelona residents
+
+- Low-income households in poorer neighborhoods are least likely to invest in solar installation, compounding spatial inequality
+
+&lt;p style="font-size: 0.6em; text-align: left; margin-top: 0;"&gt;
+Source: &lt;a href="https://ajuntament.barcelona.cat/barcelonallibres/en/noticia/ageing-housing-with-poor-energy-efficiency-but-a-huge-potential-for-improvement-1188771"&gt;Ajuntament de Barcelona(n.d.)&lt;/a&gt;
+&lt;/p&gt;
+]
+]
+
+---
+# Policy Goals and Agenda
+.panelset[
+.panel[.panel-name[Global Agenda]
+
+.pull-left-3[
+&lt;img src="images/sdg7.jpg" width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 4: SDG 7: increases access to affordable, reliable and clean energy; Source: &lt;a href="https://www.un.org/sustainabledevelopment/news/communications-material/"&gt;United Nations(2024)&lt;/a&gt;
+&lt;/p&gt;
+]
+.pull-middle-3[
+&lt;img src="images/sdg11.jpg" width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 5: SDG 11: supports a more sustainable and resilient urban system; Source: &lt;a href="https://www.un.org/sustainabledevelopment/news/communications-material/"&gt;United Nations(2024)&lt;/a&gt;
+&lt;/p&gt;
+]
+.pull-right-3[
+&lt;img src="images/sdg13.jpg" width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 6: SDG 13: reduces emissions and strengthens climate action in the built environment; Source: &lt;a href="https://www.un.org/sustainabledevelopment/news/communications-material/"&gt;United Nations(2024)&lt;/a&gt;
+&lt;/p&gt;
+]
+]
+.panel[.panel-name[EU Policy]
+- **The European Green Deal, Renewable Energy Directive**
+  - Binding target of 42.5% renewable energy across the EU by 2030
+  
+- **EU Solar Energy Strategy**
+  - Target of 600 GW of solar PV capacity across the EU by 2030
+  
+- **Renovation Wave Strategy**
+  - Target to renovate 35 million buildings by 2030 (including improving energy performance)
+
+&lt;p style="font-size: 0.6em; text-align: left; margin-top: 0;"&gt;
+Source: &lt;a href="https://energy.ec.europa.eu/topics/renewable-energy/renewable-energy-directive-targets-and-rules/renewable-energy-directive_en"&gt;Energy(2023)&lt;/a&gt;, &lt;a href="https://energy.ec.europa.eu/topics/energy-efficiency/energy-performance-buildings/renovation-wave_en#:~:text=Renovating%20both%20public%20and%20private,to%20regional%20and%20local%20actors 
+"&gt;Energy(2020)&lt;/a&gt;, &lt;a href="https://energy.ec.europa.eu/topics/energy-efficiency/energy-performance-buildings/renovation-wave_en#:~:text=Renovating%20both%20public%20and%20private,to%20regional%20and%20local%20actors 
+"&gt;European Parliament(2024)&lt;/a&gt;
+&lt;/p&gt;
+
+]
+
+.panel[.panel-name[National Policy]
+- Integrated National Energy and Climate Plan (NECP) 2023-2030
+
+  - Targets 81 % renewable energy in electricity generation and 48 % renewables on final energy use by 2030
+  
+  - Installation of 76 GW of photovoltaics (with 19 GW for self-consumption) by 2030
+  
+  - Lower household energy expenditure to 5.7% by 2030
+
+&lt;p style="font-size: 0.6em; text-align: left; margin-top: 0;"&gt;
+Source: &lt;a href="https://www.miteco.gob.es/es/prensa/ultimas-noticias/2024/septiembre/el-gobierno-aprueba-la-actualizacion-del-plan-nacional-integrado.html"&gt;Ministerio para la Transición Ecológica y el Reto Demográfico. (2023)&lt;/a&gt;
+&lt;/p&gt;
+]
+
+.panel[.panel-name[Municipal Policy]
+Barcelona 2030 Agenda localises SDGs into city scale targets and indicators as a municipal framework. Key policy objectives includes the Barcelona Climate Plan and Strategy for Energy Transition. 
+.pull-left-wide[
+**Barcelona Climate Plan 2018-2030**
+.pull-left-3[
+&lt;img src="images/bcp5.png" width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;p style="font-size: 0.4em; text-align: center; margin-top: 0;"&gt;
+Figure 7:Line of Action 5, recover terrace roofs and increase PV generation; Source: &lt;a href="https://www.barcelona.cat/barcelona-pel-clima/sites/default/files/climate_plan_maig.pdf"&gt;Ajuntament de Barcelona(2018)&lt;/a&gt;
+&lt;/p&gt;
+]
+.pull-middle-3[
+&lt;img src="images/bcp9.png" width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;p style="font-size: 0.4em; text-align: center; margin-top: 0;"&gt;
+Figure 8: Line of Action 9, renewables in public space and municipal deployment; Source: &lt;a href="https://www.barcelona.cat/barcelona-pel-clima/sites/default/files/climate_plan_maig.pdf"&gt;Ajuntament de Barcelona(2018)&lt;/a&gt;
+&lt;/p&gt;
+]
+.pull-right-3[
+&lt;img src="images/bcp12.png" width="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;p style="font-size: 0.4em; text-align: center; margin-top: 0;"&gt;
+Figure 9: Line of Action 12,green jobs, self-employment and climate-related economic transition; Source: &lt;a href="https://www.barcelona.cat/barcelona-pel-clima/sites/default/files/climate_plan_maig.pdf"&gt;Ajuntament de Barcelona(2018)&lt;/a&gt;
+&lt;/p&gt;
+]
+]
+.pull-right-narrow[
+**Strategy for Energy Transition**
+
+Increasing electricity generation by 10% with renewables across city, increase PV capacity fivefold,support energy refurbishment, promote and financially support installations
+&lt;p style="font-size: 0.4em; text-align: left; margin-top: 0;"&gt;
+Source: &lt;a href="https://ajuntament.barcelona.cat/ecologiaurbana/en/what-we-do-and-why/energy-and-climate-change/strategy-energy-transition"&gt;Ajuntament de Barcelona(n.d.)&lt;/a&gt;, &lt;a href="https://www.barcelona.cat/barcelona-pel-clima/en/pla-clima/pla-transicio-energetica"&gt;Barcelona for Climate(2025)&lt;/a&gt;
+&lt;/p&gt;
+]
+]
+.panel[.panel-name[Municipal Incentives]
+Tax Incentives
+- The Barcelona City Council offers tax incentives for solar installations
+
+  - Up to 50% reduction on property tax (IBI) for first 3 years after installation
+  
+  - 95% reduction on construction and installation works tax (ICIO)
+  
+  - 50% reduction on business activity tax (IAE) for related economic activities
+
+&lt;p style="font-size: 0.4em; text-align: left; margin-top: 0;"&gt;
+Source: &lt;a href="https://www.energia.barcelona/en/generate-energy/generate-energy/grants-and-allowances"&gt;Barcelona Energia(n.d.)&lt;/a&gt;
+&lt;/p&gt;
+]
+]
+
+---
+class: inverse, center, middle
+#What is missing from policy?
+### Barcelona has a strong policy commitment, but lack of a city-scale operational system to identify where rooftop solar should be prioritised to maximum social, economic, and environmental benefit!
+
+
+---
+class: inverse, center, middle
+## How can we improve the operational system?
+### Analysis of Barcelona’s Current Solar Dashboard
+
+--
+Do you want to know how much energy you can generate in your home? 
+
+Search for your building and discover its energy potential:
+
+
+
+---
+
+&lt;style type="text/css"&gt;
+/* 7-3 ratio */
+.left-70 { width: 63%; float: left; }
+.right-30 { width: 34%; float: right; }
+
+/* slider panel */
+.scroll-box {
+  height: 400px;
+  overflow-y: auto;
+  padding: 6px;
+  border-left: 1px solid #802222;
+}
+/* Markdown in div */
+.scroll-box ul { display: block; }
+&lt;/style&gt;
+
+## Analysis of Barcelona’s Current Solar Dashboard
+
+
+.left-70[
+### .center[Dashboard Overview]
+
+&lt;img src="OriginalDashboard.gif" width="100%"&gt;
+
+.footnote[Source: [Barcelona Energia Mapa](https://www.energia.barcelona/ca/generar-energia/generar-energia/mapa-quanta-energia-podeu-generar)]
+]
+
+.right-30[
+### .center[Key Metrics]
+
+.scroll-box[
+#### ☀️ SOlar Resource Potential
+- **Incident Solar Radiation Radiation:** Qualitative rating  ***(e.g., "Very Good")***
+
+- **Solar Irradiated Surface Area:** Total roof area (`\(m^2\)`)
+
+#### ⚡ Electric Performance Data
+- **Usable Area:** Net area
+- **Capacity:** Peak power (`\(kW\)`)
+- **Generation:** `\(kWh/year\)`
+- **Coverage:** `\(&gt;100\%\)` needs
+
+#### 🌍 Environmental Impact
+- **GHG Savings:** `\(kgCO_2eq/year\)`
+
+#### 💰 Economic Assessment
+- **Investment:** CapEx (€)
+- **Maintenance:** €/year
+- **Financial Savings:** €/year
+]
+]
+
+
+???
+# Analysis of Barcelona’s Current Solar Dashboard
+
+### 1. *Resource Potential*
+
+  --**Incident Solar Radiation:** Currently provided as a qualitative rating (e.g., "Very Good"). 
+
+  --**Solar Irradiated Surface Area:** The total roof area receiving effective sunlight (`\(m^2\)`) 
+
+### 2. *Performance Data*
+
+ --**Effective Usable Area:** Net rooftop area available for PV installation after general setbacks. 
+
+ --**Installable Capacity:** Potential peak power output measured in `\(kW\)`. 
+
+ --**Annual Energy Generation:** Estimated yearly electricity production in `\(kWh/year\)` 
+
+ --**Common Area Consumption Coverage:** Indicates that the generation covers more than `\(100\%\)` of the building's shared areas' energy needs. 
+
+### 3. *Environmental Impact* 
+
+ --**GHG Emissions Savings:** Measured in `\(kgCO_2eq/year\)` to align with SDG 13 (Climate Action). 
+
+### 4. *Economic Assessment* 
+
+ --**Estimated Investment Cost:** Initial capital expenditure (`\(€\)`) for the installation. 
+
+ --**Estimated Maintenance Cost:** Yearly operational expenses (`\(€/year\)`) 
+
+ --**Estimated Financial Savings:** Annual reduction in electricity bills (`\(€/year\)`). 
+ 
+---
+class: inverse, center, middle
+# Research Question: 4 GAPs
+
+--
+### 1 The "Static" Gap: 
+Current data dashboard provides a 'snapshot' of theoretical potential but cannot monitor the actual progress of solar installations in real-time. 
+
+(Without knowing what is already "on the roof," the city cannot track its progress toward Global Development Goals (e.g., SDG 7).) 
+--
+
+### 2 The "Precision" Gap: 
+Small obstacles (chimneys, HVAC) are often ignored, leading to a 20% overestimation of usable area. (resulting in unrealistic financial expectations for citizens and flawed energy planning for the city.) 
+--
+
+---
+class: inverse, center, middle
+# Research Question: 4 GAPs
+--
+
+### 3 The "Integration" Gap:  
+The dashboard does not place Barcelona in a broader background context (e.g., comparable spatial and policy indicators).
+--
+
+### 4 The "Future" Gap:
+The dashboard provides limited support for understanding future development potential.
+
+---
+# Our Solution
+
+1. Use remote sensing data to reduce the cost and turnaround time of data updates.
+2. Use Machine Learning methods to better understand the current solar panel distribution.
+3. Fit Barcelona into a broader policy context by providing additional policy-relevant layers.
+4. Add more ways to calculate and prioritise the huge potential rooftop area.
+
+???
+# Analysis of Barcelona’s Current Solar Dashboard
+
+### 1. *Resource Potential*
+
+  --**Incident Solar Radiation:** Currently provided as a qualitative rating (e.g., "Very Good"). 
+
+  --**Solar Irradiated Surface Area:** The total roof area receiving effective sunlight (`\(m^2\)`) 
+
+### 2. *Performance Data*
+
+ --**Effective Usable Area:** Net rooftop area available for PV installation after general setbacks. 
+
+ --**Installable Capacity:** Potential peak power output measured in `\(kW\)`. 
+
+ --**Annual Energy Generation:** Estimated yearly electricity production in `\(kWh/year\)` 
+
+ --**Common Area Consumption Coverage:** Indicates that the generation covers more than `\(100\%\)` of the building's shared areas' energy needs. 
+
+### 3. *Environmental Impact* 
+
+ --**GHG Emissions Savings:** Measured in `\(kgCO_2eq/year\)` to align with SDG 13 (Climate Action). 
+
+### 4. *Economic Assessment* 
+
+ --**Estimated Investment Cost:** Initial capital expenditure (`\(€\)`) for the installation. 
+
+ --**Estimated Maintenance Cost:** Yearly operational expenses (`\(€/year\)`) 
+
+ --**Estimated Financial Savings:** Annual reduction in electricity bills (`\(€/year\)`). 
+
+
+
+---
+class: reverse, center, middle
+# Dashboard Redesign   
+
+--
+### Static---Dynamic  
+
+--
+### Theoretical---Practical  
+
+--
+### Isolated---Intergrated  
+ 
+???
+"While Barcelona’s current dashboard relies on static geometric estimations (e.g., gross rooftop area), our Smart Plugin integrates VHR (Very High Resolution) imagery and LiDAR point clouds. By deploying Deep Learning segmentation, we verify 'true availability' by filtering out micro-obstacles (HVAC, chimneys) and existing PV panels, thereby providing a high-fidelity mapping of the Net Potential Expansion Area."
+
+
+---
+# Workflow
+&lt;img src="images/workflow_final.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 10: Model Workflow
+&lt;/p&gt;
+
+---
+# Methodology - Step 1.1: U-net
+
+### **1. Symmetric Encoder-Decoder Structure**: 
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;b&gt;Contracting Path (Encoder)&lt;/b&gt;: Captures multi-scale spectral and geometric features of PV panels through deep feature extraction.
+  
+  &lt;li&gt;&lt;b&gt;Extensive Path (Decoder)&lt;/b&gt;: Recovers feature maps to original spatial resolution, enabling centimeter-level precision in localization.
+&lt;/ul&gt;
+
+### **2. Cross-Scale Skip Connections**
+        
+### **3. Robustness in Complex Urban Environments**
+
+### **4. End-to-End High-Efficiency Mapping**
+
+---
+# Methodology - Step 1.1: U-net
+&lt;img src="images/U-net.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 11: Results of U-net model (Source: &lt;a href="https://www.mdpi.com/2076-3417/11/14/6524"&gt; Pérez-González et.al.,(2021) &lt;/a&gt;) 
+&lt;/p&gt;
+---
+# Methodology - Step 1.1: U-net
+&lt;img src="images/U-net1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 12: Results of U-net model (Source: &lt;a href="https://www.mdpi.com/2076-3417/11/14/6524"&gt; Pérez-González et.al.,(2021) &lt;/a&gt;) 
+&lt;/p&gt;
+
+---
+# Methodology - Step 1.2: OBIA
+**1. Multiresolution Segmentation** 
+  - Aggregates spectrally similar pixels into geographically meaningful objects to mitigate "salt-and-pepper" noise.
+        
+**2. Geometric Constraints**
+  - Leverages physical attributes—including aspect ratio, rectangularity, and area—to filter out non-PV entities (e.g., circular water tanks).
+        
+**3. Spectral-Spatial Integration**
+  - Evaluates object regularity alongside spectral signatures to significantly reduce false-positive rates.
+        
+**4. Vectorized Output** 
+  - Facilitates the direct export of GIS-compliant polygonal boundaries, streamlining precise surface area calculations.
+
+---
+# Methodology- Step 1.2: OBIA
+
+.pull-left[
+&lt;img src="images/OBIA.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 13: Workflow of OBIA model
+&lt;/p&gt;]
+
+.pull-right[
+&lt;img src="images/OBIA_4.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure 14: Result of SLIC (Source: &lt;a href="https://jakubnowosad.com/ogh2021/#10"&gt; Ladisa et.al.,(2022) &lt;/a&gt;)
+&lt;/p&gt;]
+
+---
+# Methodology - Step2- Lidar Workflow
+&lt;img src="images/lidar1.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure: LiDAR Workflow (Source: &lt;a href="https://www.sciencedirect.com/science/article/abs/pii/S0960148117303324"&gt; Suomalainen et.al.,(2017) &lt;/a&gt;)
+&lt;/p&gt;
+
+
+---
+# Methodology -Step2-Solar Radiation
+&lt;img src="images/lidar2.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure: LiDAR Solar Detection (Source: &lt;a href="https://ars.els-cdn.com/content/image/1-s2.0-S0960148117303324-gr7.jpg"&gt; Els-cdn.com. (2017) &lt;/a&gt;)
+&lt;/p&gt;
+
+---
+
+&lt;img src="images/lidar3.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure: xxx (Source: &lt;a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12262/122620K/Combining-OBIA-approach-and-machine-learning-algorithm-to-extract-photovoltaic/10.1117/12.2636451.full?tab=ArticleLinkCited"&gt; Ladisa et.al.,(2022) &lt;/a&gt;)
+&lt;/p&gt;
+
+---
+# Methodology - Step 3: Multispectral Indices
+*Assessing Urban Resilience and Environmental Context using Sentinel-2*
+
+.panelset[
+.panel[.panel-name[🌿 NDVI (Vegetation)]
+**Definition:** The Normalized Difference Vegetation Index quantifies vegetation health and density by measuring the difference between near-infrared (which vegetation strongly reflects) and red light.  
+**Formula:** `\(NDVI = \frac{NIR - Red}{NIR + Red}\)`
+
+**Purpose in Project:** Identifies existing green roofs and street-level tree canopies. It helps exclude tree-shaded areas from PV potential and flags vegetation-poor neighborhoods (low NDVI) as high-priority zones for **"Biosolar" (PV + Green Roof) subsidies** to mitigate heat risk.
+
+**Literature Support:** [Weng et al. (2004)](https://doi.org/10.1016/j.rse.2003.11.005) demonstrated a strong negative correlation between NDVI and Land Surface Temperature (LST), validating NDVI as a crucial metric for mapping urban heat vulnerability.
+]
+
+.panel[.panel-name[💧 NDWI (Water)]
+**Definition:** The Normalized Difference Water Index enhances water features while eliminating soil and terrestrial vegetation features.  
+**Formula:** `\(NDWI = \frac{Green - NIR}{Green + NIR}\)`
+
+**Purpose in Project:** Acts as a strict **spatial mask**. Barcelona is a coastal city; NDWI automatically delineates the Mediterranean Sea, inland water bodies, and large rooftop swimming pools, ensuring these flat surfaces are not falsely identified as viable solar potential areas by the algorithms.
+
+**Literature Support:** [McFeeters (1996)](https://doi.org/10.1080/01431169608948714) introduced NDWI to successfully delineate open water features and suppress non-water noise in urban and environmental remote sensing.
+]
+
+.panel[.panel-name[🏗️ NDBI (Built-up)]
+**Definition:** The Normalized Difference Built-up Index highlights urban areas of barren soil, concrete, and asphalt, which reflect shortwave infrared (SWIR) stronger than NIR.  
+**Formula:** `\(NDBI = \frac{SWIR - NIR}{SWIR + NIR}\)`
+
+**Purpose in Project:** Maps the density of the built environment (e.g., the Eixample district). High NDBI strongly correlates with **severe Urban Heat Islands (UHI)**. Overlapping high NDBI with our "Solar Gap" allows the city to target rooftop PV as a physical shading mechanism to cool down the most exposed concrete blocks.
+
+**Literature Support:** [Guo et al. (2015)](https://doi.org/10.1016/j.landurbplan.2014.11.007) explored the quantitative relationship between urban biophysical composition and heat, proving that NDBI is the primary driver of increased Land Surface Temperature in dense urban clusters.
+]
+]
+
+---
+class: inverse, center, middle
+# NEW!!! Dashboard Show Time
+
+
+---
+
+&lt;style type="text/css"&gt;
+/* 7:3 */
+.left-70 { width: 63%; float: left; }
+.right-30 { width: 34%; float: right; }
+
+/* SLIDER */
+.scroll-box-dl {
+  height: 450px;
+  overflow-y: auto;
+  padding: 10px;
+  border-left: 1px solid #802222;
+  background: rgba(128, 34, 34, 0.03);
+}
+
+/* PIXEL */
+.img-container-dl {
+  width: 100%;
+  height: 340px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.img-container-dl img { transition: transform 0.3s ease; }
+
+/* BUTTON */
+.nav-btns-dl {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-btns-dl button {
+  font-size: 11px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #802222;
+  background: white;
+  border-radius: 4px;
+}
+
+.active-dl { background: #802222 !important; color: white; }
+
+/* FOLDER */
+.dl-details {
+  background: white;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  font-size: 0.8em;
+}
+.dl-details summary { font-weight: bold; cursor: pointer; color: #802222; }
+&lt;/style&gt;
+
+---
+
+## Step 1: Deep Learning Existing Asset Detection
+
+.left-70[
+### .center[DL Segmentation Layers]
+
+&lt;div class="img-container-dl"&gt;
+  &lt;img id="dl-display" src="images/01StatusLayerML.png" width="100%"&gt;
+&lt;/div&gt;
+
+&lt;div class="nav-btns-dl"&gt;
+  &lt;button class="active-dl" onclick="swapDL('images/01StatusLayerML.png', 'Layer 1: Input High Resolution Image', this)"&gt;01. Input&lt;/button&gt;
+  &lt;button onclick="swapDL('images/02StatusLayerMLOutcome.png', 'Layer 2: DL Segmentation', this)"&gt;02. Outcome&lt;/button&gt;
+  &lt;button onclick="swapDL('images/023StatusLayerMLOutcome.png', 'Layer 3: Final Detection- Results of U-net/OBIA', this)"&gt;03. Final&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="nav-btns-dl" style="margin-top:10px;"&gt;
+  &lt;button onclick="zoomDL(1.2)"&gt;🔍 Zoom In&lt;/button&gt;
+  &lt;button onclick="zoomDL(0.8)"&gt;🔍 Zoom Out&lt;/button&gt;
+  &lt;button onclick="resetDL()"&gt;🔄 Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;p id="dl-caption" style="text-align:center; font-size:0.8em; color:#802222; margin-top:5px; font-weight:bold;"&gt;Current: Layer 1: Input Status&lt;/p&gt;
+]
+
+.right-30[
+### .center[Key Metrics]
+
+.scroll-box-dl[
+
+&lt;details open class="dl-details"&gt;
+&lt;summary&gt;🔍 Asset Detection&lt;/summary&gt;
+
+- Existing PV Area: PV Area Detected(`\(m^2\)`)  
+
+&lt;br&gt;
+
+- Data Source: VHR Satellite Imagery
+
+&lt;br&gt;
+
+- Input Resolution: 0.3m per pixel
+
+&lt;br&gt;
+
+- Last Updated: 2024-09-20  
+
+&lt;/details&gt;
+
+
+&lt;details class="dl-details"&gt;
+&lt;summary&gt;⚡ Capacity Info&lt;/summary&gt;
+
+- Installed Capacity: 500 kW   
+
+&lt;br&gt;
+
+- Generation: 1,200 kWh/year
+
+&lt;br&gt;
+
+- Coverage:&gt; 100% needs
+
+&lt;/details&gt;
+
+&lt;details class="dl-details"&gt;
+&lt;summary&gt;🛠️ Model Config&lt;/summary&gt;
+
+- CNN: ResNet-50 / Swin-T
+
+
+&lt;/details&gt;
+
+]
+]
+
+&lt;script&gt;
+let dlScale = 1;
+const dlImg = document.getElementById('dl-display');
+const dlCap = document.getElementById('dl-caption');
+
+function swapDL(path, text, btn) {
+  dlImg.src = path;
+  dlCap.innerText = "Current: " + text;
+  resetDL();
+  document.querySelectorAll('.nav-btns-dl button').forEach(b =&gt; b.classList.remove('active-dl'));
+  btn.classList.add('active-dl');
+}
+
+function zoomDL(f) {
+  dlScale *= f;
+  dlImg.style.transform = "scale(" + dlScale + ")";
+}
+
+function resetDL() {
+  dlScale = 1;
+  dlImg.style.transform = "scale(1)";
+}
+&lt;/script&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+
+???
+ResNet-50 (Residual Network):
+Swin-T (Swin Transformer - Tiny):
+We chose ResNet-50 or Swin-T to balance inference speed and accuracy.
+---
+
+&lt;style type="text/css"&gt;
+/*  7-3 */
+.left-70 { width: 63%; float: left; }
+.right-30 { width: 34%; float: right; }
+
+/* SLIDER - LiDAR */
+.scroll-box-lidar {
+  height: 450px;
+  overflow-y: auto;
+  padding: 10px;
+  border-left: 1px solid #2980b9;
+  background: rgba(41, 128, 185, 0.03);
+}
+
+/* PIXEL */
+.img-container-lidar {
+  width: 100%;
+  height: 340px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* BUTTON */
+.nav-btns-lidar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.nav-btns-lidar button {
+  font-size: 11px;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid #2980b9;
+  background: white;
+  border-radius: 4px;
+}
+
+.active-lidar { background: #2980b9 !important; color: white; }
+
+/* FOLDER */
+.lidar-details {
+  background: white;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  font-size: 0.8em;
+}
+.lidar-details summary { font-weight: bold; cursor: pointer; color: #2980b9; }
+&lt;/style&gt;
+
+## Step 2: LiDAR Precision Refinement
+
+.left-70[
+### .center[3D Geometric Analysis]
+
+&lt;div class="img-container-lidar"&gt;
+  &lt;img id="lidar-display" src="images/032Shadeeve.png" width="100%"&gt;
+&lt;/div&gt;
+
+&lt;div class="nav-btns-lidar"&gt;
+  &lt;button onclick="swapL('images/03ShadeMor.png', 'Morning Shade', this)"&gt;🌅 Morning&lt;/button&gt;
+  &lt;button onclick="swapL('images/031Shadenoon.png', 'Noon Shade', this)"&gt;☀️ Noon&lt;/button&gt;
+    &lt;button class="active-lidar" onclick="swapL('images/032Shadeeve.png', 'Evening Shade', this)"&gt;🌆 Evening&lt;/button&gt;
+  &lt;button onclick="swapL('images/04Slope.png', 'Slope Analysis', this)"&gt;📐 Slope&lt;/button&gt;
+  &lt;button onclick="swapL('images/05Aspect.png', 'Aspect/Orientation', this)"&gt;🧭 Aspect&lt;/button&gt;
+  &lt;button onclick="swapL('images/06Elevation.png', 'Elevation', this)"&gt;⛰️ Elevation&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;p id="lidar-caption" style="text-align:center; font-size:0.8em; color:#2980b9; margin-top:5px; font-weight:bold;"&gt;Current: 032Shadeeve.png&lt;/p&gt;
+]
+
+.right-30[
+### .center[Key Metrics]
+
+.scroll-box-lidar[
+
+&lt;details open class="lidar-details"&gt;
+  &lt;summary&gt;📐 LiDAR Analysis&lt;/summary&gt;
+  - Average_Tilt: `\(13.5^\circ\)`
+  
+&lt;br&gt;
+  
+  - Azimuth: `\(155^\circ\)` (180°=South) 
+  
+&lt;br&gt;
+
+  - Shadows: Dynamic ray-tracing for 3D shadow casting.
+  
+&lt;br&gt; 
+  
+  - Detection obstacles: 10cm+ vertical rooftop appurtenances.  
+
+  
+&lt;details class="lidar-details"&gt;
+&lt;summary&gt;☀️ Effective Potential&lt;/summary&gt;
+
+  - Solar Hours:  10h (0-24)
+   
+&lt;br&gt;
+  
+  - Obstacle Ratio: 0.36 (0.00-1.00) 
+  
+&lt;br&gt;
+  
+  - Net Area: 12 `\(m^2\)`  
+
+&lt;/details&gt;
+
+]
+]
+
+&lt;script&gt;
+function swapL(path, name, btn) {
+  document.getElementById('lidar-display').src = path;
+  document.getElementById('lidar-caption').innerText = "Layer: " + path.split('/').pop();
+  document.querySelectorAll('.nav-btns-lidar button').forEach(b =&gt; b.classList.remove('active-lidar'));
+  btn.classList.add('active-lidar');
+}
+&lt;/script&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+
+---
+
+&lt;style type="text/css"&gt;
+/*  7-3  */
+.left-70 { width: 63%; float: left; }
+.right-30 { width: 34%; float: right; }
+
+/* SLIDER - API */
+.scroll-box-api {
+  height: 450px;
+  overflow-y: auto;
+  padding: 10px;
+  border-left: 1px solid #27ae60;
+  background: rgba(39, 174, 96, 0.03);
+}
+
+/* PIXEL */
+.img-container-api {
+  width: 100%;
+  height: 340px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* BUTTON */
+.nav-btns-api {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.nav-btns-api button {
+  font-size: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid #27ae60;
+  background: white;
+  border-radius: 4px;
+}
+
+.active-api { background: #27ae60 !important; color: white; }
+
+/* FOLDER */
+.api-details {
+  background: white;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  font-size: 0.8em;
+}
+.api-details summary { font-weight: bold; cursor: pointer; color: #27ae60; }
+&lt;/style&gt;
+
+## Step 3: Syn API &amp; Spectral Analysis
+
+.left-70[
+### .center[Multispectral Index &amp; Land Use]
+
+&lt;div class="img-container-api"&gt;
+  &lt;img id="api-display" src="images/ndvi2024.jpeg" width="100%"&gt;
+&lt;/div&gt;
+
+&lt;div class="nav-btns-api"&gt;
+  &lt;button class="active-api" onclick="swapAPI('images/ndvi2024.jpeg', 'NDVI (Vegetation Index)', this)"&gt;🌿 NDVI&lt;/button&gt;
+  &lt;button onclick="swapAPI('images/ndbi2024.jpeg', 'NDBI (Built-up Index)', this)"&gt;🏗️ NDBI&lt;/button&gt;
+  &lt;button onclick="swapAPI('images/ndwi2024.jpeg', 'NDWI (Water Index)', this)"&gt;💧 NDWI&lt;/button&gt;
+  &lt;button onclick="swapAPI('images/001LandUse.png', 'Land Use Classification', this)"&gt;🗺️ Land Use&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;p id="api-caption" style="text-align:center; font-size:0.8em; color:#27ae60; margin-top:5px; font-weight:bold;"&gt;Current: Layer: NDVI (Vegetation Index)&lt;/p&gt;
+]
+
+.right-30[
+### .center[Key Fields]
+
+.scroll-box-api[
+
+&lt;details open class="api-details"&gt;
+  &lt;summary&gt;🛰️ Spectral Reflectance&lt;/summary&gt;
+  - NDVI: Identifies green roof potential.
+&lt;br&gt; 
+
+  - NDBI: Distinguishes roof materials vs. soil.
+&lt;br&gt; 
+
+  - NDWI: Detects ponding or water features.
+&lt;/details&gt;
+
+&lt;details class="api-details"&gt;
+  &lt;summary&gt;🏠 Context&lt;/summary&gt;
+  - Roof_Material: Concrete, metal, or tile.
+&lt;br&gt;
+  - Land_Use_Class: Residential, Industrial, or Municipal classification.
+&lt;/details&gt;
+
+&lt;details class="api-details"&gt;
+  &lt;summary&gt;🏛️ Regulatory Constraints&lt;/summary&gt;
+  - Heritage_Status: 0/1 (Restricted zones)
+&lt;br&gt;
+  - Data_Confidence: API cross-validation score
+&lt;/details&gt;
+
+]
+]
+
+&lt;script&gt;
+function swapAPI(path, name, btn) {
+  document.getElementById('api-display').src = path;
+  document.getElementById('api-caption').innerText = "Layer: " + name;
+  document.querySelectorAll('.nav-btns-api button').forEach(b =&gt; b.classList.remove('active-api'));
+  btn.classList.add('active-api');
+}
+&lt;/script&gt;
+
+&lt;div style="clear: both;"&gt;&lt;/div&gt;
+
+
+---
+## Smart Solar Analytical Engine 
+
+
+&lt;style type="text/css"&gt;
+/*  7-3  */
+.left-70 { width: 63%; float: left; }
+.right-30 { width: 34%; float: right; }
+
+/* SLIDER */
+.summary-scroll {
+  height: 500px;
+  overflow-y: auto;
+  padding: 5px;
+  border-left: 2px solid #2c3e50;
+}
+
+.summary-details {
+  background: #f8f9fa;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  font-size: 0.75em;
+}
+
+.summary-details summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #2c3e50;
+  list-style: none;
+}
+
+.summary-details summary::-webkit-details-marker { display: none; }
+
+.summary-details[open] { background: #fff; border-left: 4px solid #e67e22; }
+
+.field-tag {
+  color: #e67e22;
+  font-weight: bold;
+  font-family: monospace;
+}
+&lt;/style&gt;
+
+.left-70[
+### .center[Integrated Solar Potential Map]
+
+&lt;img src="images/07Potential.png" width="100%" style="border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"&gt;
+
+.footnote[**Integration:** Fusion of RS, LiDAR, and Municipal API datasets.]
+]
+
+.right-30[
+### .center[Data Schema]
+
+.summary-scroll[
+
+&lt;details open class="summary-details"&gt;
+  &lt;summary&gt;🆔 Metadata&lt;/summary&gt;
+  - &lt;span class="field-tag"&gt;Building_ID:&lt;/span&gt; Municipal cadastre link.
+&lt;br&gt;
+  - &lt;span class="field-tag"&gt;Global_ID:&lt;/span&gt; Spanish national parcel code.
+&lt;br&gt;
+  - &lt;span class="field-tag"&gt;Confidence:&lt;/span&gt; RS reliability (0.0-1.0).
+&lt;/details&gt;
+
+&lt;details class="summary-details"&gt;
+  &lt;summary&gt;📏 Detection&lt;/summary&gt;
+  - &lt;span class="field-tag"&gt;PV_Area_Detected:&lt;/span&gt; Current panels (`\(m^2\)`).
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Effective_Potential:&lt;/span&gt; Net gap (`\(m^2\)`).
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Obstacle_Ratio:&lt;/span&gt; LiDAR point cloud filter.
+&lt;/details&gt;
+
+&lt;details class="summary-details"&gt;
+  &lt;summary&gt;📐 Attributes&lt;/summary&gt;
+  - &lt;span class="field-tag"&gt;Average_Tilt:&lt;/span&gt; Slope (`\(0.0-90.0^\circ\)`).
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Azimuth:&lt;/span&gt; Orientation (`\(0-359^\circ\)`).
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Solar_Hours:&lt;/span&gt; Ray-tracing (0-8,760h).
+&lt;/details&gt;
+
+&lt;details class="summary-details"&gt;
+  &lt;summary&gt;⚖️ Assessmnet &lt;/summary&gt;
+  - &lt;span class="field-tag"&gt;Solar_Gap_Score:&lt;/span&gt; Ranking priority.
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Social_Equity:&lt;/span&gt; Income + Poverty data.
+    &lt;br&gt;
+  - &lt;span class="field-tag"&gt; CO2_Offset_Annual:&lt;/span&gt; Estimated carbon reduction potential.
+      &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Economic_ROI:&lt;/span&gt; Dynamic return on investment period.
+
+&lt;/details&gt;
+
+&lt;details class="summary-details"&gt;
+  &lt;summary&gt;🧱  Context&lt;/summary&gt;
+  - &lt;span class="field-tag"&gt;Roof_Material:&lt;/span&gt; Spectral reflectance.
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Heritage_Status:&lt;/span&gt; Planning constraint.
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Land_Use:&lt;/span&gt; Million-AID classification.
+&lt;/details&gt;
+
+&lt;details class="summary-details"&gt;
+  &lt;summary&gt;📈 Monitoring &amp; Yield&lt;/summary&gt;
+  - &lt;span class="field-tag"&gt;Self_Sufficiency:&lt;/span&gt; IoT + RS fusion.
+  &lt;br&gt;
+  - &lt;span class="field-tag"&gt;Current_Gen_kW:&lt;/span&gt; Real-time output.
+&lt;/details&gt;
+
+]
+]
+
+---
+&lt;style type="text/css"&gt;
+/* 直接在页面内定义局部样式 */
+.formula-accordion { width: 100%; font-family: 'Arial', sans-serif; }
+
+.formula-accordion details {
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.formula-accordion summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.1em;
+}
+
+/* 颜色方案直接内嵌 */
+.orange-panel { border-left: 8px solid #e67e22 !important; color: #e67e22; }
+.green-panel  { border-left: 8px solid #27ae60 !important; color: #27ae60; }
+.pink-panel   { border-left: 8px solid #e91e63 !important; color: #e91e63; }
+.blue-panel   { border-left: 8px solid #2980b9 !important; color: #2980b9; }
+
+/* 展开时的背景微调 */
+.formula-accordion details[open] { background: #fcfcfc; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+/* 修正公式容器，确保不溢出 */
+.formula-content {
+  padding: 10px 0;
+  color: #333; /* 内容恢复黑色，方便阅读 */
+}
+&lt;/style&gt;
+
+
+## Multiple Index Synthesis
+
+
+.formula-accordion[
+
+&lt;details open class="orange-panel"&gt;
+
+&lt;summary&gt;1. Precision: Net Solar Potential Gap (`\(E_{gap}\)`)&lt;/summary&gt;
+&lt;div class="formula-content"&gt;
+`$$E_{gap} = [ (A_{roof} \times f_{obs}) - A_{exist} ] \times \left( \sum_{h=1}^{8760} G_{h} \times \text{Shade}_h \right) \times \eta_{sys} \times PR$$`
+&lt;/div&gt;
+&lt;/details&gt;
+
+&lt;details class="green-panel"&gt;&lt;summary&gt;2. Climate: Carbon Gap Tracking (`\(\Delta CO_2\)`)&lt;/summary&gt;
+
+&lt;div class="formula-content"&gt;
+`$$\Delta CO_2(t) = \text{Target}_{2030} - [ \sum (\text{Stock}_{detected} + \text{Potential}_{Egap}) \times EF_{grid} ]$$`
+&lt;/div&gt;
+&lt;/details&gt;
+
+&lt;details class="pink-panel"&gt;&lt;summary&gt;3. Economy: Dynamic ROI (`\(T_{payback}\)`)&lt;/summary&gt;
+
+&lt;div class="formula-content"&gt;
+
+`$$T_{payback} = \frac{Cost_{invest}}{\sum_{y=1}^{n} [ (Yield \times SSR \times P_{buy}) + (Yield \times (1-SSR) \times P_{sell}) - Cost_{maint} ]}$$`
+&lt;/div&gt;
+&lt;/details&gt;
+
+&lt;details class="blue-panel"&gt;&lt;summary&gt;4. Equity: Social Equity Index (`\(SEI\)`)&lt;/summary&gt;
+&lt;div class="formula-content"&gt;
+`$$SEI = \text{Norm}(Score_{gap}) \times \left( 1 - \frac{\text{District\_Income}}{\text{City\_Avg\_Income}} \right)$$`
+&lt;/div&gt;
+&lt;/details&gt;]
+
+.center[&lt;img src="images/EEE.png" width="70%" style="border-radius:12px; border: 1px solid #ddd;"&gt;]
+
+
+???
+&gt; **From Static to Dynamic:** Unlike the legacy dashboard, our engine uses **Auto-Syncing APIs** that update as the satellite passes. We don't just tell citizens how much sun hits their roof; we tell the City Council where to invest to achieve the highest **environmental, economic, and social return.**
+
+- Net Usable Area: `\(A_{roof} \times f_{obs}\)` (Derived from LiDAR)
+
+ &lt;br&gt;
+
+- **Stock Deduction:** `\(A_{exist}\)` (Detected via RS)
+
+- **3D Shadow Mask:** `\(Shade_h\)` (Binary hourly coefficient)
+
+- **Target:** 2030 Carbon goal (Barcelona Assembly)
+
+- **Emission Factor:** `\(EF_{grid}\)` (approx. 0.21 for Spain)
+
+- **SSR:** Self-Sufficiency Ratio (On-site consumption)
+
+- **Savings:** `\(P_{buy}\)` (€0.25/kWh) vs `\(P_{sell}\)` (€0.10/kWh)
+
+- **Gap Score:** Technical priority (`\(E_{gap} / A_{roof}\)`)
+
+- **Income Factor:** Census-based household income normalization
+
+
+**Problem:** Legacy maps ignore "micro-obstacles" and existing PV stock, leading to a 20% overestimation of capacity.
+**Outcome:** Ensures investment is based on **physically available space**, not theoretical geometry.
+
+**Problem:** Barcelona has a 2030 Neutrality target, but lacks a "Live" compass to measure progress.
+**Outcome:** Transitions the dashboard into a **Policy Compass** that shows the exact "Distance to Target" for municipal leaders.
+
+**Problem:** Static ROI estimates fail to account for energy behavior and "Self-Sufficiency."
+**Outcome:** Proves the financial case. It explains why a **school** (high daytime use) has a faster ROI than a **residential building** (high evening use).
+
+**Problem:** Solar subsidies often benefit wealthy districts, leaving vulnerable areas in "Energy Poverty."
+**Outcome:** Solves the **Injustice Gap**. A high `\(SEI\)` triggers a **"High Priority"** badge for 100% municipal funding, targeting "Solar-Ready, Income-Poor" zones.
+???
+## 3. Full API Schema (JSON)
+
+```json
+{
+  "Metadata": {
+    "Building_ID": "BCN_EIX_12345",
+    "Global_ID": "ES.CAT.BCN.4567890",
+    "Last_Updated": "2024-05-20T10:30:00Z",
+    "Data_Confidence_Score": 0.95
+  },
+
+  "Spatial_Geometry_EO": {
+    "Total_Roof_Area": 250.5,
+    "PV_Detected_Area": 45.0,
+    "Effective_Potential_Area": 120.5,
+    "Obstacle_Metrics": {
+      "Obstacle_Area": 37.5,
+      "Obstacle_Ratio": 0.15,
+      "Major_Obstacles": ["HVAC_Units", "Chimneys", "Parapet_Walls"]
+    },
+    "Technical_Specs": {
+      "Average_Tilt": 15.5,
+      "Azimuth_Orientation": 180,
+      "Solar_Hours_Annual": 1650
+    }
+  },
+
+  "Urban_Context_Attributes": {
+    "Roof_Classification": {
+      "Type": "Flat",
+      "Material": "Concrete",
+      "Is_Green_Roof": false
+    },
+    "Planning_Constraints": {
+      "Land_Use_Class": "Municipal",
+      "Heritage_Status": 0,
+      "District_Zoning": "Eixample_Conservation_Area"
+    }
+  },
+
+  "Energy_Performance_Monitoring": {
+    "Installed_System": {
+      "Estimated_Capacity_kWp": 9.0,
+      "Installation_Age_Category": "3-5_Years",
+      "Performance_Ratio_Est": 0.82
+    },
+    "Live_Flow_Pilot": {
+      "Current_Generation_kW": 12.5,
+      "Current_Building_Load_kW": 8.2,
+      "Self_Sufficiency_Ratio": 0.65,
+      "Grid_Export_kW": 4.3
+    }
+  },
+
+  "Policy_Impact_Indicators": {
+    "Solar_Gap_Score": 0.88,
+    "Social_Equity_Index": "High_Priority",
+    "Estimated_CO2_Offset_Annual": 4373.7,
+    "Economic_ROI_Years": 6.5
+  }
+}
+```
+
+---
+# Data Feasibility Analysis
+*Evaluating the strengths and limitations of our Earth Observation data sources.*
+
+### 🤖 Step 1: PV Mapping
+
+**Main data source: Airbus Pléiades Neo (30 cm)**
+
+**Advantage:** 30 cm RGB imagery plus infrared and Near Infrared (NIR) bands for PV vs. non-PV discrimination.
+
+**Disadvantage:** Higher acquisition cost.
+
+--
+
+**Supplementary data source: Cartographic and Geological Institute of Catalonia (ICGC)**
+
+**Advantage:** 25 cm RGB plus infrared imagery to improve classification detail and robustness.
+
+**Disadvantage:** Does not provide NIR, so generalisation may require careful transfer learning.
+
+---
+# Data Feasibility Analysis
+*Evaluating the strengths and limitations of our Earth Observation data sources.*
+
+### ⛰️ Step 2: Potential Layers
+
+**Main data source: ICGC LiDAR (Terrain &amp; Shadows)**
+
+**Advantage:** 
+1. Very high resolution surface elevation (DEM/DSM) and robust derivation of slope and aspect.
+2. Supports shadow modelling and incidence-geometry correction for solar potential calculations.
+
+**Disadvantage (Assumption):** LiDAR-derived features may be insufficient alone for complex rooftop cases, so ML + rule-based corrections are needed for final obstacle handling and PV mapping.
+
+---
+# Data Feasibility Analysis
+*Evaluating the strengths and limitations of our Earth Observation data sources.*
+
+### 🌍 Step 3: Context &amp; Indicators
+
+**Main data source: Sentinel-2**
+
+**Advantage:** 10 m imagery and derived indices (RGB, NDVI, NDBI, NDWI) available since 2015.
+
+**Disadvantage:** Limited spatial detail for rooftop-scale signatures; cloud availability issues.
+
+--
+
+**Supplementary data source: Sentinel-3**
+
+**Advantage:** Complementary thermal/heat-map style context at low cost (useful for broader environmental interpretation).
+
+**Disadvantage:** Coarser resolution; used for city-scale context rather than rooftop-level detection.
+
+---
+# Budget (£500,000 total)
+- Work Package 1: Project Management &amp; Scoping (10%) = £50,000
+- Work Package 2: EO Data &amp; Infrastructure (15%) = £75,000
+- Work Package 3: Data Pipeline Development (40%) = £200,000
+- Work Package 4: Integration &amp; Capacity Building (25%) = £125,000
+- Work Package 5: Contingency Fund (10%) = £50,000
+
+
+---
+# Other needed to purchase / prepare
+- Compute resources for training/inference (GPU/cloud) and data preprocessing (mosaicking, orthorectification).
+- Ground-truth validation and annotation effort for PV vs. non-PV rooftop cases (to calibrate confidence scoring).
+- GIS/workflow tooling for converting EO outputs into policy-ready vector/raster layers and API inputs.
+
+---
+# Project Timeline
+
+&lt;img src="images/Timeline1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 0;"&gt;
+Figure: Timeline
+&lt;/p&gt;
+
+PM: Project Manager
+
+GA: Geospatial Analyst
+
+SDA: Senior Data Analyst
+
+EC: Environmental Consultant
+
+BCN: Barcelona City Council
+
+IT/Dev: Web Developer
+
+---
+# Risk, Ethics and Limitations
+.panelset[
+.panel[.panel-name[Risks and Ethics]
+.pull-left[
+**Risks**
+- Budget Constraints and Cost Exceedance
+- Data Accuracy and Uncertainty
+- Technical and Implementation Barriers
+- Policy, Regulatory and Institutional Barriers
+]
+.pull-right[
+**Ethics**
+- Transparency and Accountability
+- Data Usage Consent, Privacy Concerns
+- Safety standards for rooftop installations
+]
+]
+
+.panel[.panel-name[Limitations]
+
+]
+]
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

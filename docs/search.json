@@ -164,7 +164,7 @@
     "href": "week8.html",
     "title": "7 Week8—Classifition 2",
     "section": "",
-    "text": "7.1 Summary",
+    "text": "7.1 Summary\nIn this session, we continued working on classification and were introduced to two more advanced methods to address the limitations of traditional pixel-based approaches. We also discussed how to evaluate classification accuracy in a more systematic way.",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>7 Week8---Classifition 2</span>"
     ]
@@ -184,7 +184,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Beijing Municipal Commission of Planning and Natural Resources. 2017.\n“Beijing Master Plan 2016–2035_municipal Urban Green Space\nStructure Planning Map (市域绿色空间结构规划图).” https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/zxzt/bjcsztgh20162035/202001/P020200102687734247160.jpg.\n\n\nBeijing Municipal Government. 2012. “Opinions on Implementing the\n200,000-Mu Afforestation Project in the Plain Area in 2012\n(北京市人民政府关于2012年实施平原地区20万亩造林工程的意见).” Jing\nZheng Fa [2012] No. 12. Beijing Municipal People’s Government. https://www.beijing.gov.cn/zhengce/zfwj/zfwj/szfwj/201905/t20190523_72603.html.\n\n\n———. 2017. “Beijing Master Plan 2016–2035 (北京城市总体规划\n2016–2035).” Beijing Municipal People’s Government. https://www.beijing.gov.cn/gongkai/guihua/wngh/cqgh/201907/t20190701_100008.html.\n\n\nNASA Applied Remote Sensing Training (ARSET). 2023. “Fundamentals\nof Remote Sensing: Passive & Active Sensors.” Lecture Notes.\nNASA Earthdata Online Presentation. https://www.earthdata.nasa.gov/s3fs-public/2025-07/ARSET-EPA2023-d1-fundamentals-slides.pdf.\n\n\nUnited Nations. 2015. “The 17 Sustainable Development\nGoals.” Department of Economic; Social Affairs, United Nations.\n2015. https://sdgs.un.org/zh/goals.\n\n\nYao, Na, Kaifang Zuo, Conghong Huang, Lvyi Ma, Liming Jia, Zhongkui Jia,\nand Hongjie Wang. 2026. “Beijing’s\nDual-Phase Urban Afforestation Projects: Impacts on Public Green Spaces\nAccessibility and Equity in the Plain Area.” Sustainable\nCities and Society 136: 107062. https://doi.org/10.1016/j.scs.2025.107062.",
+    "text": "50 North Spatial. 2023. “How to Pick the Best Supervised\nClassification Method?” 2023. https://www.50northspatial.org.ua/pick-best-supervised-classification-method/.\n\n\nBeijing Municipal Commission of Planning and Natural Resources. 2017.\n“Beijing Master Plan 2016–2035_municipal Urban Green Space\nStructure Planning Map (市域绿色空间结构规划图).” https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/zxzt/bjcsztgh20162035/202001/P020200102687734247160.jpg.\n\n\nBeijing Municipal Government. 2012. “Opinions on Implementing the\n200,000-Mu Afforestation Project in the Plain Area in 2012\n(北京市人民政府关于2012年实施平原地区20万亩造林工程的意见).” Jing\nZheng Fa [2012] No. 12. Beijing Municipal People’s Government. https://www.beijing.gov.cn/zhengce/zfwj/zfwj/szfwj/201905/t20190523_72603.html.\n\n\n———. 2017. “Beijing Master Plan 2016–2035 (北京城市总体规划\n2016–2035).” Beijing Municipal People’s Government. https://www.beijing.gov.cn/gongkai/guihua/wngh/cqgh/201907/t20190701_100008.html.\n\n\nEngine, Google Earth. 2023. “A Beginners’ Cookbook - GEE\nScreen.” 2023. https://developers.google.com/earth-engine/tutorials/community/beginners-cookbook.\n\n\nNASA Applied Remote Sensing Training (ARSET). 2023. “Fundamentals\nof Remote Sensing: Passive & Active Sensors.” Lecture Notes.\nNASA Earthdata Online Presentation. https://www.earthdata.nasa.gov/s3fs-public/2025-07/ARSET-EPA2023-d1-fundamentals-slides.pdf.\n\n\nNowosad, Jakub. 2021. “Open Geodata Hub: Analysis and\nVisualization of Geo-Data in R.” Open GeoHub Summer\nSchool. 2021. https://jakubnowosad.com/ogh2021/.\n\n\nTamiminia, Haifa, Bahram Salehi, Masoud Mahdianpari, Ladan Behzad-Asl,\nand Fariba Javan. 2020. “Google Earth Engine Cloud Computing\nPlatform for Remote Sensing Big Data Applications: A Comprehensive\nReview.” IEEE Journal of Selected Topics in Applied Earth\nObservations and Remote Sensing 13: 5330–50. https://doi.org/10.1109/JSTARS.2020.3021000.\n\n\nUnited Nations. 2015. “The 17 Sustainable Development\nGoals.” Department of Economic; Social Affairs, United Nations.\n2015. https://sdgs.un.org/zh/goals.\n\n\nYao, Na, Kaifang Zuo, Conghong Huang, Lvyi Ma, Liming Jia, Zhongkui Jia,\nand Hongjie Wang. 2026. “Beijing’s\nDual-Phase Urban Afforestation Projects: Impacts on Public Green Spaces\nAccessibility and Equity in the Plain Area.” Sustainable\nCities and Society 136: 107062. https://doi.org/10.1016/j.scs.2025.107062.",
     "crumbs": [
       "References"
     ]
@@ -354,9 +354,119 @@
     "href": "week7.html#cart",
     "title": "6 Week7—Classification 1",
     "section": "6.1.1 CART",
-    "text": "6.1.1 CART\nFollowing the introductory session on GEE in the last class, this week we learned about machine learning in GEE, which helped us better connect different parts of the course.\nIn the first part of the lecture, we were introduced to the basic concepts of machine learning. We first learned about decision trees as a general method. They are similar to flowcharts, where decisions are made through a series of yes-or-no questions. CART (Classification and Regression Trees) is a classic type of decision tree algorithm, which can be divided into classification trees and regression trees. In addition, a random forest consists of multiple decision trees, and all trees must be of the same type, either classification or regression, rather than a mixture of both.\n\nComparison of Machine Learning Models in Remote Sensing\n\n\n\n\n\n\n\n\n\nFeature\nClassification Tree\nRegression Tree\nRandom Forest\n\n\n\n\nCore Function\nDivides data into discrete categories.\nPredicts continuous numerical values.\nEnhances accuracy and stability via ensemble learning.\n\n\nOutput\nClass labels (e.g., Forest, Urban, Water).\nSpecific numbers (e.g., Temperature, Price, Biomass).\nMajority vote (Classification) or Average value (Regression).\n\n\nMeasurement Criteria\nGini Impurity or Information Entropy.\nMean Squared Error (MSE) or Sum of Squares.\nComprehensive error of individual trees, often using OOB Error.\n\n\nKey Characteristics\nEasy to visualize; logical “flowchart” structure.\nHandles non-linear relationships; captures numerical trends.\nHighly robust; prevents overfitting; handles high-dimensional data.\n\n\nLimitations\nProne to overfitting; sensitive to small data changes.\nStruggles with extreme values or sharp data “jumps”.\n“Black box” model; difficult to interpret individual logic.\n\n\nCase Study\nLand Cover: Distinguishing Central Park (Greenery) from Skyscrapers (Urban).\nRetrieval: Estimating Leaf Area Index (LAI) or Soil Moisture from band data.\nComplex Mapping: Combining NDVI, PCA, and Texture to map city-wide land types.\n\n\n\n\nTable 1: Comparison of Machine Learning Models in Remote Sensing\n\n\n\n\nFigure3. x\n\n\n\n\n\nFigure4. GEE Application (Tamiminia et al. 2020)",
+    "text": "6.1.1 CART\nFollowing the introductory session on GEE in the last class, this week we learned about machine learning in GEE, which helped us better connect different parts of the course.\nIn the first part of the lecture, we were introduced to the basic concepts of machine learning. We first learned about decision trees as a general method. They are similar to flowcharts, where decisions are made through a series of yes-or-no questions. CART (Classification and Regression Trees) is a classic type of decision tree algorithm, which can be divided into classification trees and regression trees. In addition, a random forest consists of multiple decision trees, and all trees must be of the same type, either classification or regression, rather than a mixture of both.\nBecause I didn’t understand the relationship between these trees at the beginning, although this part of the knowledge is relatively basic, I still put a table here specifically to show it.\n\nComparison of Machine Learning Models in Remote Sensing\n\n\n\n\n\n\n\n\n\nFeature\nClassification Tree\nRegression Tree\nRandom Forest\n\n\n\n\nCore Function\nDivides data into discrete categories\nPredicts continuous numerical values\nEnhances accuracy and stability via ensemble learning\n\n\nOutput\nClass labels (e.g., Forest, Urban, Water)\nSpecific numbers (e.g., Temperature, Price, Biomass)\nMajority vote (Classification) or Average value (Regression)\n\n\nMeasurement Criteria\nGini Impurity\nMean Squared Error (MSE)\nOOB Error\n\n\nAdvantages\nEasy to visualize; logical “flowchart” structure\nHandles non-linear relationships; captures numerical trends\nHighly robust; prevents overfitting; handles high-dimensional data\n\n\nLimitations\nProne to overfitting; sensitive to small data changes\nStruggles with extreme values or sharp data “jumps”\n“Black box” model; difficult to interpret individual logic\n\n\nApplication\nLand Cover: Distinguishing Central Park (Greenery) from Skyscrapers (Urban)\nRetrieval: Estimating Leaf Area Index (LAI) or Soil Moisture from band data\nComplex Mapping: Combining NDVI, PCA, and Texture to map city-wide land types\n\n\n\n\nTable 1: Comparison of Machine Learning Models in Remote Sensing\n\nIn this process, I think one of the most important issues is overfitting. When we train a machine learning model, we want it to capture the main patterns in the data, but at the same time we don’t want the model to “learn too rigidly”. In other words, it should not fit every single sample too perfectly. Although this may give very good results on the training data, it actually reduces the model’s ability to generalize and makes it hard to apply to new data.\nSo when overfitting happens, we need to control the growth of the decision tree, for example by limiting its depth or pruning some less important branches, so that the model becomes simpler and more robust.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#unsupervised-and-supervised",
+    "href": "week7.html#unsupervised-and-supervised",
+    "title": "6 Week7—Classification 1",
+    "section": "6.1.2 Unsupervised and Supervised",
+    "text": "6.1.2 Unsupervised and Supervised\n\nComparison of Supervised and Unsupervised Learning in Remote Sensing\n\n\n\n\n\n\n\n\nDimension\nSupervised Learning\nUnsupervised Learning\n\n\n\n\nDefinition\nUses known training samples to build a model, then classifies unknown pixels\nAutomatically clusters pixels based on spectral similarity without prior knowledge\n\n\nCore Features\nRequires manual selection of Training Sites;  Classes are defined before classification\nAlgorithm finds natural groupings;  Clusters are identified first, then manually labeled after\n\n\nAdvantages\nHigh Accuracy: Customizable to specific research goals; Results directly correspond to real land cover\nHigh Automation: No time-consuming sampling; Discovery: Can identify subtle spectral differences humans might miss\n\n\nDisadvantages\nLabor Intensive: Manual sampling is slow and subjective;  Sample Dependent: Errors in training lead to map-wide errors\nHard to Control: Clusters may not match real-world logic (e.g., shadows mixed with water);  Post-processing: Heavy manual labeling required\n\n\nCommon Algorithms\nMaximum Likelihood (MLC),  Random Forest (RF),  Support Vector Machine (SVM),  Neural Networks\nK-means,  ISODATA,  DBSCAN\n\n\nApplications\nPrecise Land Use Mapping: Distinguishing Urban vs. Residential; Change Detection\nExploratory Analysis: Large-scale surveys; areas where ground truth/reference data is unavailable\n\n\n\n\nTable 2: Comparison of Supervised and Unsupervised Learning in Remote Sensing",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#support-vector-machine-svm",
+    "href": "week7.html#support-vector-machine-svm",
+    "title": "6 Week7—Classification 1",
+    "section": "6.1.3.2 Support Vector Machine (SVM)",
+    "text": "6.1.3.2 Support Vector Machine (SVM)\n\n\n\n\n\n\nFigure 8.2: Figure 1.Supervised classification algorithm selection (50 North Spatial 2023)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#maximum-likelihood",
+    "href": "week7.html#maximum-likelihood",
+    "title": "6 Week7—Classification 1",
+    "section": "6.1.3.1 Maximum likelihood",
+    "text": "6.1.3.1 Maximum likelihood\nThe Maximum Likelihood method is a probability-based classifier that depends on the mean and variance of each class. It assumes that the training samples of each land cover type follow a normal distribution in spectral space. Then it calculates the probability of each pixel belonging to different classes and assigns it to the class with the highest probability.\nSometimes we may notice cases where a pixel appears closer to class A in feature space but is still classified as class B. In this situation, we need to consider that maybe class B has a larger variance, which increases its probability in the calculation.\n\nLimitation：Real-world data are often complex and do not always follow a normal distribution. When this assumption is violated, the performance of the Maximum Likelihood method can decrease, e.g.: SAR data.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week8.html#application-in-group-assignments",
+    "href": "week8.html#application-in-group-assignments",
+    "title": "7 Week8—Classifition 2",
+    "section": "7.2.1 Application in group assignments",
+    "text": "7.2.1 Application in group assignments\nFor our group project, we are working on improving an existing solar panel dashboard for Barcelona. The current dashboard is mainly based on manually collected CSV data and provides an estimation of rooftop solar potential, but it lacks detailed information about existing solar panels. Therefore, we plan to use commercial Earth observation data to identify the location, size, and potential capacity of existing solar panels. We also aim to combine this with radar-based 3D data to identify rooftops with high potential for future installation. The overall project workflow is shown below.\n\n\n\n\nIn this project, I am mainly responsible for the methodology part. For solar panel detection, we initially used a U-Net model. After generating a city-wide raster map, I plan to apply the OBIA method introduced in class to further extract more accurate vector boundaries.\nIn this process, OBIA mainly involves two steps. First, we use SLIC (Simple Linear Iterative Clustering) to divide the original 30 cm resolution image into small “blocks”. Then, in the feature-based filtering stage, we not only apply constraints on geometric features and spatial relationships, but also incorporate LiDAR data for further analysis. For example, we can set a threshold for object height. If the height is zero, we treat it as a misclassification and remove it. In the end, only areas that meet specific height and slope conditions are retained.\n\n\n\n\n\n\nFigure 2.OBIA workflow in our Pre\n\n\n\n\n\n\n\nFigure 3.SLIC Process(Nowosad 2021)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>7 Week8---Classifition 2</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#two-main-methods",
+    "href": "week7.html#two-main-methods",
+    "title": "6 Week7—Classification 1",
+    "section": "6.1.3 Two main methods",
+    "text": "6.1.3 Two main methods",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week8.html#section",
+    "href": "week8.html#section",
+    "title": "7 Week8—Classifition 2",
+    "section": "7.1.3",
+    "text": "7.1.3",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>7 Week8---Classifition 2</span>"
+    ]
+  },
+  {
+    "objectID": "week8.html#subpixel-analysis",
+    "href": "week8.html#subpixel-analysis",
+    "title": "7 Week8—Classifition 2",
+    "section": "7.1.2 Subpixel Analysis",
+    "text": "7.1.2 Subpixel Analysis",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>7 Week8---Classifition 2</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#how-to-choose-an-appropriate-method",
+    "href": "week7.html#how-to-choose-an-appropriate-method",
+    "title": "6 Week7—Classification 1",
+    "section": "6.1.3.1 How to choose an appropriate method",
+    "text": "6.1.3.1 How to choose an appropriate method\nAt this stage, we learned that supervised learning methods can generally be divided into parametric (assuming the data follow a normal distribution) and non-parametric approaches (do not need follow a normal distribution). A typical example of the former is the Maximum Likelihood method, while the latter includes commonly used models such as Support Vector Machines (SVM) and neural networks. I found this part quite confusing at first because there are so many different methods, but the diagram below helped me develop a better understanding how to choose an appropriate method in different situations.\n\n\n\n\n\n\nFigure 8.1: Figure 1.Supervised classification algorithm selection (50 North Spatial 2023)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#maximum-likelihood-svm",
+    "href": "week7.html#maximum-likelihood-svm",
+    "title": "6 Week7—Classification 1",
+    "section": "6.1.3.2 Maximum likelihood & SVM",
+    "text": "6.1.3.2 Maximum likelihood & SVM\n\n\n\n\n\n\n\n\nFeature\nMaximum likelihood\nSupport Vector Machine (SVM)\n\n\n\n\nDefinition\nUsing probability theory, assign pixels to the maximum probability terrain type displayed in the histogram\nFind the Maximum Margin hyperplane that can separate training data of different categories\n\n\nAdvantage\nThe effect is excellent when the samples follow a normal distribution and are not correlated with each other\nStrong generalization ability: can reduce errors in unseen data;  Capable of handling small samples and high-dimensional complex data\n\n\nLimitation\nIf the spectral distribution of land cover is not normal, the accuracy will be very poor\nMultiple adjustments of hyperparameters are required for testing during model training, resulting in increased computational costs\n\n\nApplication\nTraditional land cover classification;  A region with simple and evenly distributed spectral features\nComplex urban form detection;  Multi source data fusion classification (e.g.: band+texture+terrain)\n\n\n\n\nTable 3: Comparison of Maximum likelihood & SVM",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#practical",
+    "href": "week7.html#practical",
+    "title": "6 Week7—Classification 1",
+    "section": "6.1.3 Practical",
+    "text": "6.1.3 Practical\nIn this practical, I moved my study area from Shenzhen to my hometown, Taiyuan, which is a typical industrial city in northern China. I also chose to focus on bands B2, B3, B4, B8, B11, and B12. This is because, compared to vegetation-rich Shenzhen, Taiyuan has a lot of loess hills and bare land, so this band combination works better for distinguishing built-up areas, grassland, and vegetation.\n\n\n\n\n\n\nFigure 2.Taiuyan_original_image\n\n\n\n\n\n\n\nFigure 3. Taiuyan_Cart\n\n\n\n\n\nThen, I applied the classification approach that I had adjusted in the practical to Taiyuan. The CART result was still reasonably clear, but I found that the object-based random forest performed much worse than it did in Shenzhen. One issue was that the already limited sample size became even smaller after splitting, which caused the model to degrade. At this stage, the model clearly lost its ability to make good predictions. The result looked much more blurred than before, and was even worse than the CART output.\n\n\n\n\n\n\nFigure 2.Taiuyan_RF\n\n\n\n\n\n\n\nFigure 3. Taiuyan_RF_pixcel\n\n\n\n\n\nLater, I switched to pixel-based random sampling. This allowed the model to access more pixel-level information within each polygon and improved the training process. As a result, the final model achieved an accuracy of 92% in GEE.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
+    ]
+  },
+  {
+    "objectID": "week8.html#section-1",
+    "href": "week8.html#section-1",
+    "title": "7 Week8—Classifition 2",
+    "section": "7.2.2",
+    "text": "7.2.2",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>7 Week8---Classifition 2</span>"
     ]
   }
 ]
