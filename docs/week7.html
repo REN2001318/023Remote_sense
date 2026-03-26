@@ -198,9 +198,12 @@ div.csl-indent {
   <li><a href="#two-main-methods" id="toc-two-main-methods" class="nav-link" data-scroll-target="#two-main-methods">6.1.3 Two main methods</a></li>
   <li><a href="#how-to-choose-an-appropriate-method" id="toc-how-to-choose-an-appropriate-method" class="nav-link" data-scroll-target="#how-to-choose-an-appropriate-method">6.1.3.1 How to choose an appropriate method</a></li>
   <li><a href="#maximum-likelihood-svm" id="toc-maximum-likelihood-svm" class="nav-link" data-scroll-target="#maximum-likelihood-svm">6.1.3.2 Maximum likelihood &amp; SVM</a></li>
-  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">6.1.3 Practical</a></li>
   </ul></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">6.2 Application</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">6.2 Application</a>
+  <ul class="collapse">
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">6.2.1 Practical</a></li>
+  <li><a href="#flood-monitoring" id="toc-flood-monitoring" class="nav-link" data-scroll-target="#flood-monitoring">6.2.2 Flood monitoring</a></li>
+  </ul></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">6.3 Reflection</a></li>
   </ul>
 </nav>
@@ -417,8 +420,11 @@ Figure&nbsp;8.1: Figure 1.Supervised classification algorithm selection <span cl
 <strong>Table 3: Comparison of Maximum likelihood &amp; SVM</strong>
 </center>
 </section>
+</section>
+<section id="application" class="level1">
+<h1>6.2 Application</h1>
 <section id="practical" class="level2">
-<h2 class="anchored" data-anchor-id="practical">6.1.3 Practical</h2>
+<h2 class="anchored" data-anchor-id="practical">6.2.1 Practical</h2>
 <p>In this practical, I moved my study area from Shenzhen to my hometown, Taiyuan, which is a typical industrial city in northern China. I also chose to focus on bands B2, B3, B4, B8, B11, and B12. This is because, compared to vegetation-rich Shenzhen, Taiyuan has a lot of loess hills and bare land, so this band combination works better for distinguishing built-up areas, grassland, and vegetation.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
@@ -447,7 +453,7 @@ Figure&nbsp;8.1: Figure 1.Supervised classification algorithm selection <span cl
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/7_TY_3.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2.Taiuyan_RF</figcaption>
+<figcaption>Figure 4.Taiuyan_RF</figcaption>
 </figure>
 </div>
 </div>
@@ -455,7 +461,7 @@ Figure&nbsp;8.1: Figure 1.Supervised classification algorithm selection <span cl
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/7_TY_4.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 3. Taiuyan_RF_pixcel</figcaption>
+<figcaption>Figure 5. Taiuyan_RF_pixcel</figcaption>
 </figure>
 </div>
 </div>
@@ -463,27 +469,45 @@ Figure&nbsp;8.1: Figure 1.Supervised classification algorithm selection <span cl
 </div>
 <p>Later, I switched to pixel-based random sampling. This allowed the model to access more pixel-level information within each polygon and improved the training process. As a result, the final model achieved an accuracy of 92% in GEE.</p>
 </section>
-</section>
-<section id="application" class="level1">
-<h1>6.2 Application</h1>
-<div id="fig-algorithm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/7_kkk.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.1: Figure 1.Supervised classification algorithm selection [@]
-</figcaption>
+<section id="flood-monitoring" class="level2">
+<h2 class="anchored" data-anchor-id="flood-monitoring">6.2.2 Flood monitoring</h2>
+<p>SVM is not only used for urban land use classification, but can also be applied to more complex surface conditions. For example, Ahmed M. Youssef and his colleagues <span class="citation" data-cites="sharma2023comparative">(<a href="references.html#ref-sharma2023comparative" role="doc-biblioref">Sharma et al. 2023</a>)</span> used SVM to map flood susceptibility in the catchment area of Taif, Saudi Arabia. They divided the study area into five classes: very low, low, moderate, high, and very high, which can provide useful guidance for future urban development. In their study, they included 13 influencing factors and compared SVM with a bivariate model (FR) and a multivariate model (LR). The results show that SVM performs better in handling multiple variables and nonlinear relationships.</p>
+<p>However, I think this approach still has some limitations. Although the study uses multi-year remote sensing data, the model essentially works at the pixel level and only predicts the probability of flooding at each location. It does not consider the interactions between neighboring pixels, so it cannot fully capture how floods spread continuously in space. In other words, spatial autocorrelation is not taken into account. In this case, methods such as Convolutional Neural Network could be introduced, since convolutional kernels can incorporate information from surrounding pixels and help better represent spatial structures.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/7_flood.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.Multiple methods for analysis and comparison <span class="citation" data-cites="sharma2023comparative">(<a href="references.html#ref-sharma2023comparative" role="doc-biblioref">Sharma et al. 2023</a>)</span></figcaption>
 </figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/7_flood_1.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.Supervised classification algorithm selection <span class="citation" data-cites="sharma2023comparative">(<a href="references.html#ref-sharma2023comparative" role="doc-biblioref">Sharma et al. 2023</a>)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="reflection" class="level1">
 <h1>6.3 Reflection</h1>
+<p>In this session, we finally started working on remote sensing combined with machine learning for classification. However, while learning how to use these tools, I found myself going back to the reflection I had in the first week. Maybe because my undergraduate background is not in planning, I tend to pay more attention to details than some planning students (even though these details are not always that important).</p>
+<p>After this class, I feel that the current land classification methods we learned are still quite coarse. As someone who has done fieldwork and recorded vegetation structures in landscape studies, I have always hoped that there could be an open and free method to reduce the burden of manual data collection. For example, if we could apply GEE to classify landscape function and quality, and further break down urban green spaces into categories like “tree canopy”, “shrubs”, and “grassland”, it would help us better quantify the ecological performance of these spaces.</p>
+<p>Ideally, I would like this to go even further, such as identifying specific tree species or plant structure. However, based on the literature I have read, these classification approaches are usually applied to large-scale vegetation. Even I know forcefully distinguishing plant species is certainly feasible, but it requires more refined and diverse data (e.g: LiDAR). So, for small-scale and detailed plant identification, the resolution of free data is still a major limitation, and this is not just a technical issue.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Supervised" class="csl-entry" role="listitem">
 50 North Spatial. 2023. <span>“How to Pick the Best Supervised Classification Method?”</span> 2023. <a href="https://www.50northspatial.org.ua/pick-best-supervised-classification-method/">https://www.50northspatial.org.ua/pick-best-supervised-classification-method/</a>.
+</div>
+<div id="ref-sharma2023comparative" class="csl-entry" role="listitem">
+Sharma, Archana, Rahul Kumar, Amit Kumar, Ravinder Singh, and Ved Prakash Bakshi. 2023. <span>“A Comparative Assessment of Different Supervised Classification Algorithms for Land Use/Land Cover Mapping Using <span>Sentinel-2</span> Data.”</span> <em>Environmental Science and Pollution Research</em> 30 (2): 4121–37. <a href="https://doi.org/10.1007/s11356-022-23140-3">https://doi.org/10.1007/s11356-022-23140-3</a>.
 </div>
 </div>
 </section>

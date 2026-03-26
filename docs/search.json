@@ -453,8 +453,8 @@
     "objectID": "week7.html#practical",
     "href": "week7.html#practical",
     "title": "6 Week7—Classification 1",
-    "section": "6.1.3 Practical",
-    "text": "6.1.3 Practical\nIn this practical, I moved my study area from Shenzhen to my hometown, Taiyuan, which is a typical industrial city in northern China. I also chose to focus on bands B2, B3, B4, B8, B11, and B12. This is because, compared to vegetation-rich Shenzhen, Taiyuan has a lot of loess hills and bare land, so this band combination works better for distinguishing built-up areas, grassland, and vegetation.\n\n\n\n\n\n\nFigure 2.Taiuyan_original_image\n\n\n\n\n\n\n\nFigure 3. Taiuyan_Cart\n\n\n\n\n\nThen, I applied the classification approach that I had adjusted in the practical to Taiyuan. The CART result was still reasonably clear, but I found that the object-based random forest performed much worse than it did in Shenzhen. One issue was that the already limited sample size became even smaller after splitting, which caused the model to degrade. At this stage, the model clearly lost its ability to make good predictions. The result looked much more blurred than before, and was even worse than the CART output.\n\n\n\n\n\n\nFigure 2.Taiuyan_RF\n\n\n\n\n\n\n\nFigure 3. Taiuyan_RF_pixcel\n\n\n\n\n\nLater, I switched to pixel-based random sampling. This allowed the model to access more pixel-level information within each polygon and improved the training process. As a result, the final model achieved an accuracy of 92% in GEE.",
+    "section": "6.2.1 Practical",
+    "text": "6.2.1 Practical\nIn this practical, I moved my study area from Shenzhen to my hometown, Taiyuan, which is a typical industrial city in northern China. I also chose to focus on bands B2, B3, B4, B8, B11, and B12. This is because, compared to vegetation-rich Shenzhen, Taiyuan has a lot of loess hills and bare land, so this band combination works better for distinguishing built-up areas, grassland, and vegetation.\n\n\n\n\n\n\nFigure 2.Taiuyan_original_image\n\n\n\n\n\n\n\nFigure 3. Taiuyan_Cart\n\n\n\n\n\nThen, I applied the classification approach that I had adjusted in the practical to Taiyuan. The CART result was still reasonably clear, but I found that the object-based random forest performed much worse than it did in Shenzhen. One issue was that the already limited sample size became even smaller after splitting, which caused the model to degrade. At this stage, the model clearly lost its ability to make good predictions. The result looked much more blurred than before, and was even worse than the CART output.\n\n\n\n\n\n\nFigure 4.Taiuyan_RF\n\n\n\n\n\n\n\nFigure 5. Taiuyan_RF_pixcel\n\n\n\n\n\nLater, I switched to pixel-based random sampling. This allowed the model to access more pixel-level information within each polygon and improved the training process. As a result, the final model achieved an accuracy of 92% in GEE.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
     ]
@@ -467,6 +467,16 @@
     "text": "7.2.2",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>7 Week8---Classifition 2</span>"
+    ]
+  },
+  {
+    "objectID": "week7.html#flood-monitoring",
+    "href": "week7.html#flood-monitoring",
+    "title": "6 Week7—Classification 1",
+    "section": "6.2.2 Flood monitoring",
+    "text": "6.2.2 Flood monitoring\nSVM is not only used for urban land use classification, but can also be applied to more complex surface conditions. For example, Ahmed M. Youssef and his colleagues (Sharma et al. 2023) used SVM to map flood susceptibility in the catchment area of Taif, Saudi Arabia. They divided the study area into five classes: very low, low, moderate, high, and very high, which can provide useful guidance for future urban development. In their study, they included 13 influencing factors and compared SVM with a bivariate model (FR) and a multivariate model (LR). The results show that SVM performs better in handling multiple variables and nonlinear relationships.\nHowever, I think this approach still has some limitations. Although the study uses multi-year remote sensing data, the model essentially works at the pixel level and only predicts the probability of flooding at each location. It does not consider the interactions between neighboring pixels, so it cannot fully capture how floods spread continuously in space. In other words, spatial autocorrelation is not taken into account. In this case, methods such as Convolutional Neural Network could be introduced, since convolutional kernels can incorporate information from surrounding pixels and help better represent spatial structures.\n\n\n\n\n\n\nFigure 6.Multiple methods for analysis and comparison (Sharma et al. 2023)\n\n\n\n\n\n\n\nFigure 7.Supervised classification algorithm selection (Sharma et al. 2023)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>6 Week7---Classification 1</span>"
     ]
   }
 ]

@@ -67,7 +67,9 @@ I found this part quite confusing at first because there are so many different m
 <center>**Table 3: Comparison of Maximum likelihood & SVM**</center>
 
 
-## 6.1.3 Practical
+# 6.2 Application
+
+## 6.2.1 Practical
 
 In this practical, I moved my study area from Shenzhen to my hometown, Taiyuan, which is a typical industrial city in northern China. I also chose to focus on bands B2, B3, B4, B8, B11, and B12. This is because, compared to vegetation-rich Shenzhen, Taiyuan has a lot of loess hills and bare land, so this band combination works better for distinguishing built-up areas, grassland, and vegetation.
 
@@ -80,18 +82,32 @@ In this practical, I moved my study area from Shenzhen to my hometown, Taiyuan, 
 Then, I applied the classification approach that I had adjusted in the practical to Taiyuan. The CART result was still reasonably clear, but I found that the object-based random forest performed much worse than it did in Shenzhen. One issue was that the already limited sample size became even smaller after splitting, which caused the model to degrade. At this stage, the model clearly lost its ability to make good predictions. The result looked much more blurred than before, and was even worse than the CART output.
 
 ::: {layout-ncol="2"}
-![Figure 2.Taiuyan_RF ](images/7_TY_3.png)
+![Figure 4.Taiuyan_RF ](images/7_TY_3.png)
 
-![Figure 3. Taiuyan_RF_pixcel](images/7_TY_4.png)
+![Figure 5. Taiuyan_RF_pixcel](images/7_TY_4.png)
 :::
 
 Later, I switched to pixel-based random sampling. This allowed the model to access more pixel-level information within each polygon and improved the training process. As a result, the final model achieved an accuracy of 92% in GEE. 
 
-# 6.2 Application
+## 6.2.2 Flood monitoring
 
-![Figure 1.Supervised classification algorithm selection [@]](images/7_kkk.png){#fig-algorithm width="80%" fig-align="center"}
+SVM is not only used for urban land use classification, but can also be applied to more complex surface conditions. For example, Ahmed M. Youssef and his colleagues [@sharma2023comparative] used SVM to map flood susceptibility in the catchment area of Taif, Saudi Arabia. They divided the study area into five classes: very low, low, moderate, high, and very high, which can provide useful guidance for future urban development. In their study, they included 13 influencing factors and compared SVM with a bivariate model (FR) and a multivariate model (LR). The results show that SVM performs better in handling multiple variables and nonlinear relationships.
 
+However, I think this approach still has some limitations. Although the study uses multi-year remote sensing data, the model essentially works at the pixel level and only predicts the probability of flooding at each location. It does not consider the interactions between neighboring pixels, so it cannot fully capture how floods spread continuously in space. In other words, spatial autocorrelation is not taken into account. In this case, methods such as Convolutional Neural Network could be introduced, since convolutional kernels can incorporate information from surrounding pixels and help better represent spatial structures.
+
+::: {layout-ncol="2"}
+
+![Figure 6.Multiple methods for analysis and comparison [@sharma2023comparative]](images/7_flood.png)
+
+![Figure 7.Supervised classification algorithm selection [@sharma2023comparative]](images/7_flood_1.png)
+
+:::
 
 # 6.3 Reflection
 
+In this session, we finally started working on remote sensing combined with machine learning for classification. However, while learning how to use these tools, I found myself going back to the reflection I had in the first week. Maybe because my undergraduate background is not in planning, I tend to pay more attention to details than some planning students (even though these details are not always that important).
+
+After this class, I feel that the current land classification methods we learned are still quite coarse. As someone who has done fieldwork and recorded vegetation structures in landscape studies, I have always hoped that there could be an open and free method to reduce the burden of manual data collection. For example, if we could apply GEE to classify landscape function and quality, and further break down urban green spaces into categories like “tree canopy”, “shrubs”, and “grassland”, it would help us better quantify the ecological performance of these spaces.
+
+Ideally, I would like this to go even further, such as identifying specific tree species or plant structure. However, based on the literature I have read, these classification approaches are usually applied to large-scale vegetation. Even I know forcefully distinguishing plant species is certainly feasible, but it requires more refined and diverse data (e.g: LiDAR). So, for small-scale and detailed plant identification, the resolution of free data is still a major limitation, and this is not just a technical issue.
 
