@@ -52,24 +52,9 @@ In this part, we cannot expect the results to have both high precision and high 
 
 <center>**Table 3: How to utilize**</center>
 
-### 7.1.2.2 Imbalanced data
+## 7.1.3 Practical
 
-
-
-### 7.1.2.4 ROC
-area
-
-
-## 7.1.3 Process (workflow)
-
-
-### 7.1.3.1  cross validation--spatial autocorrelation
-
-spatial cross validation
-
-## 7.1.4 Practical
-
-### 7.1.4.1 Sub-pixel analysis
+### 7.1.3.1 Sub-pixel analysis
 
 This week I decided to choose two areas as my research areas--- Daressalaam and Taiyuan. And I discovered something interesting.
 
@@ -80,50 +65,34 @@ I also noticed some obvious mosaic boundaries in the image. This might be relate
 
 
 ::: {layout-ncol="2"}
-![Figure 6.Daressalaam constrained fractions ](images/8_D_constrained_fractions.png)
+![Figure 1.Daressalaam constrained fractions ](images/8_D_constrained_fractions.png)
 
-![Figure 7.Taiyuan constrained fractions ](images/8_TY_constrained_fractions.png)
+![Figure 2.Taiyuan constrained fractions ](images/8_TY_constrained_fractions.png)
 :::
 
-### 7.1.4.2 OBIA
+### 7.1.3.2 OBIA
 
 For the OBIA results, although the segmentation with a seed value of 40 is still a bit coarse, I can already see clear differences. Daressalaam shows a radial urban pattern, where the boundaries between urban and vegetation areas are quite fragmented and mixed. In contrast, Taiyuan presents a more constrained basin structure, with a clearer boundary between the urban area and the surrounding mountains, and more regular object shapes. However, the overall result is still not as good as the random forest result from last week.
 
 This comparison suggests that the performance of OBIA is not only influenced by parameter settings, but also by the underlying urban landscape structure. When terrain provides strong constraints, object boundaries are easier to detect. But when the urban landscape is highly fragmented, these boundaries become much harder to define. 
 
-
-
 ::: {layout-ncol="2"}
 
-![Figure 6.Daressalaam OBIA ](images/8_D_classified_40.png)
+![Figure 3.Daressalaam OBIA ](images/8_D_classified_40.png)
 
-![Figure 7.Taiyuan OBIA ](images/8_TY_classified_40.png)
+![Figure 4.Taiyuan OBIA ](images/8_TY_classified_40.png)
 
 :::
 
-### 7.1.4.3 
-
-
-
-
-
-
-
-
-
 # 7.2 Application
 
+While reflecting on this practical, I realized that the idea of “adapting to local conditions” is actually widely recognised in the literature, and it made me rethink some of my previous assumptions.
 
+At the beginning, I tended to believe in a kind of “accuracy-first” mindset in remote sensing, assuming that higher resolution data and more advanced methods would always lead to better results. However, a study by Vivitskaia J. Tulloch [@Tulloch2017Tradeoffs] on coral reef conservation planning made me reconsider this view. It points out that although high-resolution data can reveal more detailed habitat information, it also increases the risk of misclassification and comes with significant time and financial costs. This made me realise that discussing “accuracy” without considering cost and real-world application is not meaningful. In some cases, a more practical solution that balances cost and local needs can be more valuable than pursuing maximum accuracy.
 
+When it comes to classification methods, the need for flexibility becomes even clearer. A study by Soe W. Myint [@Myint2011Perpixel] in Phoenix supports what I observed in my Taiyuan experiment. In complex urban environments, traditional pixel-based classification often struggles to distinguish between materials like rooftops, asphalt, and bare soil due to similar spectral signatures. His work shows that OBIA can address this issue by incorporating spatial relationships, which is exactly what I started to notice in this week's analysis.
 
-
-
-
-
-![Figure 1.Supervised classification algorithm selection [@]](images/7_supn.png){#fig-algorithm width="80%" fig-align="center"}
-
-## 7.2.2 
-
+So, these two studies helped me understand that remote sensing is not a fixed set of rules. Whether we are working with a structured and dry city like Taiyuan, a fragmented urban landscape like DaresSalaam, or a complex coral reef system, we need to adapt our methods to the context and carefully consider both cost and practical application.
 
 # 7.3 Reflection
 
@@ -142,7 +111,4 @@ I know that we often understand some patterns in theory, but going through the p
 
 This comparison has made me realize one thing: there is no such thing as a 'universal best algorithm,' only the 'most suitable strategy' for a specific local environment. For a northern city like Taiyuan, where urban buildings and bare soil look almost identical, relying solely on spectral data would definitely lead to failure. In this case, spatial structures (OBIA/Gradient) are essential to capturing the urban outlines.
 
-However, in a tropical city like DaresSalaam, where houses and trees are deeply intertwined, fragmented structures actually become noise. For that kind of landscape, using NDVI and spectral unmixing to break down the pixel components is the real 'secret weapon' for revealing the truth.
-
-
-
+However, in a tropical city like DaresSalaam, where houses and trees are deeply intertwined, fragmented structures actually become noise. For that kind of landscape, using NDVI and spectral unmixing to break down the pixel components is the appropriate method for revealing the truth.
