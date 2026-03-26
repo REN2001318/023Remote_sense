@@ -21,27 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -92,6 +72,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -187,19 +196,38 @@ div.csl-indent {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">7.1 Summary</a>
   <ul class="collapse">
-  <li><a href="#comparison-table-of-obia-and-subpixel-analysis" id="toc-comparison-table-of-obia-and-subpixel-analysis" class="nav-link" data-scroll-target="#comparison-table-of-obia-and-subpixel-analysis">7.1.1 Comparison Table of OBIA and Subpixel Analysis</a>
+  <li><a href="#obia-subpixel-analysis" id="toc-obia-subpixel-analysis" class="nav-link" data-scroll-target="#obia-subpixel-analysis">7.1.1 OBIA &amp; Subpixel Analysis</a>
   <ul class="collapse">
   <li><a href="#comparison-between-obia-and-sub-pixel-analysis" id="toc-comparison-between-obia-and-sub-pixel-analysis" class="nav-link" data-scroll-target="#comparison-between-obia-and-sub-pixel-analysis">Comparison between OBIA and Sub-pixel Analysis</a></li>
   </ul></li>
-  <li><a href="#subpixel-analysis" id="toc-subpixel-analysis" class="nav-link" data-scroll-target="#subpixel-analysis">7.1.2 Subpixel Analysis</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">7.1.3</a></li>
+  <li><a href="#accuracy-assessment" id="toc-accuracy-assessment" class="nav-link" data-scroll-target="#accuracy-assessment">7.1.2 Accuracy assessment</a>
+  <ul class="collapse">
+  <li><a href="#tpfpfntn" id="toc-tpfpfntn" class="nav-link" data-scroll-target="#tpfpfntn">7.1.2.1 TP/FP/FN/TN</a></li>
+  <li><a href="#indicator-application" id="toc-indicator-application" class="nav-link" data-scroll-target="#indicator-application">7.1.2.2 Indicator application</a></li>
+  <li><a href="#imbalanced-data" id="toc-imbalanced-data" class="nav-link" data-scroll-target="#imbalanced-data">7.1.2.2 Imbalanced data</a></li>
+  <li><a href="#roc" id="toc-roc" class="nav-link" data-scroll-target="#roc">7.1.2.4 ROC</a></li>
+  </ul></li>
+  <li><a href="#process-workflow" id="toc-process-workflow" class="nav-link" data-scroll-target="#process-workflow">7.1.3 Process (workflow)</a>
+  <ul class="collapse">
+  <li><a href="#cross-validationspatial-autocorrelation" id="toc-cross-validationspatial-autocorrelation" class="nav-link" data-scroll-target="#cross-validationspatial-autocorrelation">7.1.3.1 cross validation–spatial autocorrelation</a></li>
+  </ul></li>
+  <li><a href="#practical" id="toc-practical" class="nav-link" data-scroll-target="#practical">7.1.4 Practical</a>
+  <ul class="collapse">
+  <li><a href="#sub-pixel-analysis" id="toc-sub-pixel-analysis" class="nav-link" data-scroll-target="#sub-pixel-analysis">7.1.4.1 Sub-pixel analysis</a></li>
+  <li><a href="#obia" id="toc-obia" class="nav-link" data-scroll-target="#obia">7.1.4.2 OBIA</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">7.1.4.3</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">7.2 Application</a>
   <ul class="collapse">
-  <li><a href="#application-in-group-assignments" id="toc-application-in-group-assignments" class="nav-link" data-scroll-target="#application-in-group-assignments">7.2.1 Application in group assignments</a></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">7.2.2</a></li>
   </ul></li>
-  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">7.3 Reflection</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">7.3 Reflection</a>
+  <ul class="collapse">
+  <li><a href="#about-notes-and-tables" id="toc-about-notes-and-tables" class="nav-link" data-scroll-target="#about-notes-and-tables">About Notes and Tables…</a></li>
+  <li><a href="#interesting-attempt" id="toc-interesting-attempt" class="nav-link" data-scroll-target="#interesting-attempt">Interesting attempt</a></li>
+  <li><a href="#what-exactly-is-the-machine-monitoring" id="toc-what-exactly-is-the-machine-monitoring" class="nav-link" data-scroll-target="#what-exactly-is-the-machine-monitoring">What exactly is the machine monitoring</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -234,8 +262,9 @@ div.csl-indent {
 <section id="summary" class="level1">
 <h1>7.1 Summary</h1>
 <p>In this session, we continued working on classification and were introduced to two more advanced methods to address the limitations of traditional pixel-based approaches. We also discussed how to evaluate classification accuracy in a more systematic way.</p>
-<section id="comparison-table-of-obia-and-subpixel-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-table-of-obia-and-subpixel-analysis">7.1.1 Comparison Table of OBIA and Subpixel Analysis</h2>
+<section id="obia-subpixel-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="obia-subpixel-analysis">7.1.1 OBIA &amp; Subpixel Analysis</h2>
+<p>OBIA focuses on turning fragmented pixels into more meaningful and identifiable objects. In contrast, sub-pixel analysis looks at the opposite problem: when a single pixel is too complex, how can we break it down and understand what it contains, for example by estimating the proportion of different land cover types.</p>
 <section id="comparison-between-obia-and-sub-pixel-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="comparison-between-obia-and-sub-pixel-analysis">Comparison between OBIA and Sub-pixel Analysis</h3>
 <table class="caption-top table">
@@ -254,85 +283,240 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Concept</strong></td>
-<td style="text-align: left;">Instead of analyzing individual pixels, it groups adjacent pixels with similar spectral, shape, and textural characteristics into “objects” (Objects/Supercells).</td>
-<td style="text-align: left;">Assumes a single pixel is a “Mixed Pixel” (Mixel) composed of multiple land cover types (e.g., vegetation, water, soil) and aims to deconstruct the proportion of each component.</td>
+<td style="text-align: left;">Instead of analyzing individual pixels, it groups adjacent pixels with similar spectral, shape, and textural characteristics into “objects”</td>
+<td style="text-align: left;">Assumes a single pixel is a “Mixed Pixel” composed of multiple land cover types (e.g., vegetation, water, soil…) and aims to deconstruct the proportion of each component</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Method</strong></td>
-<td style="text-align: left;">Common algorithms include Simple Linear Iterative Clustering (SLIC); implemented via the <code>SuperCells</code> package in R; relies on iterating “minimum distance” and “color homogeneity” parameters.</td>
-<td style="text-align: left;">Primarily uses <strong>Linear Spectral Unmixing</strong>; selects pure “Endmembers” (e.g., 100% water) as a baseline to calculate the fractional weight of each component within a pixel (summing to 1).</td>
+<td style="text-align: left;"><strong>Process</strong></td>
+<td style="text-align: left;">(1) <strong>Split</strong>: Divide remote sensing data pixels into small bricks–Supercells (e.g.:SLIC) <br> (2) <strong>Classification</strong>: Filtering based on geometric features, spatial relationships, and LiDAR data…</td>
+<td style="text-align: left;">(1) Set pure “Endmembers” as the standard (e.g., 100% water) <br> (2)Calculate the proportion of different object categories in a grid based on band values (summing to 1)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Application</strong></td>
-<td style="text-align: left;">High-resolution image classification; identification of urban buildings and parcel boundaries; landscape pattern analysis.</td>
-<td style="text-align: left;">Medium-to-low resolution imagery (e.g., MODIS, Landsat); estimating Vegetation Continuous Fields (VCF); precise mapping of wetland or water body edges.</td>
+<td style="text-align: left;">(1) High-resolution image classification <br> (2) Identification of urban buildings and parcel boundaries <br> (3) Landscape pattern analysis</td>
+<td style="text-align: left;">(1) Medium-to-low resolution imagery (e.g., MODIS, Landsat) <br> (2) Estimating Vegetation Continuous Fields (VCF) <br> (3) Precise mapping of wetland or water body edges</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Benefits</strong></td>
-<td style="text-align: left;">1. Reduces data volume and computational overhead (e.g., merging 10-20 pixels into one object). <br> 2. Eliminates “salt-and-pepper noise” inherent in pixel-based classification. <br> 3. Aligns better with human visual perception of physical objects.</td>
-<td style="text-align: left;">1. Addresses classification bias caused by mixed pixels in low-resolution data. <br> 2. Provides quantitative information finer than the original pixel resolution (e.g., 70% forest + 30% bare land).</td>
+<td style="text-align: left;">(1) Eliminates “salt-and-pepper noise” inherent in pixel-based classification <br> (2) Reduces data volume and computational overhead (e.g.: merging 10-20 pixels into one object)</td>
+<td style="text-align: left;">(1) Addresses classification bias caused by mixed pixels in low-resolution data <br> (2) Provides quantitative information finer than the original pixel resolution (e.g.: 70% forest + 30% bare land)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Limitations</strong></td>
-<td style="text-align: left;">1. <strong>High Subjectivity</strong>: Parameter settings (like segmentation scales) rely heavily on researcher experience—often described as a blend of “data science and art”. <br> 2. Edge processing can be imprecise.</td>
-<td style="text-align: left;">1. <strong>Difficulty in Endmember Selection</strong>: It is challenging to find 100% “pure” spectral samples in reality. <br> 2. Linear models may fail to capture complex multi-scattering of light on the ground (non-linear issues).</td>
+<td style="text-align: left;">(1) High Subjectivity: Parameter settings (like segmentation scales) rely heavily on researcher experience <br> (2) Edge processing can be imprecise</td>
+<td style="text-align: left;">(1) Difficulty in Endmember Selection: It is challenging to find 100% “pure” spectral samples in reality <br> (2) Linear models may fail to capture complex multi-scattering of light on the ground (non-linear issues)</td>
 </tr>
 </tbody>
 </table>
+<center>
+<strong>Table 1: Comparison of OBIA and Sub-pixel Analysis</strong>
+</center>
 </section>
 </section>
-<section id="subpixel-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="subpixel-analysis">7.1.2 Subpixel Analysis</h2>
+<section id="accuracy-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="accuracy-assessment">7.1.2 Accuracy assessment</h2>
+<p>We have already explored this part in the CASA0006 Module, and it is important to understand the content in the table below. In fact, when I first started learning this part, I spent a long time sorting out the logical relationship, but after clarifying it, I realized the subtleties of these assessment methods. I have put them all in the table for my future review.</p>
+<section id="tpfpfntn" class="level3">
+<h3 class="anchored" data-anchor-id="tpfpfntn">7.1.2.1 TP/FP/FN/TN</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Actual: <strong>Class C</strong></th>
+<th style="text-align: center;">Actual: <strong>Not Class C</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Classified: Class C</strong></td>
+<td style="text-align: center;"><strong>True positive (TP)</strong>：model predicts positive class correctly</td>
+<td style="text-align: center;"><strong>False positive (FP)</strong>：model predicts positive, but it is negative</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Classified: Not Class C</strong></td>
+<td style="text-align: center;"><strong>False negative (FN)</strong>: model predicts negative, but it is positive</td>
+<td style="text-align: center;"><strong>True negative (TN)</strong>: model predicts negative class correctly</td>
+</tr>
+</tbody>
+</table>
+<center>
+<strong>Table 2: Accuracy Dimensions</strong>
+</center>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">7.1.3</h2>
+<section id="indicator-application" class="level3">
+<h3 class="anchored" data-anchor-id="indicator-application">7.1.2.2 Indicator application</h3>
+<p>In this part, we cannot expect the results to have both high precision and high recall at the same time. They cannot exist simultaneously, but we need to choose based on our needs.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Metric</th>
+<th style="text-align: center;">Formula</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Application</th>
+<th style="text-align: left;">limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Precision</strong>(User’s accuracy )</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{TP}{TP + FP}\)</span></td>
+<td style="text-align: left;">Measures “purity”, vital when you want to avoid over-mapping (false alarms)</td>
+<td style="text-align: left;"><strong>Reduce False Alarms</strong>: E.g.: Precision Strike, High-Value Retail Siting</td>
+<td style="text-align: left;">(1) High false negatives <br> (2) Insufficient representativeness of the sample</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Recall</strong>(Producer’s accuracy)</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{TP}{TP + FN}\)</span></td>
+<td style="text-align: left;">Measures “completeness”, vital when you want to avoid missing target features</td>
+<td style="text-align: left;"><strong>Reduce Missing Targets</strong>: E.g.:Illegal Logging, Fire Response, Cancer Detection</td>
+<td style="text-align: left;">(1) High false noise <br> (2) Excessive resource investment in handling false positives</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>OA</strong> (Overall Accuracy)</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{TP + TN}{Total}\)</span></td>
+<td style="text-align: left;">Measures global reliability, best for balanced datasets</td>
+<td style="text-align: left;">Check the reliability of the entire map</td>
+<td style="text-align: left;">Unbalanced data can lead to model failure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>F1-Score</strong></td>
+<td style="text-align: center;"><span class="math inline">\(2 \times \frac{Precision \times Recall}{Precision + Recall}\)</span></td>
+<td style="text-align: left;">The harmonic mean, balances the trade-off between Precision and Recall</td>
+<td style="text-align: left;">Check if a specific feature can be accurately identified</td>
+<td style="text-align: left;">Sensitive to categories, easily dividing cities into smaller ones</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Kappa</strong></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{P_o - P_e}{1 - P_e}\)</span></td>
+<td style="text-align: left;">Adjusts for “chance agreement”, crucial for imbalanced land cover classes</td>
+<td style="text-align: left;">Professional evaluation, comparison of different algorithms</td>
+<td style="text-align: left;">(1) Too conservative <br> (2) The calculation is complex and difficult to explain</td>
+</tr>
+</tbody>
+</table>
+<center>
+<strong>Table 3: How to utilize</strong>
+</center>
+</section>
+<section id="imbalanced-data" class="level3">
+<h3 class="anchored" data-anchor-id="imbalanced-data">7.1.2.2 Imbalanced data</h3>
+</section>
+<section id="roc" class="level3">
+<h3 class="anchored" data-anchor-id="roc">7.1.2.4 ROC</h3>
+<p>area</p>
 </section>
 </section>
-<section id="application" class="level1">
-<h1>7.2 Application</h1>
-<section id="application-in-group-assignments" class="level2">
-<h2 class="anchored" data-anchor-id="application-in-group-assignments">7.2.1 Application in group assignments</h2>
-<p>For our group project, we are working on improving an existing solar panel dashboard for Barcelona. The current dashboard is mainly based on manually collected CSV data and provides an estimation of rooftop solar potential, but it lacks detailed information about existing solar panels. Therefore, we plan to use commercial Earth observation data to identify the location, size, and potential capacity of existing solar panels. We also aim to combine this with radar-based 3D data to identify rooftops with high potential for future installation. The overall project workflow is shown below.</p>
-<div style="margin: 1rem 0;">
-<iframe src="https://christychoicc.github.io/RSCE_GROUP" width="100%" height="600" style="border:1px solid #ddd; border-radius:8px;">
-</iframe>
-</div>
-<p>In this project, I am mainly responsible for the methodology part. For solar panel detection, we initially used a U-Net model. After generating a city-wide raster map, I plan to apply the OBIA method introduced in class to further extract more accurate vector boundaries.</p>
-<p>In this process, OBIA mainly involves two steps. First, we use SLIC (Simple Linear Iterative Clustering) to divide the original 30 cm resolution image into small “blocks”. Then, in the feature-based filtering stage, we not only apply constraints on geometric features and spatial relationships, but also incorporate LiDAR data for further analysis. For example, we can set a threshold for object height. If the height is zero, we treat it as a misclassification and remove it. In the end, only areas that meet specific height and slope conditions are retained.</p>
+<section id="process-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="process-workflow">7.1.3 Process (workflow)</h2>
+<section id="cross-validationspatial-autocorrelation" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validationspatial-autocorrelation">7.1.3.1 cross validation–spatial autocorrelation</h3>
+<p>spatial cross validation</p>
+</section>
+</section>
+<section id="practical" class="level2">
+<h2 class="anchored" data-anchor-id="practical">7.1.4 Practical</h2>
+<section id="sub-pixel-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="sub-pixel-analysis">7.1.4.1 Sub-pixel analysis</h3>
+<p>This week I decided to choose two areas as my research areas— Daressalaam and Taiyuan. And I discovered something interesting.</p>
+<p>After completing the sub-pixel analysis, I noticed clear differences between the two cases. In Daressalaam (the tropical city), the result shows a strong mixture of urban and vegetation, with very little bare land. In contrast, Taiyuan shows a pattern where bare land and green space are more interwoven, forming a valley-based urban structure. However, in some areas in southern Taiyuan, the image shows purple tones caused by the mixing of red and blue. I think this may be because Taiyuan is located on the Loess Plateau and is a relatively dry northern city with more homogeneous surface types. In this case, the endmembers are quite similar, which makes it harder for sub-pixel analysis to distinguish between built-up areas and bare land, and this affects the unmixing results.</p>
+<p>I also noticed some obvious mosaic boundaries in the image. This might be related to the Landsat 8 orbit coverage, and since Taiyuan happens to lie across multiple image tiles, the stitching effect becomes more visible.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/8_OBIA_1.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2.OBIA workflow in our Pre</figcaption>
+<p><img src="images/8_D_constrained_fractions.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.Daressalaam constrained fractions</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/8_OBIA_2.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 3.SLIC Process<span class="citation" data-cites="nowosad2021ogh">(<a href="references.html#ref-nowosad2021ogh" role="doc-biblioref">Nowosad 2021</a>)</span></figcaption>
+<p><img src="images/8_TY_constrained_fractions.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.Taiyuan constrained fractions</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
+<section id="obia" class="level3">
+<h3 class="anchored" data-anchor-id="obia">7.1.4.2 OBIA</h3>
+<p>For the OBIA results, although the segmentation with a seed value of 40 is still a bit coarse, I can already see clear differences. Daressalaam shows a radial urban pattern, where the boundaries between urban and vegetation areas are quite fragmented and mixed. In contrast, Taiyuan presents a more constrained basin structure, with a clearer boundary between the urban area and the surrounding mountains, and more regular object shapes. However, the overall result is still not as good as the random forest result from last week.</p>
+<p>This comparison suggests that the performance of OBIA is not only influenced by parameter settings, but also by the underlying urban landscape structure. When terrain provides strong constraints, object boundaries are easier to detect. But when the urban landscape is highly fragmented, these boundaries become much harder to define.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/8_D_classified_40.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.Daressalaam OBIA</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/8_TY_classified_40.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.Taiyuan OBIA</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">7.1.4.3</h3>
+</section>
+</section>
+</section>
+<section id="application" class="level1">
+<h1>7.2 Application</h1>
+<div id="fig-algorithm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/7_supn.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-algorithm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Figure 1.Supervised classification algorithm selection [@]
+</figcaption>
+</figure>
+</div>
 <section id="section-1" class="level2">
 <h2 class="anchored" data-anchor-id="section-1">7.2.2</h2>
 </section>
 </section>
 <section id="reflection" class="level1">
 <h1>7.3 Reflection</h1>
+<section id="about-notes-and-tables" class="level3">
+<h3 class="anchored" data-anchor-id="about-notes-and-tables">About Notes and Tables…</h3>
+<p>To be honest, there was a lot of content this week, and during the review process, I felt that many of the knowledge points were a bit scattered in my understanding. Therefore, I used a lot of tables in this section to help me record what I learned. I actually have a lot more to record about the content after the course, but due to homework requirements, I choose to stop here.</p>
+</section>
+<section id="interesting-attempt" class="level3">
+<h3 class="anchored" data-anchor-id="interesting-attempt">Interesting attempt</h3>
+<p>Last week, I was thinking about the issue of coarse classification accuracy, and this week’s lecture directly addressed it by introducing two different approaches: from details to objects (OBIA), and from objects to details (sub-pixel analysis). This really matched what I was interested in.</p>
+<p>Because of this, I decided to explore a bit further on my own. I chose two cities with very different climate conditions and urban structures and did a simple comparative analysis. The results helped me understand the course content more deeply, which I found quite exciting. I know that we often understand some patterns in theory, but going through the process ourselves makes the ideas much more memorable.</p>
+</section>
+<section id="what-exactly-is-the-machine-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="what-exactly-is-the-machine-monitoring">What exactly is the machine monitoring</h3>
+<p>This comparison has made me realize one thing: there is no such thing as a ‘universal best algorithm,’ only the ‘most suitable strategy’ for a specific local environment. For a northern city like Taiyuan, where urban buildings and bare soil look almost identical, relying solely on spectral data would definitely lead to failure. In this case, spatial structures (OBIA/Gradient) are essential to capturing the urban outlines.</p>
+<p>However, in a tropical city like DaresSalaam, where houses and trees are deeply intertwined, fragmented structures actually become noise. For that kind of landscape, using NDVI and spectral unmixing to break down the pixel components is the real ‘secret weapon’ for revealing the truth.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-nowosad2021ogh" class="csl-entry" role="listitem">
-Nowosad, Jakub. 2021. <span>“Open Geodata Hub: Analysis and Visualization of Geo-Data in <span>R</span>.”</span> Open GeoHub Summer School. 2021. <a href="https://jakubnowosad.com/ogh2021/">https://jakubnowosad.com/ogh2021/</a>.
-</div>
-</div>
+</section>
 </section>
 
 </main> <!-- /main -->
