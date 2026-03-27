@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Operational Land Imager (OLI)</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Yanxi Ren" />
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="libs/panelset-0.3.0/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.3.0/panelset.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Operational Land Imager (OLI)
+]
+.subtitle[
+## Technical Specifications and Global Land Monitoring onboard Landsat 8/9
+]
+.author[
+### Yanxi Ren
+]
+.date[
+### January 27th
+]
+
+---
+
+
+
+# Introduction: The Evolution of OLI
+
+### What is the Operational Land Imager?
+
+.pull-left[
+* **The Primary Payload:** OLI is the lead optical sensor onboard Landsat 8/9.
+* **Legacy:** Succeeding the ETM+ sensor (Landsat 7).
+* **Technological Leap:** Shifted from **Whisk-broom** to **Push-broom** (fixed linear arrays).
+    * Result: Higher Signal-to-Noise Ratio (SNR).
+
+&gt; "OLI is a calibrated radiometer measuring Earth with precision."
+]
+
+.pull-right[
+&lt;a href="https://geonarrative.usgs.gov/landsat-8/"&gt;
+  &lt;img src="Landsat8.png" width="100%" /&gt;
+&lt;/a&gt;
+
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 10px;"&gt;
+  Figure 1: Landsat 8 (Source: &lt;a href="https://geonarrative.usgs.gov/landsat-8/"&gt;USGS&lt;/a&gt;)
+&lt;/p&gt;
+]
+
+---
+# Technical Summary: OLI Sensor Performance
+
+.panelset[
+.panel[.panel-name[Spectral Bands]
+**Core Capability:** OLI captures data in 9 spectral bands, providing a significant upgrade over previous Landsat sensors.
+
+* **VNIR (Visible/Near-Infrared):** Bands 1-5. Includes a new **Coastal Aerosol (Band 1)** for shallow water and aerosol studies.
+* **SWIR (Short-wave Infrared):** Bands 6-7. Essential for moisture content and geological mapping.
+* **Cirrus (Band 9):** A specialized band designed for **Cloud Detection**, allowing for cleaner data processing by identifying high-altitude thin clouds.
+
+&gt; The addition of the Cirrus band (1.37 µm) is a critical innovation for OLI. It solves a long-standing issue in remote sensing where thin clouds were often mistaken for land features, thus increasing the reliability of automated land-cover classification.
+]
+
+.panel[.panel-name[Spatial Resolution]
+**Definition:** The level of detail captured in each pixel of the OLI imagery.
+
+* **Multispectral (Bands 1-7, 9):** **30 meters**. This is the "gold standard" for long-term global change studies, balancing detail with file size.
+* **Panchromatic (Band 8):** **15 meters**. This high-resolution black-and-white band is used for **Pan-sharpening**, a process that merges the color of the 30m bands with the detail of the 15m band.
+
+&gt;**Purpose in Research:** 30m resolution is ideal for monitoring **Urban Expansion** or **Deforestation**. While higher resolution (e.g., 10m Sentinel-2) exists, OLI's 30m data maintains the historical consistency needed for 40+ year time-series analysis.
+]
+
+.panel[.panel-name[Temporal Resolution]
+**Definition:** How often the sensor revisits the exact same location on Earth.
+
+* **Revisit Time:** **16 days**. 
+* **Global Coverage:** OLI images the entire Earth every 16 days on a sun-synchronous orbit.
+* **Constellation Advantage:** With **Landsat 8 and 9** both carrying OLI sensors in the same orbit (offset by 8 days), the combined temporal resolution is effectively **8 days**.
+
+]
+]
+
+---
+# OLI Instrument
+
+.pull-left[
+* **Scan Mechanism:** Replaced the oscillating scanning mirror (Whisk-broom) with long linear arrays of detectors (Push-broom).
+* **Reliability:** Eliminated the "Scan Line Corrector" (SLC) failure risks seen in Landsat 7.
+* **Radiometric Quality:** Longer **Dwell Time** leads to:
+    * Higher Signal-to-Noise Ratio (SNR).
+    * Improved sensitivity to land-cover changes.
+
+&gt; "The push-broom design allows OLI to capture 70,000 detectors simultaneously, providing a cleaner, more stable image."
+]
+
+.pull-right[
+&lt;a href="https://science.nasa.gov/mission/landsat/oli/"&gt;
+  &lt;img src="OLI.jpg" width="100%" /&gt;
+&lt;/a&gt;
+
+&lt;p style="font-size: 0.6em; text-align: center; margin-top: 10px;"&gt;
+  Figure 2: OLI (Source: &lt;a href="https://science.nasa.gov/mission/landsat/oli//"&gt;USGS&lt;/a&gt;)
+&lt;/p&gt;
+]
+
+---
+
+# Benefits and Limitations
+
+.panelset[
+.panel[.panel-name[Benefits]
+1.**Superior SNR (Signal-to-Noise Ratio):** 
+
+The push-broom design increases dwell time on the ground, delivering exceptionally clear images with minimal noise in dark or shadowed areas.
+
+2.**High Radiometric Resolution (12-bit):** 
+
+With 4,096 grey levels, OLI prevents pixel saturation in extremely bright scenes (like glaciers) and preserves intricate details in dark terrains.
+
+3.**Advanced Cloud Screening (Band 9):** 
+
+The dedicated Cirrus band allows for the precise detection and removal of thin, high-altitude clouds that typically interfere with land-cover analysis.
+
+]
+
+.panel[.panel-name[Limitations]
+
+1.**Coarse Spatial Resolution (30m):** 
+
+While ideal for regional monitoring, its 30m resolution is often insufficient for distinguishing individual urban features like narrow streets or small buildings.
+
+2.**Temporal Latency (16-day Revisit):** 
+
+A 16-day revisit cycle is too slow to capture rapid environmental shifts, such as the peak of a flash flood or immediate post-fire changes.
+
+3.**Sensor Striping Risks:** 
+
+The complex alignment of thousands of detectors in the linear array requires rigorous calibration to avoid vertical "striping" artifacts in the final imagery.
+]
+
+]
+
+---
+
+# Application
+
+## 1.Lithological identification and mineral mapping
+
+### Research Overview
+
+**Objective:** Discriminating lithological formations and mapping alteration zones in the Igoudrane region, Morocco.
+
+**Problem:** Traditional field mapping in rugged, arid terrains is costly and time-consuming.
+
+**Methodology:** Integration of **Band Ratios (BR)**, **PCA**, and **Independent Component Analysis (ICA)** using Landsat-8 OLI data.
+
+&gt; "OLI's spectral precision allows for the identification of iron oxides and hydroxyl minerals with high spatial consistency."
+
+.footnote[Source: &lt;a href="https://www.cell.com/heliyon/fulltext/S2405-8440(23)04571-1" style="color: #0000EE; text-decoration: underline;"&gt;Soukaina Baid et al. (2023)&lt;/a&gt;]
+
+
+---
+
+# Application
+
+## 1.Lithological identification and mineral mapping
+
+### OLI Performance
+
+**Band Involvement:** * **VNIR (B2, B4):** Exploited via `\(4/2\)` ratio to highlight ferric iron (hematite/goethite).
+
+&gt; **SWIR (B6, B7):** Critical for detecting hydroxyl-bearing minerals (clay/micas) via `\(6/7\)` ratio.
+    
+**Results:** Successfully delineated hydrothermally altered rocks, validated by **XRD analysis**.
+
+**Key OLI Feature:** **Spectral Alignment.** The refined SWIR bands are perfectly positioned to capture mineral absorption features, providing a reliable proxy for mineral exploration.
+
+.footnote[Source: &lt;a href="https://www.cell.com/heliyon/fulltext/S2405-8440(23)04571-1" style="color: #0000EE; text-decoration: underline;"&gt;Soukaina Baid et al. (2023)&lt;/a&gt;]
+
+---
+# Application
+
+## 2.Inland Water Quality Monitoring
+
+### Research Overview
+**Objective:** Developing a numerical model for near real-time turbidity estimation in the Tennessee River, USA.
+
+**Problem:** Inland rivers are narrow and optically complex, requiring high-precision radiometric data.
+
+**Methodology:** Empirical non-linear regression correlating OLI **surface reflectance** with in-situ turbidity measurements (108 sampling points).
+
+&gt; "The 12-bit quantization of OLI is the key to extracting information from low-reflectance water surfaces."
+]
+
+.footnote[Source: &lt;a href="https://www.mdpi.com/2072-4292/13/18/3785" style="color: #0000EE; text-decoration: underline;"&gt;Hossain et al. (2021)&lt;/a&gt;]
+
+---
+# Application
+
+## 2.Inland Water Quality Monitoring
+
+### OLI Performance
+**Band Involvement:** * **Red (Band 4):** Identified as the most sensitive band for suspended solids (`\(R^2 = 0.97\)`).
+
+&gt; **QA PIXEL:** Used for rigorous cloud/shadow masking to ensure pixel purity.
+
+**Results:** Achieved a highly accurate turbidity model with a **Root Mean Square Error (RMSE)** of only 1.41 NTU.
+
+**Key OLI Feature:** **High Radiometric Resolution (12-bit).** This allows OLI to "see" subtle intensity variations in dark water bodies that 8-bit sensors would render as flat black.
+]
+
+.footnote[Source: &lt;a href="https://www.mdpi.com/2072-4292/13/18/3785" style="color: #0000EE; text-decoration: underline;"&gt;Hossain et al. (2021)&lt;/a&gt;]
+
+---
+# Reflection: The Legacy and Future of OLI
+
+**The Consistency Anchor:** OLI prioritizes multi-decadal data continuity over aggressive spatial resolution, acting as a "calibrated ruler" for the remote sensing community.
+
+**Radiometric Power:** The jump to **12-bit/14-bit** quantization transforms low-reflectance targets (water, deep shadows) from "data gaps" into "data-rich" zones.
+
+**Synergy is Key:** OLI is not a standalone solution; its future lies in integration with high-revisit constellations (e.g., Sentinel-2 or PlanetScope) to fill temporal gaps.
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
